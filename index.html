@@ -3,816 +3,780 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StoreApp — Таны Бизнесийн AI Борлуулагч</title>
-  <meta name="description" content="Telegram, WhatsApp-аар AI чат-бот ашиглан бараа зарж, захиалга авч, агуулахаа удирда."/>
+  <title>StoreApp — AI Борлуулагч</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --red:#e8453c;
-      --red2:#ff5a52;
-      --navy:#0d1b4b;
-      --navy2:#162258;
       --teal:#1dc9b7;
-      --gray:#f7f8fc;
-      --gray2:#eef0f7;
+      --navy:#1a2150;
+      --dark:#111827;
+      --gray:#f4f5f8;
+      --gray2:#eaedf5;
+      --border:#e2e6f0;
       --text:#1a1a2e;
       --muted:#6b7a99;
-      --border:#e4e8f0;
-      --r:10px;
+      --purple-bg:#f0ecff;
+      --blue-bg:#e8f0ff;
+      --green-bg:#e6f9f5;
+      --yellow-bg:#fff8e6;
     }
     html{scroll-behavior:smooth}
-    body{
-      font-family:'Plus Jakarta Sans',system-ui,sans-serif;
-      background:#fff;color:var(--text);
-      line-height:1.6;overflow-x:hidden
-    }
+    body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden}
 
-    /* ─── NAV ─── */
+    /* ══════════════════════════
+       NAV
+    ══════════════════════════ */
     nav{
-      position:sticky;top:0;z-index:200;
-      background:#fff;
-      border-bottom:1px solid var(--border);
-      padding:0 60px;height:64px;
-      display:flex;align-items:center;justify-content:space-between;
-      box-shadow:0 2px 12px rgba(0,0,0,.06)
+      position:sticky;top:0;z-index:300;
+      background:#fff;border-bottom:1px solid var(--border);
+      height:65px;display:flex;align-items:center;
+      padding:0 5%;
+      box-shadow:0 1px 8px rgba(0,0,0,.06)
     }
-    .logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-    .logo-icon{
-      width:34px;height:34px;border-radius:8px;
-      background:linear-gradient(135deg,var(--red),#ff8c69);
-      display:flex;align-items:center;justify-content:center;font-size:18px
+    .logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+    .logo-box{
+      width:32px;height:32px;border-radius:8px;
+      background:linear-gradient(135deg,#e8453c,#ff7a5c);
+      display:flex;align-items:center;justify-content:center;
+      font-size:17px;flex-shrink:0
     }
-    .logo-text{font-size:18px;font-weight:800;color:var(--navy)}
-    .logo-text span{color:var(--red)}
-    .nav-ul{list-style:none;display:flex;gap:32px}
-    .nav-ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
-    .nav-ul a:hover{color:var(--navy)}
-    .nav-right{display:flex;gap:10px;align-items:center}
-    .btn-login{
-      color:var(--navy);font-size:14px;font-weight:700;
-      text-decoration:none;padding:9px 20px;border-radius:var(--r);
-      border:2px solid var(--border);transition:all .2s
+    .logo-txt{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.3px}
+    .logo-txt b{color:var(--red)}
+    .nav-mid{flex:1;display:flex;justify-content:center}
+    .nav-links{list-style:none;display:flex;gap:36px}
+    .nav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--navy)}
+    .nav-right{display:flex;gap:8px;align-items:center;flex-shrink:0}
+    .nb1{
+      font-size:13px;font-weight:700;color:var(--navy);
+      text-decoration:none;padding:8px 20px;
+      border:1.5px solid var(--border);border-radius:8px;
+      transition:all .2s
     }
-    .btn-login:hover{border-color:var(--navy);background:var(--gray)}
-    .btn-signup{
-      background:var(--red);color:#fff;
-      font-size:14px;font-weight:800;
-      text-decoration:none;padding:10px 24px;border-radius:var(--r);
-      transition:all .2s;box-shadow:0 4px 14px rgba(232,69,60,.3)
+    .nb1:hover{border-color:var(--navy)}
+    .nb2{
+      font-size:13px;font-weight:800;color:#fff;
+      text-decoration:none;padding:9px 22px;
+      background:var(--red);border-radius:8px;
+      box-shadow:0 3px 12px rgba(232,69,60,.28);
+      transition:all .2s
     }
-    .btn-signup:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,69,60,.4)}
+    .nb2:hover{background:#d63c33;transform:translateY(-1px)}
 
-    /* ─── HERO ─── */
+    /* ══════════════════════════
+       HERO — 3 column
+    ══════════════════════════ */
     .hero{
-      background:linear-gradient(160deg,#f0f3ff 0%,#fff 60%);
-      padding:80px 60px 60px;overflow:hidden;
-      position:relative
+      background:linear-gradient(180deg,var(--gray) 0%,#fff 100%);
+      padding:60px 5% 0;overflow:hidden
     }
-    .hero-inner{
-      max-width:1200px;margin:0 auto;
-      display:grid;grid-template-columns:1fr 1fr;
-      gap:40px;align-items:center
+    .hero-grid{
+      max-width:1280px;margin:0 auto;
+      display:grid;grid-template-columns:1fr 1.1fr 1fr;
+      gap:20px;align-items:flex-end
     }
-    .hero-left{}
+    /* Left person image */
+    .hero-person{
+      display:flex;justify-content:flex-end;align-items:flex-end;
+      position:relative;padding-bottom:0
+    }
+    .person-img{
+      width:100%;max-width:340px;
+      height:440px;
+      background:linear-gradient(170deg,#dde4f5,#c8d3f0);
+      border-radius:20px 20px 0 0;
+      display:flex;align-items:flex-end;justify-content:center;
+      overflow:hidden;position:relative
+    }
+    .person-emoji{font-size:180px;line-height:1;margin-bottom:-10px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.15))}
+    /* floating badges on person */
+    .f-badge{
+      position:absolute;
+      background:#fff;border-radius:12px;padding:8px 14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.12);
+      font-size:12px;font-weight:700;color:var(--navy);
+      display:flex;align-items:center;gap:7px;
+      border:1px solid rgba(0,0,0,.06)
+    }
+    .fb-a{top:60px;left:0;animation:fbob 3s ease-in-out infinite}
+    .fb-b{top:160px;right:-10px;animation:fbob 3s .8s ease-in-out infinite}
+    @keyframes fbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    /* Center text */
+    .hero-center{text-align:center;padding-bottom:60px;position:relative;z-index:1}
     .hero-sup{
-      display:inline-block;
-      font-size:13px;font-weight:700;color:var(--red);
-      text-transform:uppercase;letter-spacing:2px;
-      margin-bottom:16px
+      font-size:13px;font-weight:700;color:var(--muted);
+      letter-spacing:1px;margin-bottom:14px
     }
     .hero-h1{
-      font-size:clamp(36px,5vw,62px);
-      font-weight:900;line-height:1.08;
-      letter-spacing:-1.5px;
-      color:var(--navy);
-      text-transform:uppercase;
-      margin-bottom:20px
+      font-size:clamp(34px,4.5vw,56px);
+      font-weight:900;line-height:1.1;
+      letter-spacing:-1.5px;color:var(--navy);
+      text-transform:uppercase;margin-bottom:20px
     }
-    .hero-h1 span{color:var(--red)}
-    .hero-sub{
-      font-size:16px;color:var(--muted);
-      max-width:440px;line-height:1.7;margin-bottom:36px
+    .hero-h1 .accent{color:var(--red)}
+    .hero-p{
+      font-size:15px;color:var(--muted);
+      max-width:360px;margin:0 auto 28px;line-height:1.75
     }
-    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-red{
+    .btn-teal{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--teal);color:#fff;
+      font-size:14px;font-weight:800;
+      padding:13px 30px;border-radius:8px;
+      text-decoration:none;
+      box-shadow:0 4px 16px rgba(29,201,183,.35);
+      transition:all .2s
+    }
+    .btn-teal:hover{background:#18b3a3;transform:translateY(-2px)}
+
+    /* Right phone */
+    .hero-phone-wrap{
+      display:flex;justify-content:flex-start;align-items:flex-end;
+      position:relative
+    }
+    .hero-phone{
+      width:220px;
+      background:#1a1a2e;
+      border-radius:28px 28px 0 0;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 0 6px rgba(255,255,255,.8);
+      border:2px solid rgba(255,255,255,.5)
+    }
+    .hp-top{
+      background:#0d0d24;
+      padding:22px 12px 10px;
+      display:flex;align-items:center;gap:8px
+    }
+    .hp-icon{
+      width:30px;height:30px;border-radius:50%;
+      background:var(--red);display:flex;align-items:center;justify-content:center;font-size:14px
+    }
+    .hp-n{font-size:12px;font-weight:700;color:#fff}
+    .hp-s{font-size:10px;color:var(--teal)}
+    .hp-body{padding:10px 10px;background:#f4f5f8;display:flex;flex-direction:column;gap:8px;min-height:320px}
+    .hb,.hu{max-width:84%;padding:8px 11px;border-radius:10px;font-size:11.5px;line-height:1.5}
+    .hb{background:#fff;color:var(--text);border-bottom-left-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+    .hu{background:var(--teal);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+    .hpcard{background:#fff;border-radius:10px;padding:10px;max-width:90%;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:11px}
+    .hpc-name{font-weight:800;color:var(--navy);font-size:12px}
+    .hpc-price{color:var(--red);font-weight:900;font-size:13px;margin-top:2px}
+    .hpc-meta{color:var(--muted);font-size:10px;margin-top:3px;line-height:1.6}
+    .ht{font-size:9.5px;color:var(--muted);margin-top:2px;padding:0 2px}
+    /* Phone floating badges */
+    .fb-c{top:40px;right:-20px;animation:fbob 3s .4s ease-in-out infinite}
+    .fb-d{bottom:80px;left:-30px;animation:fbob 3s 1.2s ease-in-out infinite}
+
+    /* ══════════════════════════
+       STATS BAR
+    ══════════════════════════ */
+    .stats{
+      background:var(--navy);
+      padding:44px 5%
+    }
+    .stats-in{
+      max-width:900px;margin:0 auto;
+      display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap
+    }
+    .st{text-align:center}
+    .st-n{font-size:46px;font-weight:900;color:#fff;letter-spacing:-2px;line-height:1}
+    .st-n small{font-size:22px;color:var(--teal)}
+    .st-l{font-size:12px;color:rgba(255,255,255,.55);margin-top:6px;font-weight:500}
+
+    /* ══════════════════════════
+       LOGOS
+    ══════════════════════════ */
+    .logos{
+      padding:44px 5%;text-align:center;
+      background:#fff;border-bottom:1px solid var(--border)
+    }
+    .logos p{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:28px}
+    .logos-row{
+      display:flex;justify-content:center;align-items:center;
+      gap:52px;flex-wrap:wrap;max-width:900px;margin:0 auto;
+      filter:grayscale(1);opacity:.5
+    }
+    .logos-row span{font-size:16px;font-weight:800;color:#888;letter-spacing:-.3px}
+
+    /* ══════════════════════════
+       FEATURES HEADING
+    ══════════════════════════ */
+    .feat-title-sec{
+      text-align:center;padding:80px 5% 20px
+    }
+    .feat-title-sec h2{
+      font-size:clamp(22px,3vw,32px);
+      font-weight:900;color:var(--navy);letter-spacing:-.5px
+    }
+
+    /* ══════════════════════════
+       FEATURE ROWS
+    ══════════════════════════ */
+    .feat-row{
+      padding:60px 5%;display:flex;align-items:center;
+      max-width:1200px;margin:0 auto;gap:60px
+    }
+    .feat-row.rev{flex-direction:row-reverse}
+    .feat-visual{
+      flex:0 0 48%;max-width:48%;
+      position:relative
+    }
+    .feat-box{
+      border-radius:20px;aspect-ratio:4/3;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;position:relative
+    }
+    .feat-box.purple{background:linear-gradient(135deg,#ede8ff,#d8ccff)}
+    .feat-box.blue{background:linear-gradient(135deg,#e0ecff,#ccdeff)}
+    .feat-box.green{background:linear-gradient(135deg,#d9f7f0,#b8f0e4)}
+    .feat-box.orange{background:linear-gradient(135deg,#fff0dd,#ffe2b8)}
+    .feat-big-icon{font-size:90px;opacity:.85;filter:drop-shadow(0 8px 20px rgba(0,0,0,.12))}
+    /* Chip on image */
+    .feat-chip{
+      position:absolute;top:16px;left:16px;
+      font-size:11px;font-weight:800;
+      text-transform:uppercase;letter-spacing:1px;
+      padding:5px 12px;border-radius:6px;color:#fff
+    }
+    .chip-purple{background:#7c3aed}
+    .chip-blue{background:#2563eb}
+    .chip-green{background:#059669}
+    .chip-orange{background:#d97706}
+    /* Floating cards on feature images */
+    .feat-float{
+      position:absolute;
+      background:#fff;border-radius:10px;
+      padding:8px 13px;
+      box-shadow:0 6px 20px rgba(0,0,0,.1);
+      font-size:11.5px;font-weight:700;color:var(--navy);
+      display:flex;align-items:center;gap:6px;
+      border:1px solid rgba(0,0,0,.06);
+      white-space:nowrap
+    }
+    .ff1{bottom:16px;right:16px}
+    .ff2{bottom:60px;left:16px}
+
+    /* Text side */
+    .feat-text{flex:1}
+    .feat-text h3{
+      font-size:clamp(20px,2.5vw,30px);
+      font-weight:900;color:var(--navy);
+      letter-spacing:-.5px;line-height:1.2;margin-bottom:14px
+    }
+    .feat-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;max-width:440px}
+    .feat-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .feat-list li{
+      display:flex;gap:10px;align-items:flex-start;
+      font-size:14px;font-weight:500;color:var(--text)
+    }
+    .fli{
+      flex-shrink:0;width:22px;height:22px;
+      border-radius:6px;background:rgba(29,201,183,.12);
+      color:var(--teal);display:flex;align-items:center;justify-content:center;
+      font-size:12px;font-weight:900;margin-top:1px
+    }
+
+    /* ══════════════════════════
+       INTEGRATION ROW
+    ══════════════════════════ */
+    .integr{
+      background:var(--gray);padding:80px 5%;
+      display:flex;align-items:center;gap:60px;
+      max-width:1200px;margin:0 auto
+    }
+    .integr-left{flex:1}
+    .integr-left h2{font-size:clamp(20px,2.8vw,32px);font-weight:900;color:var(--navy);letter-spacing:-.5px;margin-bottom:14px;line-height:1.2}
+    .integr-left p{font-size:15px;color:var(--muted);max-width:400px;line-height:1.8}
+    .integr-right{flex:0 0 42%;max-width:42%}
+    .integr-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+    }
+    .ig{
+      background:#fff;border-radius:12px;padding:16px 12px;
+      text-align:center;border:1px solid var(--border);
+      font-size:13px;font-weight:700;color:var(--navy);
+      transition:all .2s
+    }
+    .ig:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,201,183,.12)}
+    .ig .ig-ic{font-size:30px;margin-bottom:7px}
+    .ig .ig-tag{font-size:10px;font-weight:700;color:var(--teal);background:rgba(29,201,183,.1);padding:2px 8px;border-radius:99px;margin-top:4px;display:inline-block}
+
+    /* ══════════════════════════
+       CTA EMAIL SECTION
+    ══════════════════════════ */
+    .cta-email{
+      background:var(--navy);
+      padding:72px 5%
+    }
+    .cta-email-in{
+      max-width:900px;margin:0 auto;
+      display:flex;align-items:center;gap:40px;flex-wrap:wrap
+    }
+    .cta-email-left{flex:1;min-width:280px}
+    .cta-email-left p{
+      font-size:clamp(14px,2vw,17px);
+      color:rgba(255,255,255,.7);
+      line-height:1.7
+    }
+    .cta-email-right{flex:0 0 380px;max-width:100%}
+    .email-form{display:flex;gap:8px}
+    .email-inp{
+      flex:1;padding:13px 16px;border-radius:8px;
+      border:none;font-size:14px;font-weight:500;
+      background:rgba(255,255,255,.1);color:#fff;outline:none;
+      font-family:inherit
+    }
+    .email-inp::placeholder{color:rgba(255,255,255,.4)}
+    .email-inp:focus{background:rgba(255,255,255,.15);outline:2px solid rgba(29,201,183,.4)}
+    .btn-red2{
+      flex-shrink:0;
+      display:inline-flex;align-items:center;gap:6px;
+      background:var(--red);color:#fff;
+      font-size:14px;font-weight:800;
+      padding:13px 24px;border-radius:8px;
+      text-decoration:none;border:none;cursor:pointer;
+      font-family:inherit;
+      box-shadow:0 4px 14px rgba(232,69,60,.35);
+      transition:all .2s
+    }
+    .btn-red2:hover{background:#d63c33;transform:translateY(-1px)}
+
+    /* ══════════════════════════
+       DEMO SECTION
+    ══════════════════════════ */
+    .demo-sec{
+      padding:80px 5%;text-align:center;
+      background:#fff
+    }
+    .demo-sup{font-size:12px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+    .demo-sec h2{font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--navy);letter-spacing:-.5px;margin-bottom:10px}
+    .demo-sec p{font-size:15px;color:var(--muted);margin-bottom:32px}
+    .demo-btn{
       display:inline-flex;align-items:center;gap:8px;
       background:var(--red);color:#fff;
       font-size:15px;font-weight:800;
-      padding:14px 32px;border-radius:var(--r);
+      padding:14px 36px;border-radius:8px;
       text-decoration:none;
-      box-shadow:0 6px 24px rgba(232,69,60,.35);
-      transition:all .2s
+      box-shadow:0 4px 18px rgba(232,69,60,.32);
+      transition:all .2s;margin-bottom:48px
     }
-    .btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(232,69,60,.4)}
-    .btn-ghost2{
-      display:inline-flex;align-items:center;gap:8px;
-      border:2px solid var(--border);color:var(--navy);
-      font-size:15px;font-weight:700;
-      padding:14px 28px;border-radius:var(--r);
-      text-decoration:none;background:#fff;
-      transition:all .2s
+    .demo-btn:hover{background:#d63c33;transform:translateY(-2px)}
+    /* Dashboard mockup */
+    .dash-mock{
+      max-width:900px;margin:0 auto;
+      background:var(--gray);border-radius:16px;overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:0 20px 60px rgba(0,0,0,.08)
     }
-    .btn-ghost2:hover{border-color:var(--navy);background:var(--gray)}
+    .dash-bar{
+      background:var(--navy);padding:12px 20px;
+      display:flex;align-items:center;gap:8px
+    }
+    .d-dot{width:10px;height:10px;border-radius:50%}
+    .dash-body{padding:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    .dash-card{background:#fff;border-radius:10px;padding:16px;border:1px solid var(--border)}
+    .dash-card .dc-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+    .dash-card .dc-val{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-1px}
+    .dash-card .dc-sub{font-size:11px;color:var(--teal);font-weight:700;margin-top:3px}
 
-    /* Hero right — phone mockup */
-    .hero-right{display:flex;justify-content:center;position:relative}
-    .hero-phone{
-      width:240px;
-      background:#fff;
-      border-radius:36px;
-      box-shadow:0 30px 80px rgba(13,27,75,.18),0 0 0 1px rgba(13,27,75,.06);
-      overflow:hidden;
-      border:8px solid #fff;
-      outline:2px solid rgba(13,27,75,.08)
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer{
+      background:#f9fafc;border-top:1px solid var(--border);
+      padding:56px 5% 32px
     }
-    .hp-bar{
-      background:var(--navy);
-      padding:28px 14px 12px;
-      display:flex;align-items:center;gap:9px
+    .ft-in{max-width:1200px;margin:0 auto}
+    .ft-top{
+      display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:48px;margin-bottom:48px
     }
-    .hp-av{
-      width:32px;height:32px;border-radius:50%;
-      background:linear-gradient(135deg,var(--red),#ff8c69);
-      display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0
-    }
-    .hp-info .hp-name{font-size:13px;font-weight:700;color:#fff}
-    .hp-info .hp-st{font-size:11px;color:var(--teal)}
-    .hp-msgs{padding:12px 10px;background:var(--gray);display:flex;flex-direction:column;gap:9px;min-height:340px}
-    .hm,.um2{max-width:85%;padding:9px 12px;border-radius:12px;font-size:12px;line-height:1.5}
-    .hm{background:#fff;color:var(--text);border-bottom-left-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.07)}
-    .um2{background:var(--red);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
-    .hprod{
-      background:#fff;border-radius:12px;padding:11px;
-      max-width:90%;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:11.5px
-    }
-    .hprod-name{font-weight:800;color:var(--navy);font-size:12.5px;margin-bottom:3px}
-    .hprod-price{color:var(--red);font-weight:900;font-size:14px}
-    .hprod-meta{color:var(--muted);font-size:10.5px;margin-top:4px;line-height:1.6}
-    .ht{font-size:10px;color:var(--muted);margin-top:2px;padding:0 2px}
-
-    /* Floating cards */
-    .hero-float{
-      position:absolute;
-      background:#fff;
-      border-radius:12px;
-      padding:10px 16px;
-      box-shadow:0 8px 30px rgba(13,27,75,.12);
-      font-size:12px;font-weight:700;color:var(--navy);
-      display:flex;align-items:center;gap:8px;
-      border:1px solid var(--border)
-    }
-    .hf1{top:30px;right:20px}
-    .hf2{bottom:60px;left:0}
-
-    /* ─── STATS BAR ─── */
-    .stats-bar{
-      background:var(--navy);
-      padding:40px 60px
-    }
-    .stats-inner{
-      max-width:1200px;margin:0 auto;
-      display:flex;justify-content:space-around;gap:24px;flex-wrap:wrap
-    }
-    .st-item{text-align:center}
-    .st-num{font-size:42px;font-weight:900;color:#fff;letter-spacing:-1px}
-    .st-num span{color:var(--teal)}
-    .st-lbl{font-size:13px;color:rgba(255,255,255,.6);margin-top:4px}
-
-    /* ─── SECTION BASE ─── */
-    .sec{padding:100px 60px}
-    .wrap{max-width:1200px;margin:0 auto}
-    .sec-sup{
-      font-size:12px;font-weight:800;color:var(--red);
-      text-transform:uppercase;letter-spacing:2.5px;
-      margin-bottom:12px
-    }
-    .sec-h{
-      font-size:clamp(28px,4vw,44px);
-      font-weight:900;color:var(--navy);
-      line-height:1.15;letter-spacing:-1px;
-      margin-bottom:16px
-    }
-    .sec-p{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75}
-    .tc{text-align:center}.tc .sec-p{margin:0 auto}
-
-    /* ─── LOGOS ─── */
-    .logos-sec{
-      background:var(--gray);
-      padding:48px 60px;
-      text-align:center
-    }
-    .logos-title{
-      font-size:13px;font-weight:700;color:var(--muted);
-      text-transform:uppercase;letter-spacing:2px;margin-bottom:32px
-    }
-    .logos-row{
-      display:flex;justify-content:center;align-items:center;
-      gap:48px;flex-wrap:wrap;
-      max-width:1000px;margin:0 auto
-    }
-    .logo-item{
-      font-size:18px;font-weight:800;color:#aab0c0;
-      letter-spacing:-0.5px;transition:color .2s
-    }
-    .logo-item:hover{color:var(--navy)}
-
-    /* ─── FEATURES ALT ─── */
-    .feat-sec{padding:100px 60px}
-    .feat-alt{
-      display:grid;grid-template-columns:1fr 1fr;
-      gap:80px;align-items:center;
-      max-width:1100px;margin:0 auto 100px
-    }
-    .feat-alt:last-child{margin-bottom:0}
-    .feat-alt.rev{direction:rtl}
-    .feat-alt.rev>*{direction:ltr}
-    .feat-tag{
-      display:inline-block;
-      background:rgba(232,69,60,.1);
-      color:var(--red);
-      font-size:12px;font-weight:800;
-      text-transform:uppercase;letter-spacing:2px;
-      padding:6px 14px;border-radius:99px;
-      margin-bottom:18px
-    }
-    .feat-alt h3{font-size:clamp(24px,3vw,36px);font-weight:900;color:var(--navy);line-height:1.2;letter-spacing:-0.8px;margin-bottom:16px}
-    .feat-alt p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:28px}
-    .feat-checks{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .feat-checks li{
-      display:flex;gap:10px;align-items:flex-start;
-      font-size:14px;color:var(--text);font-weight:500
-    }
-    .feat-checks li::before{
-      content:'✓';flex-shrink:0;
-      width:22px;height:22px;border-radius:6px;
-      background:rgba(29,201,183,.15);color:var(--teal);
-      display:flex;align-items:center;justify-content:center;
-      font-size:12px;font-weight:900
-    }
-    /* Feature illustration box */
-    .feat-img{
-      border-radius:20px;overflow:hidden;
-      background:linear-gradient(135deg,#f0f3ff,#e8ebff);
-      aspect-ratio:4/3;
-      display:flex;align-items:center;justify-content:center;
-      position:relative;
-      box-shadow:0 20px 60px rgba(13,27,75,.1)
-    }
-    .feat-icon-big{font-size:80px;opacity:.9}
-    .feat-badge{
-      position:absolute;
-      background:#fff;
-      border-radius:12px;
-      padding:10px 14px;
-      font-size:12px;font-weight:700;
-      color:var(--navy);
-      box-shadow:0 6px 20px rgba(13,27,75,.1);
-      display:flex;align-items:center;gap:7px;
-      border:1px solid var(--border)
-    }
-    .fb1{bottom:20px;right:20px}
-    .fb2{top:20px;left:20px}
-
-    /* ─── CHANNELS ─── */
-    .ch-sec{background:var(--gray);padding:100px 60px}
-    .ch-grid{
-      display:flex;justify-content:center;gap:16px;
-      flex-wrap:wrap;margin-top:52px
-    }
-    .ch{
-      display:flex;flex-direction:column;align-items:center;gap:10px;
-      background:#fff;border:2px solid var(--border);
-      border-radius:16px;padding:28px 36px;min-width:140px;
-      transition:all .25s;cursor:default
-    }
-    .ch:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 12px 32px rgba(232,69,60,.12)}
-    .ch-ic{font-size:38px}
-    .ch-name{font-size:14px;font-weight:800;color:var(--navy)}
-    .ch-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px}
-    .ch-tag.live{background:rgba(29,201,183,.12);color:var(--teal)}
-    .ch-tag.soon{background:var(--gray2);color:var(--muted)}
-
-    /* ─── PRICING ─── */
-    .pr-sec{padding:100px 60px}
-    .pr-toggle{
-      display:flex;align-items:center;justify-content:center;gap:12px;
-      margin-top:28px;margin-bottom:48px;font-size:14px;font-weight:600;color:var(--muted)
-    }
-    .pr-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);
-      gap:20px;max-width:1000px;margin:0 auto;align-items:start
-    }
-    .pr{
-      background:#fff;border:2px solid var(--border);
-      border-radius:20px;padding:36px 30px;
-      transition:all .25s;position:relative
-    }
-    .pr:hover{box-shadow:0 16px 48px rgba(13,27,75,.1);transform:translateY(-3px)}
-    .pr.hot{
-      border-color:var(--red);
-      box-shadow:0 8px 40px rgba(232,69,60,.15)
-    }
-    .hot-label{
-      position:absolute;top:-15px;left:50%;transform:translateX(-50%);
-      background:var(--red);color:#fff;
-      font-size:11px;font-weight:800;
-      padding:5px 18px;border-radius:99px;white-space:nowrap
-    }
-    .pr-name{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
-    .pr-price{font-size:48px;font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1}
-    .pr-price sub{font-size:15px;color:var(--muted);font-weight:500;letter-spacing:0}
-    .pr-desc{font-size:13px;color:var(--muted);margin:10px 0 24px;line-height:1.6}
-    .pr-divider{height:1px;background:var(--border);margin-bottom:22px}
-    .pr-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:30px}
-    .pr-list li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--text);font-weight:500}
-    .ck2{color:var(--teal);font-weight:900;font-size:14px;flex-shrink:0;margin-top:1px}
-    .nx2{color:#cbd5e1;font-weight:900;font-size:14px;flex-shrink:0;margin-top:1px}
-    .pr-btn{
-      display:block;text-align:center;
-      padding:13px;border-radius:var(--r);
-      font-size:15px;font-weight:800;text-decoration:none;transition:all .2s
-    }
-    .pr-btn-red{background:var(--red);color:#fff;box-shadow:0 4px 16px rgba(232,69,60,.3)}
-    .pr-btn-red:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(232,69,60,.4)}
-    .pr-btn-out{border:2px solid var(--border);color:var(--navy);background:#fff}
-    .pr-btn-out:hover{border-color:var(--navy);background:var(--gray)}
-
-    /* ─── TESTIMONIALS ─── */
-    .ts-sec{background:var(--gray);padding:100px 60px}
-    .ts-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);
-      gap:16px;margin-top:56px
-    }
-    .ts{
-      background:#fff;border:1px solid var(--border);
-      border-radius:16px;padding:28px
-    }
-    .ts-stars{color:#f59e0b;font-size:16px;letter-spacing:2px;margin-bottom:14px}
-    .ts-q{font-size:28px;color:var(--red);font-weight:900;line-height:1;margin-bottom:10px}
-    .ts-text{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:22px}
-    .ts-author{display:flex;gap:12px;align-items:center;padding-top:16px;border-top:1px solid var(--border)}
-    .ts-av{
-      width:42px;height:42px;border-radius:12px;
-      background:linear-gradient(135deg,var(--navy),var(--navy2));
-      display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0
-    }
-    .ts-name{font-size:14px;font-weight:800;color:var(--navy)}
-    .ts-role{font-size:12px;color:var(--muted);margin-top:2px}
-
-    /* ─── CTA BANNER ─── */
-    .cta-sec{
-      background:var(--navy);
-      padding:100px 60px;text-align:center
-    }
-    .cta-inner{max-width:700px;margin:0 auto}
-    .cta-sec h2{
-      font-size:clamp(30px,5vw,52px);
-      font-weight:900;color:#fff;
-      letter-spacing:-1.5px;line-height:1.1;
-      text-transform:uppercase;margin-bottom:16px
-    }
-    .cta-sec h2 span{color:var(--teal)}
-    .cta-sec p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:40px;line-height:1.7}
-    .cta-form{
-      display:flex;gap:10px;justify-content:center;max-width:480px;margin:0 auto;flex-wrap:wrap
-    }
-    .cta-input{
-      flex:1;min-width:200px;
-      padding:14px 18px;border-radius:var(--r);
-      border:none;font-size:14px;font-weight:500;
-      background:rgba(255,255,255,.1);color:#fff;
-      outline:none;
-    }
-    .cta-input::placeholder{color:rgba(255,255,255,.4)}
-    .cta-input:focus{background:rgba(255,255,255,.15)}
-
-    /* ─── FOOTER ─── */
-    footer{background:#fff;border-top:1px solid var(--border);padding:64px 60px 40px}
-    .ft-grid{
-      max-width:1200px;margin:0 auto;
-      display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
-      margin-bottom:48px
-    }
-    .ft-brand p{font-size:13px;color:var(--muted);max-width:240px;margin-top:12px;line-height:1.8}
-    .ft-col h5{font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+    .ft-brand .ft-logo{display:flex;align-items:center;gap:8px;margin-bottom:12px;text-decoration:none}
+    .ft-brand p{font-size:13px;color:var(--muted);line-height:1.8;max-width:240px}
+    .ft-col h5{font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
     .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .ft-col a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s;font-weight:500}
+    .ft-col a{font-size:13.5px;color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s}
     .ft-col a:hover{color:var(--navy)}
     .ft-bot{
-      max-width:1200px;margin:0 auto;
       display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-      padding-top:28px;border-top:1px solid var(--border);
-      font-size:13px;color:var(--muted)
+      padding-top:24px;border-top:1px solid var(--border);
+      font-size:12.5px;color:var(--muted)
     }
+    .ft-bot a{color:var(--teal);text-decoration:none;font-weight:700}
 
-    /* ─── SCROLL REVEAL ─── */
-    .rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    /* ══════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════ */
+    .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
     .rv.on{opacity:1;transform:translateY(0)}
+    .rv2{opacity:0;transform:translateY(24px);transition:opacity .6s .1s ease,transform .6s .1s ease}
+    .rv2.on{opacity:1;transform:translateY(0)}
+    .rv3{opacity:0;transform:translateY(24px);transition:opacity .6s .2s ease,transform .6s .2s ease}
+    .rv3.on{opacity:1;transform:translateY(0)}
 
-    /* ─── RESPONSIVE ─── */
-    @media(max-width:960px){
-      nav,.hero,.stats-bar,.sec,.feat-sec,.ch-sec,.pr-sec,.ts-sec,.cta-sec,footer{padding-left:24px;padding-right:24px}
-      .hero-inner,.feat-alt,.ft-grid{grid-template-columns:1fr}
-      .hero-right{display:none}
-      .feat-alt.rev{direction:ltr}
-      .pr-grid,.ts-grid{grid-template-columns:1fr}
-      .logos-sec{padding-left:24px;padding-right:24px}
-      .nav-ul{display:none}
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media(max-width:900px){
+      .nav-mid{display:none}
+      .hero-grid{grid-template-columns:1fr;text-align:center}
+      .hero-person,.hero-phone-wrap{display:none}
+      .feat-row,.feat-row.rev,.integr{flex-direction:column;gap:36px}
+      .feat-visual,.integr-right{max-width:100%;width:100%}
+      .cta-email-right{flex:none;width:100%}
+      .ft-top{grid-template-columns:1fr 1fr;gap:28px}
+      .dash-body{grid-template-columns:1fr}
     }
     @media(max-width:600px){
-      .stats-inner{flex-direction:column;gap:32px}
-      .ft-grid{grid-template-columns:1fr;gap:32px}
+      .stats-in{flex-direction:column;gap:28px}
+      .ft-top{grid-template-columns:1fr;gap:24px}
+      .email-form{flex-direction:column}
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- ═══ NAV ═══ -->
 <nav>
   <a href="/" class="logo">
-    <div class="logo-icon">🤖</div>
-    <span class="logo-text">Store<span>App</span></span>
+    <div class="logo-box">🤖</div>
+    <span class="logo-txt">Store<b>App</b></span>
   </a>
-  <ul class="nav-ul">
-    <li><a href="#features">Үйлчилгээ</a></li>
-    <li><a href="#pricing">Үнэ</a></li>
-    <li><a href="#channels">Суваг</a></li>
-  </ul>
+  <div class="nav-mid">
+    <ul class="nav-links">
+      <li><a href="#features">Үйлчилгээ</a></li>
+      <li><a href="#pricing">Үнэ</a></li>
+      <li><a href="#channels">Суваг</a></li>
+      <li><a href="#demo">Туршилт</a></li>
+    </ul>
+  </div>
   <div class="nav-right">
-    <a href="https://ai.storeapp.us/login" class="btn-login">Нэвтрэх</a>
-    <a href="https://ai.storeapp.us/register" class="btn-signup">Бүртгүүлэх</a>
+    <a href="https://ai.storeapp.us/login" class="nb1">НЭВТРЭХ</a>
+    <a href="https://ai.storeapp.us/register" class="nb2">БҮРТГҮҮЛЭХ</a>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-left rv">
+  <div class="hero-grid">
+
+    <!-- Left: person -->
+    <div class="hero-person rv">
+      <div style="position:relative">
+        <div class="person-img">
+          <div class="person-emoji">🧑‍💼</div>
+        </div>
+        <div class="f-badge fb-a">🤖 AI борлуулагч</div>
+        <div class="f-badge fb-b">📦 Захиалга ирлээ!</div>
+      </div>
+    </div>
+
+    <!-- Center: text -->
+    <div class="hero-center rv2">
       <div class="hero-sup">Таны Бизнесийн Тоноглол</div>
       <h1 class="hero-h1">
         БОРЛУУЛАЛТАА<br/>
-        <span>AI-Д ДААТ</span>
+        <span class="accent">AI-Д ДААТ</span>
       </h1>
-      <p class="hero-sub">
-        Telegram, WhatsApp, Viber дээр ажилладаг AI борлуулагч.
-        Хүний оролцоогүйгээр 24/7 бараа зарж, захиалга авна.
-      </p>
-      <div class="hero-btns">
-        <a href="https://ai.storeapp.us/register" class="btn-red">Үнэгүй эхлэх</a>
-        <a href="#features" class="btn-ghost2">Дэлгэрэнгүй →</a>
-      </div>
+      <p class="hero-p">Хүн бүрт зориулсан виртуал борлуулагч. Telegram, WhatsApp дээр 24/7 ажиллана.</p>
+      <a href="https://ai.storeapp.us/register" class="btn-teal">ҮНЭГҮЙ ЭХЛЭХ</a>
     </div>
 
-    <div class="hero-right rv">
-      <!-- Phone mockup -->
-      <div class="hero-phone">
-        <div class="hp-bar">
-          <div class="hp-av">🤖</div>
-          <div class="hp-info">
-            <div class="hp-name">StoreBot</div>
-            <div class="hp-st">● онлайн</div>
-          </div>
-        </div>
-        <div class="hp-msgs">
-          <div>
-            <div class="hm">Сайн уу! 👋 Юу хайж байна вэ?</div>
-            <div class="ht">10:24</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end">
-            <div class="um2">Шкив 6PK байна уу?</div>
-            <div class="ht" style="text-align:right">10:24</div>
-          </div>
-          <div>
-            <div class="hprod">
-              <div class="hprod-name">🔩 Шкив 6PK-1870</div>
-              <div class="hprod-price">₮ 45,000</div>
-              <div class="hprod-meta">⚙️ Загвар: JD1<br/>🟢 Нөөцтэй</div>
+    <!-- Right: phone -->
+    <div class="hero-phone-wrap rv3">
+      <div style="position:relative">
+        <div class="hero-phone">
+          <div class="hp-top">
+            <div class="hp-icon">🤖</div>
+            <div>
+              <div class="hp-n">StoreBot</div>
+              <div class="hp-s">● онлайн</div>
             </div>
-            <div class="ht">10:24</div>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end">
-            <div class="um2">Захиалах</div>
-            <div class="ht" style="text-align:right">10:25</div>
-          </div>
-          <div>
-            <div class="hm">✅ Захиалга <b>#1042</b> баталгаажлаа! 🎉</div>
-            <div class="ht">10:25</div>
+          <div class="hp-body">
+            <div>
+              <div class="hb">Сайн уу! 👋 Юу хайж байна вэ?</div>
+              <div class="ht">10:24</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end">
+              <div class="hu">Шкив 6PK байна уу?</div>
+              <div class="ht" style="text-align:right">10:24</div>
+            </div>
+            <div>
+              <div class="hpcard">
+                <div class="hpc-name">🔩 Шкив 6PK-1870</div>
+                <div class="hpc-price">₮ 45,000</div>
+                <div class="hpc-meta">⚙️ Загвар: JD1 · 🟢 Нөөцтэй</div>
+              </div>
+              <div class="ht">10:24</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end">
+              <div class="hu">Захиалах</div>
+              <div class="ht" style="text-align:right">10:25</div>
+            </div>
+            <div>
+              <div class="hb">✅ Захиалга #1042 баталгаажлаа! 🎉</div>
+              <div class="ht">10:25</div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Floating cards -->
-      <div class="hero-float hf1 rv">
-        🛒 Шинэ захиалга #1042
-      </div>
-      <div class="hero-float hf2 rv">
-        📦 500+ бараа нэмэгдлээ
+        <div class="f-badge fb-c">📊 Өнөөдөр 24 захиалга</div>
+        <div class="f-badge fb-d">💬 Шинэ харилцагч!</div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ── STATS BAR ── -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="st-item rv">
-      <div class="st-num">24<span>/7</span></div>
-      <div class="st-lbl">Тасралтгүй ажиллагаа</div>
+<!-- ═══ STATS ═══ -->
+<div class="stats">
+  <div class="stats-in">
+    <div class="st rv">
+      <div class="st-n">24<small>/7</small></div>
+      <div class="st-l">Тасралтгүй ажиллагаа</div>
     </div>
-    <div class="st-item rv">
-      <div class="st-num">5<span>+</span></div>
-      <div class="st-lbl">Мессежийн суваг</div>
+    <div class="st rv2">
+      <div class="st-n">500<small>+</small></div>
+      <div class="st-l">Бизнест хэрэглэгдэж байна</div>
     </div>
-    <div class="st-item rv">
-      <div class="st-num">∞</div>
-      <div class="st-lbl">Барааны хязгааргүй</div>
-    </div>
-    <div class="st-item rv">
-      <div class="st-num">AI</div>
-      <div class="st-lbl">ChatGPT-д суурилсан</div>
+    <div class="st rv3">
+      <div class="st-n">5<small>+</small></div>
+      <div class="st-l">Мессежийн суваг</div>
     </div>
   </div>
 </div>
 
-<!-- ── LOGOS ── -->
-<div class="logos-sec">
-  <div class="logos-title">Манай платформ ашиглаж буй бизнесүүд</div>
+<!-- ═══ LOGOS ═══ -->
+<div class="logos">
+  <p>Манай платформ ашиглаж буй бизнесүүд</p>
   <div class="logos-row">
-    <div class="logo-item">AutoParts MN</div>
-    <div class="logo-item">TechStore</div>
-    <div class="logo-item">FashionMall</div>
-    <div class="logo-item">BuildMart</div>
-    <div class="logo-item">SportShop</div>
+    <span>AutoParts MN</span>
+    <span>TechStore UB</span>
+    <span>FashionMall</span>
+    <span>BuildMart</span>
+    <span>SportShop MN</span>
+    <span>HomeDecor</span>
   </div>
 </div>
 
-<!-- ── FEATURES ── -->
-<section id="features" class="feat-sec">
-  <div class="wrap">
-    <div class="tc rv" style="margin-bottom:80px">
-      <div class="sec-sup">Үйлчилгээний онцлог</div>
-      <h2 class="sec-h">Борлуулалтын гол хэрэгсэл</h2>
-    </div>
+<!-- ═══ FEATURES TITLE ═══ -->
+<div class="feat-title-sec rv">
+  <h2>AI борлуулалтын чухал хэрэгсэл</h2>
+</div>
 
-    <!-- 1 -->
-    <div class="feat-alt rv">
-      <div>
-        <div class="feat-tag">AI Борлуулагч</div>
-        <h3>Маркетингийн сувгаа хүчирхэгжүүл</h3>
-        <p>ChatGPT-д суурилсан AI борлуулагч таны барааг харилцагчдад таниулж, асуулгад хариулж, захиалга авна. Хүний оролцоо шаардахгүй.</p>
-        <ul class="feat-checks">
-          <li>Telegram, WhatsApp, Viber-д бэлэн</li>
-          <li>Монгол хэл дээр ухаалаг хариу</li>
-          <li>Бараа хайх, харьцуулах, захиалах</li>
-        </ul>
-      </div>
-      <div class="feat-img">
-        <div class="feat-icon-big">🤖</div>
-        <div class="feat-badge fb1">💬 Шинэ захиалга ирлээ</div>
-        <div class="feat-badge fb2">⚡ AI хариулж байна...</div>
+<!-- ═══ FEATURES ═══ -->
+<section id="features">
+
+  <!-- 1: AI Bot -->
+  <div class="feat-row rv">
+    <div class="feat-visual">
+      <div class="feat-box purple">
+        <span class="feat-chip chip-purple">AI БОРЛУУЛАГЧ</span>
+        <span class="feat-big-icon">🤖</span>
+        <div class="feat-float ff1">💬 AI хариулж байна...</div>
+        <div class="feat-float ff2">🛒 Захиалга баталгаажлаа</div>
       </div>
     </div>
+    <div class="feat-text">
+      <h3>Маркетингийн сувгаа хүчирхэгжүүл</h3>
+      <p>ChatGPT-д суурилсан AI борлуулагч харилцагчдын асуулганд хариулж, бараа санал болгож, захиалга авна. Хүний оролцоогүйгээр.</p>
+      <ul class="feat-list">
+        <li><span class="fli">✓</span>Telegram, WhatsApp, Viber дэмжих</li>
+        <li><span class="fli">✓</span>Монгол хэл дээр ухаалаг хариу</li>
+        <li><span class="fli">✓</span>Бараа хайх, харьцуулах, захиалах</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- 2 -->
-    <div class="feat-alt rev rv">
-      <div>
-        <div class="feat-tag">Агуулах</div>
-        <h3>Үйл ажиллагаалаа сайжруулж, хөгжүүл</h3>
-        <p>Excel файлаасаа нэг дороо бараа оруул. Нөөц хяна, ангилал тохируул, зурагтайгаар харагдуул. Бүгдийг нэг дашбоардаас.</p>
-        <ul class="feat-checks">
-          <li>Excel-ээс нэг дороо импорт</li>
-          <li>Нөөцийн автомат хяналт</li>
-          <li>Зураг, шинж чанар бүрэн дэмжих</li>
-        </ul>
-      </div>
-      <div class="feat-img" style="background:linear-gradient(135deg,#fff5f5,#ffe8e8)">
-        <div class="feat-icon-big">📦</div>
-        <div class="feat-badge fb1">📊 632 бараа</div>
-        <div class="feat-badge fb2">✅ Импорт амжилттай</div>
+  <!-- 2: Inventory -->
+  <div class="feat-row rev rv">
+    <div class="feat-visual">
+      <div class="feat-box blue">
+        <span class="feat-chip chip-blue">АГУУЛАХ</span>
+        <span class="feat-big-icon">📦</span>
+        <div class="feat-float ff1">✅ 632 бараа нэмэгдлээ</div>
+        <div class="feat-float ff2">📊 Нөөц хяналт</div>
       </div>
     </div>
+    <div class="feat-text">
+      <h3>Үйл ажиллагаалаа сайжруулж, хөгжүүл</h3>
+      <p>Чатботууд дэлгүүрийн харилцагчдад дэлгэрэнгүй мэдээлэл өгч, барааг зохицуулж, захиалгыг хянаж, шаардлагатай бол асуудлыг амжилттай шийдвэрлэнэ.</p>
+      <ul class="feat-list">
+        <li><span class="fli">✓</span>Excel-ээс нэг дороо импорт</li>
+        <li><span class="fli">✓</span>Нөөцийн автомат хяналт</li>
+        <li><span class="fli">✓</span>Зураг, шинж чанар бүрэн дэмжих</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- 3 -->
-    <div class="feat-alt rv">
-      <div>
-        <div class="feat-tag">Захиалга</div>
-        <h3>Хэрэглэгчийн үйлчилгээг сайжруулж оновчтой болго</h3>
-        <p>Харилцагч захиалга өгөхөд автоматаар баталгаажуулж, хүргэлтийн мэдэгдэл явуулна. Та зөвхөн хүргэлтдээ анхаарна.</p>
-        <ul class="feat-checks">
-          <li>Автомат захиалга баталгаажуулалт</li>
-          <li>Захиалгын статус мэдэгдэл</li>
-          <li>Борлуулалтын тайлан, статистик</li>
-        </ul>
-      </div>
-      <div class="feat-img" style="background:linear-gradient(135deg,#f0fff8,#dcfff0)">
-        <div class="feat-icon-big">🛒</div>
-        <div class="feat-badge fb1">🎉 Захиалга #1042</div>
-        <div class="feat-badge fb2">📈 Өнөөдөр 24 захиалга</div>
+  <!-- 3: Orders -->
+  <div class="feat-row rv">
+    <div class="feat-visual">
+      <div class="feat-box green">
+        <span class="feat-chip chip-green">ҮЙЛЧИЛГЭЭ</span>
+        <span class="feat-big-icon">🛒</span>
+        <div class="feat-float ff1">🎉 Захиалга #1042</div>
+        <div class="feat-float ff2">📈 Өнөөдөр 24 захиалга</div>
       </div>
     </div>
+    <div class="feat-text">
+      <h3>Хэрэглэгчийн үйлчилгээг сайжруулж оновчтой болго</h3>
+      <p>Чатботоор дамжуулан харилцагчдад тауны санал, байнгын үйлчлүүлэгч болгох алхмуудыг гаргаж, 24/7 цагийн туршид тэдэнд туслана.</p>
+      <ul class="feat-list">
+        <li><span class="fli">✓</span>Автомат захиалга баталгаажуулалт</li>
+        <li><span class="fli">✓</span>Хүргэлтийн мэдэгдэл</li>
+        <li><span class="fli">✓</span>Захиалгын статус хяналт</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- 4 -->
-    <div class="feat-alt rev rv">
-      <div>
-        <div class="feat-tag">Борлуулалт</div>
-        <h3>Борлуулалтын өгөгч нөхцөлийг хангал</h3>
-        <p>Дэлгэрэнгүй тайлан, харилцагчийн дата, хамгийн их борлогдсон бараа — бизнесийн шийдвэр гаргахад туслах бүх мэдээлэл.</p>
-        <ul class="feat-checks">
-          <li>Цаг хугацааны борлуулалтын тайлан</li>
-          <li>Хамгийн их борлогдсон бараа</li>
-          <li>Харилцагчийн мэдээлэл бүртгэл</li>
-        </ul>
+  <!-- 4: Analytics -->
+  <div class="feat-row rev rv">
+    <div class="feat-visual">
+      <div class="feat-box orange">
+        <span class="feat-chip chip-orange">БОРЛУУЛАЛТ</span>
+        <span class="feat-big-icon">📊</span>
+        <div class="feat-float ff1">↑ 34% өсөлт</div>
+        <div class="feat-float ff2">💰 ₮2.4M орлого</div>
       </div>
-      <div class="feat-img" style="background:linear-gradient(135deg,#f5f0ff,#ede8ff)">
-        <div class="feat-icon-big">📊</div>
-        <div class="feat-badge fb1">↑ 34% өсөлт</div>
-        <div class="feat-badge fb2">💰 ₮2.4M орлого</div>
+    </div>
+    <div class="feat-text">
+      <h3>Борлуулалтын өгөгдлийг нөхцөлийг хяна</h3>
+      <p>Дэлгэрэнгүй тайлан, харилцагчийн дата, хамгийн их борлогдсон бараа — бизнесийн бодитой шийдвэр гаргахад туслах бүх мэдээлэл нэг газарт.</p>
+      <ul class="feat-list">
+        <li><span class="fli">✓</span>Борлуулалтын дэлгэрэнгүй тайлан</li>
+        <li><span class="fli">✓</span>Хамгийн их борлогдсон бараа</li>
+        <li><span class="fli">✓</span>Харилцагчийн бүртгэл</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHANNELS / INTEGRATIONS ═══ -->
+<section id="channels" style="background:var(--gray);padding:80px 5%">
+  <div class="integr" style="background:transparent;padding:0;max-width:1100px;margin:0 auto">
+    <div class="integr-left rv">
+      <h2>Үйл ажиллагаандаа тогтмол ашиглагдаг сувгуудтайгаа холбо</h2>
+      <p style="margin-top:12px">Технологийн стекэс манай апп-тай холбосноор бизнесийн аль ч тал хялбар болж, менежментийн ачааллаасаа чөлөөлөгдөж, бизнест ашиглалт илүү амжилттай ая.</p>
+    </div>
+    <div class="integr-right rv2">
+      <div class="integr-grid">
+        <div class="ig"><div class="ig-ic">✈️</div>Telegram<div class="ig-tag">Бэлэн</div></div>
+        <div class="ig"><div class="ig-ic">💬</div>WhatsApp<div class="ig-tag">Бэлэн</div></div>
+        <div class="ig"><div class="ig-ic">💜</div>Viber<div class="ig-tag">Бэлэн</div></div>
+        <div class="ig"><div class="ig-ic">📘</div>Facebook<div class="ig-tag">Бэлэн</div></div>
+        <div class="ig" style="opacity:.6"><div class="ig-ic">📸</div>Instagram<div class="ig-tag" style="color:var(--muted);background:var(--gray2)">Удахгүй</div></div>
+        <div class="ig" style="opacity:.6"><div class="ig-ic">🐦</div>Twitter/X<div class="ig-tag" style="color:var(--muted);background:var(--gray2)">Удахгүй</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CHANNELS ── -->
-<section id="channels" class="ch-sec">
-  <div class="wrap">
-    <div class="tc rv">
-      <div class="sec-sup">Дэмжигдсэн суваг</div>
-      <h2 class="sec-h">Хаана ч байгаа харилцагчтайгаа</h2>
-      <p class="sec-p">Нэг систем — олон суваг. Telegram-аас эхлэн WhatsApp, Viber, Facebook хүртэл.</p>
+<!-- ═══ CTA EMAIL ═══ -->
+<section class="cta-email">
+  <div class="cta-email-in">
+    <div class="cta-email-left rv">
+      <p>Та дараах хялбар хийгдэж буй маркетингийн болон технологийн давуу талыг бизнестээ, чатбот хэрэглэгч болснодоо, хэзээ ч хаана ч бизнест нэвтрэх мэдлэгийн болон томоохон хамтрагчтай болж болно.</p>
     </div>
-    <div class="ch-grid">
-      <div class="ch rv"><div class="ch-ic">✈️</div><div class="ch-name">Telegram</div><div class="ch-tag live">Бэлэн</div></div>
-      <div class="ch rv"><div class="ch-ic">💬</div><div class="ch-name">WhatsApp</div><div class="ch-tag live">Бэлэн</div></div>
-      <div class="ch rv"><div class="ch-ic">💜</div><div class="ch-name">Viber</div><div class="ch-tag live">Бэлэн</div></div>
-      <div class="ch rv"><div class="ch-ic">📘</div><div class="ch-name">Facebook</div><div class="ch-tag live">Бэлэн</div></div>
-      <div class="ch rv" style="opacity:.6"><div class="ch-ic">📸</div><div class="ch-name">Instagram</div><div class="ch-tag soon">Удахгүй</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRICING ── -->
-<section id="pricing" class="pr-sec">
-  <div class="wrap">
-    <div class="tc rv">
-      <div class="sec-sup">Үнийн мэдээлэл</div>
-      <h2 class="sec-h">Бизнестээ тохирсон тариф</h2>
-      <p class="sec-p">Хэдийд ч дээшлүүлж, цуцалж болно. Нуугдсан төлбөр байхгүй.</p>
-    </div>
-    <div class="pr-grid" style="margin-top:56px">
-      <div class="pr rv">
-        <div class="pr-name">Эхлэлт</div>
-        <div class="pr-price">Үнэгүй<sub> /сар</sub></div>
-        <p class="pr-desc">Туршиж үзэхэд тохиромжтой</p>
-        <div class="pr-divider"></div>
-        <ul class="pr-list">
-          <li><span class="ck2">✓</span>1 суваг — Telegram</li>
-          <li><span class="ck2">✓</span>100 хүртэл бараа</li>
-          <li><span class="ck2">✓</span>AI чат-бот</li>
-          <li><span class="ck2">✓</span>Захиалгын систем</li>
-          <li><span class="nx2">✗</span>Excel импорт</li>
-          <li><span class="nx2">✗</span>Олон суваг</li>
-        </ul>
-        <a href="https://ai.storeapp.us/register" class="pr-btn pr-btn-out">Үнэгүй эхлэх</a>
-      </div>
-      <div class="pr hot rv">
-        <div class="hot-label">⚡ Хамгийн их сонгосон</div>
-        <div class="pr-name">Бизнес</div>
-        <div class="pr-price">₮49,000<sub> /сар</sub></div>
-        <p class="pr-desc">Идэвхтэй бизнест зориулсан</p>
-        <div class="pr-divider"></div>
-        <ul class="pr-list">
-          <li><span class="ck2">✓</span>3 суваг</li>
-          <li><span class="ck2">✓</span>Хязгааргүй бараа</li>
-          <li><span class="ck2">✓</span>Excel импорт</li>
-          <li><span class="ck2">✓</span>5 ажилтан</li>
-          <li><span class="ck2">✓</span>Борлуулалтын тайлан</li>
-          <li><span class="ck2">✓</span>Зургийн хадгалалт</li>
-        </ul>
-        <a href="https://ai.storeapp.us/register" class="pr-btn pr-btn-red">Одоо эхлэх →</a>
-      </div>
-      <div class="pr rv">
-        <div class="pr-name">Корпорат</div>
-        <div class="pr-price" style="font-size:28px;letter-spacing:-0.5px;padding-top:8px">Тохиролцооны</div>
-        <p class="pr-desc">Том байгууллагад зориулсан</p>
-        <div class="pr-divider"></div>
-        <ul class="pr-list">
-          <li><span class="ck2">✓</span>Бүх суваг</li>
-          <li><span class="ck2">✓</span>Хязгааргүй бүх зүйл</li>
-          <li><span class="ck2">✓</span>Тусгай тохируулга</li>
-          <li><span class="ck2">✓</span>Dedicated дэмжлэг</li>
-          <li><span class="ck2">✓</span>API холболт</li>
-          <li><span class="ck2">✓</span>SLA баталгаа</li>
-        </ul>
-        <a href="mailto:hello@storeapp.us" class="pr-btn pr-btn-out">Холбоо барих</a>
+    <div class="cta-email-right rv2">
+      <div class="email-form">
+        <input class="email-inp" type="email" placeholder="И-мэйл хаягаа оруулна уу"/>
+        <button class="btn-red2" onclick="window.location='https://ai.storeapp.us/register'">БҮРТГҮҮЛЭХ</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── TESTIMONIALS ── -->
-<section class="ts-sec">
-  <div class="wrap">
-    <div class="tc rv">
-      <div class="sec-sup">Хэрэглэгчдийн сэтгэгдэл</div>
-      <h2 class="sec-h">Бизнес эзэд юу гэж хэлдэг вэ</h2>
+<!-- ═══ DEMO ═══ -->
+<section class="demo-sec" id="demo">
+  <div class="demo-sup">Туршиж үзэх</div>
+  <h2>StoreApp-г туршиж үзээрэй</h2>
+  <p>Хялбар бүртгэл хийж 5 дахин давтагдсан чатботоо хэрэглэж эхэл</p>
+  <a href="https://ai.storeapp.us/register" class="demo-btn">ТУРШИЖ ҮЗЭХ</a>
+
+  <!-- Dashboard mockup -->
+  <div class="dash-mock rv">
+    <div class="dash-bar">
+      <div class="d-dot" style="background:#e8453c"></div>
+      <div class="d-dot" style="background:#f59e0b"></div>
+      <div class="d-dot" style="background:#10b981"></div>
+      <span style="font-size:12px;color:rgba(255,255,255,.4);margin-left:10px">ai.storeapp.us — Дашбоард</span>
     </div>
-    <div class="ts-grid">
-      <div class="ts rv">
-        <div class="ts-stars">★★★★★</div>
-        <div class="ts-q">"</div>
-        <p class="ts-text">Telegram ботоо тохируулаад л барааны каталогоо оруулсан. Одоо шөнөдөө унтаж байхад ч захиалга ирдэг болсон. Гайхалтай систем!</p>
-        <div class="ts-author">
-          <div class="ts-av">👨‍💼</div>
-          <div><div class="ts-name">Б. Мөнхбат</div><div class="ts-role">Автозапчасть дэлгүүр</div></div>
-        </div>
+    <div class="dash-body">
+      <div class="dash-card">
+        <div class="dc-label">Нийт бараа</div>
+        <div class="dc-val">632</div>
+        <div class="dc-sub">↑ +24 энэ сар</div>
       </div>
-      <div class="ts rv">
-        <div class="ts-stars">★★★★★</div>
-        <div class="ts-q">"</div>
-        <p class="ts-text">Excel файлаасаа 500 гаруй барааг нэг дороо оруулсан. AI нь харилцагчдын асуулт бүрт маш сайн хариулж байна.</p>
-        <div class="ts-author">
-          <div class="ts-av">👩‍💼</div>
-          <div><div class="ts-name">О. Ариунаа</div><div class="ts-role">Гэр ахуйн бараа</div></div>
-        </div>
+      <div class="dash-card">
+        <div class="dc-label">Захиалга</div>
+        <div class="dc-val">1,042</div>
+        <div class="dc-sub">↑ +34% өмнөхөөс</div>
       </div>
-      <div class="ts rv">
-        <div class="ts-stars">★★★★★</div>
-        <div class="ts-q">"</div>
-        <p class="ts-text">Telegram-аа л ашигладаг манай харилцагчид захиалгаа бот-оор өгч байна. Хоёр ажилтны ажлыг хийж байна!</p>
-        <div class="ts-author">
-          <div class="ts-av">👨‍💻</div>
-          <div><div class="ts-name">Д. Батчулуун</div><div class="ts-role">Электроник бараа</div></div>
-        </div>
+      <div class="dash-card">
+        <div class="dc-label">Орлого</div>
+        <div class="dc-val">₮2.4M</div>
+        <div class="dc-sub">↑ Энэ сард</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CTA BANNER ── -->
-<section class="cta-sec">
-  <div class="cta-inner rv">
-    <h2>БОРЛУУЛАЛТАА<br/><span>AI-Д ДААТ</span></h2>
-    <p>Бүртгэл үнэгүй. Кредит карт шаардахгүй.<br/>Хэдий ч цуцалж болно.</p>
-    <div class="cta-form">
-      <input class="cta-input" type="email" placeholder="И-мэйл хаягаа оруулна уу"/>
-      <a href="https://ai.storeapp.us/register" class="btn-red">Бүртгүүлэх</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="ft-grid">
-    <div class="ft-brand">
-      <a href="/" class="logo">
-        <div class="logo-icon" style="width:30px;height:30px;font-size:16px">🤖</div>
-        <span class="logo-text" style="font-size:16px">Store<span>App</span></span>
-      </a>
-      <p>AI-д суурилсан борлуулалтын платформ. Telegram болон бусад суваг дээр хялбараар зарж борлуул.</p>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="ft-logo">
+          <div class="logo-box" style="width:28px;height:28px;font-size:15px">🤖</div>
+          <span class="logo-txt" style="font-size:16px">Store<b>App</b></span>
+        </a>
+        <p>AI-д суурилсан борлуулалтын платформ. Telegram болон бусад суваг дээр хялбараар зарж борлуул.</p>
+      </div>
+      <div class="ft-col">
+        <h5>StoreApp</h5>
+        <ul>
+          <li><a href="#">Бидний тухай</a></li>
+          <li><a href="#">Үйлчилгээний нөхцөл</a></li>
+          <li><a href="#">Нийтлэлийн бодлого</a></li>
+          <li><a href="#">Холбоо барих</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Бүтээгдэхүүн</h5>
+        <ul>
+          <li><a href="#">Бот интеграц</a></li>
+          <li><a href="#">Агуулах удирдлага</a></li>
+          <li><a href="#">Захиалгын систем</a></li>
+          <li><a href="#">Борлуулалтын тайлан</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Тусламж</h5>
+        <ul>
+          <li><a href="#">Хэлтэс</a></li>
+          <li><a href="#">Онлайн дэмжлэг</a></li>
+          <li><a href="#">Гарын авлага</a></li>
+          <li><a href="mailto:hello@storeapp.us">Имэйл</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="ft-col">
-      <h5>Chatbot</h5>
-      <ul>
-        <li><a href="#">Бидний тухай</a></li>
-        <li><a href="#features">Үйлчилгээний нөхцөл</a></li>
-        <li><a href="#">Нийтлэлийн бодлого</a></li>
-        <li><a href="#">Холбоо барих</a></li>
-      </ul>
+    <div class="ft-bot">
+      <span>© 2025 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</span>
+      <a href="https://ai.storeapp.us">ai.storeapp.us →</a>
     </div>
-    <div class="ft-col">
-      <h5>Бүтээгдэхүүн</h5>
-      <ul>
-        <li><a href="#">Бот интеграц</a></li>
-        <li><a href="#">Агуулах удирдлага</a></li>
-        <li><a href="#">Захиалгын систем</a></li>
-        <li><a href="#">Харилцагчийн шийтийн тайлан</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h5>Тусламж</h5>
-      <ul>
-        <li><a href="#">Хэлтэс</a></li>
-        <li><a href="#">Онлайн дэмжлэг</a></li>
-        <li><a href="#">Гарын авлага</a></li>
-        <li><a href="mailto:hello@storeapp.us">Тамхилах</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="ft-bot">
-    <span>© 2025 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</span>
-    <span style="display:flex;align-items:center;gap:6px">
-      <span style="color:#1dc9b7;font-weight:700">storeapp.us</span>
-    </span>
   </div>
 </footer>
 
 <script>
   const io = new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target) } })
-  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv,.rv2,.rv3').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
