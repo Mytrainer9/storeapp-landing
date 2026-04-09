@@ -4,9 +4,9 @@ import { motion, useInView } from "framer-motion";
 import { MessageSquare, Headphones, Globe2, Brain, Sliders, CheckCircle2 } from "lucide-react";
 
 const features = [
-  { icon: MessageSquare, title: "Хүний шиг харилцлага", desc: "ChatGPT-д суурилсан AI нь харилцагчдын аялгуу, санааг ойлгож, байгалийн хэлээр хариулна." },
+  { icon: MessageSquare, title: "Хүний шиг харилцлага", desc: "AI нь харилцагчдын санааг ойлгож, байгалийн хэлээр хариулна." },
   { icon: Headphones,    title: "24/7 Дэмжлэг",        desc: "Хэзээ ч, хаана ч — шөнийн 3 цагт ч захиалга авч, асуулт хариулна." },
-  { icon: Globe2,        title: "Олон суваг интеграц",  desc: "Telegram, WhatsApp, Viber, Facebook — нэг дашбоардаас бүгдийг хянана." },
+  { icon: Globe2,        title: "Олон суваг интеграц",  desc: "facebook, Telegram, WhatsApp, Viber, Facebook — нэг дашбоардаас бүгдийг хянана." },
   { icon: Brain,         title: "AI сурах чадвар",      desc: "Систем хэрэглэгчийн зан байдлаас суран, цаг хугацаанд тааруулан сайжирна." },
   { icon: Sliders,       title: "Хялбар тохируулга",    desc: "Код бичихгүйгээр бизнесийнхаа мэдлэгийн санг тохируулж, дүрэм нэм." },
   { icon: CheckCircle2,  title: "Excel импорт",         desc: "Файлаасаа хэдэн зуун барааг нэг дороо оруулах ухаалаг импорт систем." },
@@ -25,7 +25,7 @@ export default function Features() {
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-black text-gray-900 leading-tight mb-5">
             StoreApp-ыг <span className="text-gradient">тусгай болгох</span> онцлогууд
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed mb-8">Хамгийн тохиромжтой AI борлуулагч болон виртуал туслагч.</p>
+          <p className="text-gray-500 text-lg leading-relaxed mb-8">Хамгийн тохиромжтой AI борлуулагч.</p>
 
           {/* Robot illustration */}
           <div className="relative w-64 h-64 mx-auto lg:mx-0">

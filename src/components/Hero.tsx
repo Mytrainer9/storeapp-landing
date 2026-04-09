@@ -18,18 +18,23 @@ export default function Hero() {
         {/* LEFT */}
         <div>
           <motion.div {...f(0.05)} className="inline-flex items-center gap-2 bg-violet-100 border border-violet-200 rounded-full px-4 py-1.5 mb-6">
-            <span className="text-xs font-bold text-violet-700">🤖 AI борлуулалтын шинэ стандарт</span>
+            <span className="text-xs font-bold text-violet-700">🤖 AI Борлуулалтын мэргэжилтэн</span>
           </motion.div>
 
           <motion.h1 {...f(0.15)} className="text-[42px] md:text-[54px] lg:text-[60px] font-black leading-[1.06] tracking-tight text-gray-900 mb-5">
-            <span className="text-gradient">AI-д Суурилсан</span><br/>
-            Борлуулагч Бодож,<br/>
-            Сурч, Хүн Шиг<br/>
-            Зарна
+            <span className="text-gradient">Та борлуулалтаа</span><br/>
+               AI-д даатга,<br/>
+            <br/>
           </motion.h1>
 
           <motion.p {...f(0.25)} className="text-gray-500 text-lg leading-relaxed max-w-md mb-8">
-            Telegram, WhatsApp, Viber дээр ажиллах ChatGPT-д суурилсан AI борлуулагч. 24/7 тасралтгүй бараа зарж, захиалга авна.
+            Таны бизнесийг 24/7 ажиллуулах AI борлуулагч
+Facebook, Telegram, WhatsApp, Viber дээр нэгэн зэрэг ажиллаж,
+хэрэглэгчидтэй харилцаж, бараа санал болгож, захиалгыг шууд авна.
+📦 Агуулахын үлдэгдэл
+📊 Үнийн мэдээлэл
+📊 Борлуулалтын тайлан
+📍 Бүх мэдээлэл — таны гарт, хаанаас ч
           </motion.p>
 
           <motion.div {...f(0.35)} className="flex flex-wrap gap-3">

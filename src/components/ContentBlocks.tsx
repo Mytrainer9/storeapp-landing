@@ -42,7 +42,7 @@ const blocks = [
           ))}
           <div className="bg-violet-50 rounded-xl p-3 mt-2">
             <p className="text-xs text-violet-700 font-bold">🤖 AI зөвлөмж</p>
-            <p className="text-xs text-gray-600 mt-1">Telegram суваг хамгийн идэвхтэй байна.</p>
+            <p className="text-xs text-gray-600 mt-1">Facebook, Telegram суваг хамгийн идэвхтэй байна.</p>
           </div>
         </div>
       </div>

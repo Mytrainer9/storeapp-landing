@@ -14,12 +14,12 @@ export default function Footer() {
       {/* CTA */}
       <div className="max-w-4xl mx-auto px-6 py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
-          Ухаалаг стратеги, <span className="text-gradient">AI-д суурилсан</span> инсайт
+          AI-д суурилсан, <span className="text-gradient">Ухаалаг стратеги</span>
         </h2>
         <p className="text-gray-400 mb-8 max-w-md mx-auto">Бүртгэл үнэгүй. Кредит карт шаардахгүй.</p>
         <a href="https://ai.storeapp.us/register"
           className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-lg shadow-violet-500/30 hover:-translate-y-0.5 transition-all">
-          Үнэгүй бүртгэл үүсгэх →
+          Бүртгэл үүсгэх →
         </a>
       </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
             <p className="text-gray-500 text-sm leading-relaxed mb-4">AI-д суурилсан борлуулалтын платформ.</p>
             <a href="mailto:hello@storeapp.us" className="flex items-center gap-2 text-sm text-violet-400 hover:text-violet-300 transition-colors">
-              <Mail size={13}/> hello@storeapp.us
+              <Mail size={13}/> info@storeapp.us
             </a>
           </div>
           {cols.map(c => (
@@ -52,7 +52,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-600 text-xs">© 2025 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</p>
+          <p className="text-gray-600 text-xs">© 2026 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</p>
           <div className="flex gap-5">
             <a href="#" className="text-gray-600 hover:text-white text-xs transition-colors">Нууцлал</a>
             <a href="#" className="text-gray-600 hover:text-white text-xs transition-colors">Нөхцөл</a>
