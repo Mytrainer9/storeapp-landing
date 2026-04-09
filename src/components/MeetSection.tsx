@@ -4,9 +4,9 @@ import { motion, useInView } from "framer-motion";
 import { Globe, Brain, Sparkles } from "lucide-react";
 
 const cards = [
-  { icon: Globe, title: "Дэлхийтэй холбогдоорой", desc: "Telegram, WhatsApp, Viber, Facebook — бүх суваг дээр харилцагчдаа олоорой.", color: "bg-blue-50 border-blue-100", ic: "text-blue-600 bg-blue-100" },
-  { icon: Brain, title: "Хамгийн хэцүү асуудлыг шийдэ", desc: "AI борлуулагч таны бараа бүтээгдэхүүний мэдээллийг сурч, ямар ч асуулганд хариулна.", color: "bg-violet-50 border-violet-100", ic: "text-violet-600 bg-violet-100" },
-  { icon: Sparkles, title: "Бүтээлч боломжоо нэмэгдүүл", desc: "AI тайлан, зөвлөмж, борлуулалтын стратеги — бизнесийг хөгжүүлэх хэрэгсэл.", color: "bg-amber-50 border-amber-100", ic: "text-amber-600 bg-amber-100" },
+  { icon: Globe, title: "Бүх сувгаар борлуулалт хий", desc: "Telegram, Facebook, WhatsApp — хаанаас ч хэрэглэгч орж ирсэн AI тань шууд зарна.", color: "bg-blue-50 border-blue-100", ic: "text-blue-600 bg-blue-100" },
+  { icon: Brain, title: "Хэрэглэгчийг худалдан авагч болго", desc: "AI таны бүх барааг танилцуулаж тохирох бүтээгдэхүүн санал болгож, шийдвэр гаргуулна.  ", color: "bg-violet-50 border-violet-100", ic: "text-violet-600 bg-violet-100" },
+  { icon: Sparkles, title: "Захиалгыг автомат болго", desc: "Хэрэглэгчийн нэр, утас, хаяг авч — захиалгыг шууд бүртгэнэ.", color: "bg-amber-50 border-amber-100", ic: "text-amber-600 bg-amber-100" },
 ];
 
 export default function MeetSection() {
@@ -17,14 +17,14 @@ export default function MeetSection() {
     <section ref={ref} className="py-24 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{opacity:0,y:24}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.6}} className="text-center mb-6">
-          <span className="inline-block text-xs font-bold text-violet-600 tracking-widest uppercase bg-violet-50 border border-violet-100 px-4 py-1.5 rounded-full mb-4">AI Танилцуулга</span>
+          <span className="inline-block text-xs font-bold text-violet-600 tracking-widest uppercase bg-violet-50 border border-violet-100 px-4 py-1.5 rounded-full mb-4"></span>
           <div className="inline-flex w-20 h-20 rounded-3xl bg-gradient-to-br from-violet-100 to-purple-50 border border-violet-200 items-center justify-center mb-6 shadow-lg shadow-violet-100/50">
             <span className="text-4xl">🤖</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[44px] font-black text-gray-900 leading-tight mb-4">
-            StoreApp-тай танилц — <span className="text-gradient">Таны Шинэ AI Хамтрагч!</span>
+            Таны бизнесийн— <span className="text-gradient">шинэ AI хамтрагч!</span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-lg mx-auto">Чат хийж, асуулт хариулж, бизнесийг тань илүү хялбараар ажиллуулахад тусална.</p>
+          <p className="text-gray-500 text-lg max-w-lg mx-auto">Бизнесийг тань илүү хялбараар болгоход тусална.</p>
         </motion.div>
 
         {/* 3 cards with connector lines */}

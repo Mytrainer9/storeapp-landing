@@ -5,7 +5,7 @@ const cols = [
   { title: "Бүтээгдэхүүн", links: [["AI Борлуулагч","#features"],["Агуулах удирдлага","#features"],["Захиалгын систем","#how"],["Тайлан","#how"]] },
   { title: "Суваг", links: [["Telegram","#integrations"],["WhatsApp","#integrations"],["Viber","#integrations"],["Facebook","#integrations"]] },
   { title: "Компани", links: [["Бидний тухай","#"],["Нөхцөл","#"],["Нууцлал","#"],["Холбоо барих","mailto:hello@storeapp.us"]] },
-  { title: "Тусламж", links: [["Гарын авлага","#"],["API баримт","#"],["Дэмжлэг","#"],["Нийгэмлэг","#"]] },
+  { title: "Тусламж", links: [["Гарын авлага","#"],["API ","#"],["24/7 support","#"],["","#"]] },
 ];
 
 export default function Footer() {
@@ -16,10 +16,10 @@ export default function Footer() {
         <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
           AI-д суурилсан, <span className="text-gradient">Ухаалаг стратеги</span>
         </h2>
-        <p className="text-gray-400 mb-8 max-w-md mx-auto">Бүртгэл үнэгүй. Кредит карт шаардахгүй.</p>
+        <p className="text-gray-400 mb-8 max-w-md mx-auto">Та бүртгэл үүсгэх үү?.</p>
         <a href="https://ai.storeapp.us/register"
           className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-sm px-7 py-3.5 rounded-xl shadow-lg shadow-violet-500/30 hover:-translate-y-0.5 transition-all">
-          Бүртгэл үүсгэх →
+          Үүсгэх →
         </a>
       </div>
 
