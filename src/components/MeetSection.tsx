@@ -66,7 +66,7 @@ export default function MeetSection() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <a href="https://ai.storeapp.us/register"
+          <a href="/register/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 hover:text-violet-700 transition-colors">
             Бүгдийг харах <ArrowRight size={14} />
           </a>

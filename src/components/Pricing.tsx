@@ -88,7 +88,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="https://ai.storeapp.us/register"
+                href="/register/"
                 className={`flex items-center justify-center gap-2 w-full font-semibold text-sm py-3 rounded-xl transition-all ${
                   plan.highlighted
                     ? "bg-white text-gray-900 hover:bg-gray-100"

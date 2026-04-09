@@ -32,8 +32,8 @@ export default function Hero() {
 
             <motion.h1 {...fade(0.15)} className="text-[38px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.1] tracking-tight text-gray-900">
               Борлуулалтаа<br />
-              <span className="text-gradient">AI-д Даатга.</span><br />
-              <span className="text-gray-400 font-medium text-[28px] md:text-[36px] lg:text-[42px]">Бодож, Ярьж, Зарна.</span>
+              <span className="text-gradient">StoreApp-д даатга.</span><br />
+              <span className="text-gray-400 font-medium text-[28px] md:text-[36px] lg:text-[42px]">Бодож, ярьж, зарна.</span>
             </motion.h1>
           </div>
 
@@ -43,7 +43,7 @@ export default function Hero() {
               <div className="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center">
                 <MessageCircle size={18} className="text-white" />
               </div>
-              <span className="text-sm font-semibold text-gray-800">Сайн байна уу! Би StoreBot. танд юугаар туслах вэ?</span>
+              <span className="text-sm font-semibold text-gray-800">Сайн байна уу! Би StoreApp. танд юугаар туслах вэ?</span>
             </div>
           </motion.div>
         </div>
@@ -92,10 +92,10 @@ export default function Hero() {
         <motion.div {...fade(0.5)} className="flex justify-end mt-4 lg:-mt-32">
           <div className="max-w-sm">
             <p className="text-gray-500 text-[15px] leading-relaxed mb-6">
-              StoreApp бол AI-д суурилсан чатбот бөгөөд бизнесийн харилцааг бүрэн өөрчлөх зорилготой. Хэрэглэгчдэд шуурхай, хүний шиг хариу өгч, борлуулалтыг автоматжуулна.
+              StoreApp бол AI-д суурилсан чатбот бөгөөд бизнесийн харилцааг бүрэн өөрчлөх зорилготой. Хэрэглэгчдэд шуурхай, бодит хүн мэт хариу өгч, борлуулалтыг автоматжуулна.
             </p>
             <a
-              href="https://ai.storeapp.us/register"
+              href="/register/"
               className="inline-flex items-center gap-2 bg-gray-900 text-white font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-gray-900/20"
             >
               Үнэгүй эхлэх <ArrowRight size={16} />

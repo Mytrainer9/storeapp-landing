@@ -3,7 +3,7 @@ import { Zap, Mail } from "lucide-react";
 
 const cols = [
   { title: "Бүтээгдэхүүн", links: [["AI Борлуулагч", "#features"], ["Агуулах удирдлага", "#features"], ["Захиалгын систем", "#how"]] },
-  { title: "Суваг", links: [["Telegram", "#"], ["WhatsApp", "#"], ["Facebook", "#"]] },
+  { title: "Суваг", links: [["Facebook", "#"], ["WhatsApp", "#"], ["VIBER", "#"], ["Telegram", "#"]] },
   { title: "Компани", links: [["Нөхцөл", "#"], ["Нууцлал", "#"], ["Холбоо барих", "mailto:info@storeapp.us"]] },
 ];
 
@@ -16,7 +16,7 @@ export default function Footer() {
           AI борлуулагчаа <span className="text-gradient">өнөөдөр</span> эхлүүлээрэй
         </h2>
         <p className="text-gray-400 mb-8 max-w-md mx-auto">Бүртгэл үнэгүй. Кредит карт шаардахгүй.</p>
-        <a href="https://ai.storeapp.us/register"
+        <a href="/register/"
           className="inline-flex items-center gap-2 bg-white text-gray-900 font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-gray-100 transition-colors">
           Үнэгүй эхлэх →
         </a>

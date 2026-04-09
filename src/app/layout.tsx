@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "StoreApp — AI-д суурилсан борлуулалтын систем",
   description:
-    "Telegram, WhatsApp-аар AI чат-бот ашиглан бараа зарж, захиалга авч, агуулахаа удирда. 24/7 унтахгүй ажиллах борлуулагч.",
+    "Facebook, Viber, Telegram, WhatsApp-аар AI чат-бот ашиглан бараа зарж, захиалга авч, агуулахаа удирда. 24/7 унтахгүй ажиллах борлуулагч.",
   keywords: ["AI", "chatbot", "Telegram bot", "Монгол", "борлуулалт", "StoreApp"],
   openGraph: {
     title: "StoreApp — AI борлуулагч",

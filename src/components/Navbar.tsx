@@ -8,7 +8,7 @@ const links = [
   { label: "Боломжууд", href: "#features" },
   { label: "Хэрхэн ажилладаг", href: "#how" },
   { label: "Үнэ", href: "#pricing" },
-  { label: "Холбоо барих", href: "#footer" },
+  { label: "Холбоо барих", href: "/contact/" },
 ];
 
 export default function Navbar() {
@@ -24,8 +24,8 @@ export default function Navbar() {
     <>
       {/* Top banner */}
       <div className="bg-violet-600 text-white text-center text-xs font-medium py-2 px-4">
-        StoreApp-аар борлуулалтаа AI-д даатгаарай — Үнэгүй туршилт эхлүүлэх!{" "}
-        <a href="https://ai.storeapp.us/register" className="font-bold underline underline-offset-2 hover:text-violet-200 transition-colors">
+        Борлуулалтаа StoreApp AI-д даатгаарай —{" "}
+        <a href="/register/" className="font-bold underline underline-offset-2 hover:text-violet-200 transition-colors">
           Эхлэх <span className="inline-block">→</span>
         </a>
       </div>
@@ -48,14 +48,14 @@ export default function Navbar() {
           <ul className="hidden lg:flex items-center gap-1">
             {links.map(l => (
               <li key={l.label}>
-                <a href={l.href} className="text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all px-4 py-2 rounded-full">{l.label}</a>
+                <a href={l.href} className="text-[13px] font-semibold text-gray-700 uppercase tracking-wider hover:text-violet-600 transition-all px-4 py-2 rounded-full">{l.label}</a>
               </li>
             ))}
           </ul>
 
           <div className="hidden lg:flex items-center gap-4">
-            <a href="https://ai.storeapp.us/login" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Нэвтрэх</a>
-            <a href="https://ai.storeapp.us/register"
+            <a href="/login/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">Нэвтрэх</a>
+            <a href="/register/"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-white bg-gray-900 px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors">
               Эхлэх <ArrowRight size={14} />
             </a>
@@ -75,7 +75,7 @@ export default function Navbar() {
                   <li key={l.label}><a href={l.href} onClick={()=>setOpen(false)} className="block text-gray-700 font-medium py-2">{l.label}</a></li>
                 ))}
                 <li className="pt-3">
-                  <a href="https://ai.storeapp.us/register" className="block text-center bg-gray-900 text-white font-semibold py-2.5 rounded-full">Эхлэх</a>
+                  <a href="/register/" className="block text-center bg-gray-900 text-white font-semibold py-2.5 rounded-full">Эхлэх</a>
                 </li>
               </ul>
             </motion.div>

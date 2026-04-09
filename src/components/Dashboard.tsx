@@ -33,7 +33,7 @@ export default function Dashboard() {
               Захиалга, агуулах, тайлан, харилцагч — бүгдийг нэг платформоос хянаарай. Олон систем хооронд шилжих хэрэггүй.
             </p>
             <a
-              href="https://ai.storeapp.us/register"
+              href="/register/"
               className="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 border border-violet-200 px-5 py-2.5 rounded-xl hover:bg-violet-50 transition-all"
             >
               Дэлгэрэнгүй үзэх <ArrowRight size={14} />
