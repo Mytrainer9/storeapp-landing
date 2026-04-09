@@ -9,7 +9,7 @@ const plans = [
     price: "150,000",
     period: "/сар",
     desc: "Богино хугацаат",
-    features: ["Бүх функц", "Бүх суваг холболт", "AI борлуулагч", "Имэйл дэмжлэг"],
+    features: ["Бүх функц", "Бүх суваг холболт", "AI борлуулагч", "24/7 дэмжлэг"],
     highlighted: false,
   },
   {
@@ -44,11 +44,8 @@ export default function Pricing() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-            Та өөрт тохирох <span className="text-gradient"></span> хугацаагаа сонгоорой
+            Та өөрт тохирохыг <span className="text-gradient"></span>сонгоорой
           </h2>
-          <p className="text-gray-500 text-lg max-w-md mx-auto">
-            Бүх сонголт үнэгүй туршилтын хугацаатай.
-          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
