@@ -1,20 +1,20 @@
 "use client";
 
-const text = "МАРГААШ ӨНӨӨДРИЙГ ДАХИН ТОДОРХОЙЛЖ БАЙНА • ТАНЫ БИЗНЕСИЙН ХЭМ ХЭРЭГСЭЛ • ";
+const words = ["МАРГААШ ӨНӨӨДРИЙГ ДАХИН ТОДОРХОЙЛЖ", "AI ТАНЫ БИЗНЕСИЙГ ХӨГЖҮҮЛНЭ"];
 
 export default function MarqueeStrip() {
-  const repeated = text.repeat(4);
+  const line = words.join("  •  ") + "  •  ";
+  const repeated = line.repeat(6);
   return (
-    <section className="py-12 overflow-hidden bg-brand-600 relative">
-      {/* scrolling row */}
+    <section className="py-10 overflow-hidden border-y border-gray-100 bg-white">
       <div className="flex whitespace-nowrap select-none">
         <div className="animate-marquee flex shrink-0">
-          <span className="text-white/90 text-2xl md:text-3xl font-black tracking-widest uppercase">
+          <span className="text-4xl md:text-5xl lg:text-6xl font-black tracking-wider text-transparent" style={{WebkitTextStroke:"2px #d8b4fe"}}>
             {repeated}
           </span>
         </div>
         <div className="animate-marquee flex shrink-0" aria-hidden>
-          <span className="text-white/90 text-2xl md:text-3xl font-black tracking-widest uppercase">
+          <span className="text-4xl md:text-5xl lg:text-6xl font-black tracking-wider text-transparent" style={{WebkitTextStroke:"2px #d8b4fe"}}>
             {repeated}
           </span>
         </div>

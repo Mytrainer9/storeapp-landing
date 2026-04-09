@@ -1,91 +1,60 @@
 "use client";
-
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { num: 500,  suffix: "+", label: "Бизнест хэрэглэгдэж байна",    sub: "Монгол дахь дэлгүүрүүд"      },
-  { num: 24,   suffix: "/7", label: "Тасралтгүй ажиллагаа",         sub: "Жилийн 365 хоног"            },
-  { num: 98,   suffix: "%",  label: "Харилцагчдын сэтгэл ханамж",   sub: "Дундаж үнэлгээ 4.9/5"        },
+  { num: 14, suffix: "", label: "Интеграцчлагдсан суваг", color: "from-blue-500 to-blue-600" },
+  { num: 25, suffix: "", label: "Хийсвэр хэрэгслүүд", color: "from-violet-500 to-purple-600" },
+  { num: 83, suffix: "%", label: "Бизнесийн амжилт нэмэгдсэн", color: "from-emerald-500 to-teal-600" },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0);
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-
   useEffect(() => {
     if (!inView) return;
     let start = 0;
-    const step = Math.ceil(target / 60);
+    const step = Math.ceil(target / 50);
     const timer = setInterval(() => {
       start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(start);
-    }, 20);
+      if (start >= target) { setCount(target); clearInterval(timer); } else setCount(start);
+    }, 25);
     return () => clearInterval(timer);
   }, [inView, target]);
-
-  return (
-    <span ref={ref} className="text-6xl md:text-7xl font-black text-white tracking-tight">
-      {count}
-      <span className="text-brand-300 text-5xl">{suffix}</span>
-    </span>
-  );
+  return <span ref={ref}>{count}{suffix}</span>;
 }
 
 export default function Stats() {
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-
   return (
-    <section ref={ref} className="bg-dark-gradient py-24 px-6 relative overflow-hidden">
-      <div className="orb w-[600px] h-[400px] bg-brand-700/15 top-0 left-1/2 -translate-x-1/2" />
-
-      <div className="max-w-5xl mx-auto relative z-10">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center text-brand-300 text-sm font-bold tracking-widest uppercase mb-14"
-        >
-          Тоон мэдээлэл
-        </motion.p>
-
-        <div className="grid md:grid-cols-3 gap-8 md:gap-4">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 28 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
-              className="text-center glass-dark rounded-2xl p-8 border border-brand-700/20"
-            >
-              <Counter target={s.num} suffix={s.suffix} />
-              <h3 className="text-lg font-black text-white mt-3 mb-1">{s.label}</h3>
-              <p className="text-sm text-gray-400">{s.sub}</p>
+    <section ref={ref} className="py-24 px-6 bg-white">
+      <div className="max-w-5xl mx-auto">
+        <motion.div initial={{opacity:0,y:20}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.5}} className="text-center mb-6">
+          <span className="inline-block text-xs font-bold text-violet-600 tracking-widest uppercase bg-violet-100 border border-violet-200 px-3 py-1.5 rounded-full mb-4">Тоон мэдээлэл</span>
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
+            StoreApp ашиглах <span className="text-gradient">салбаруудыг</span> судал
+          </h2>
+        </motion.div>
+        <div className="grid md:grid-cols-3 gap-6 mt-14">
+          {stats.map((s,i) => (
+            <motion.div key={s.label} initial={{opacity:0,y:28}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.6,delay:i*0.12}}
+              className="relative rounded-3xl overflow-hidden group">
+              <div className={`absolute inset-0 bg-gradient-to-br ${s.color} opacity-90`} />
+              <div className="absolute inset-0 opacity-10" style={{backgroundImage:"radial-gradient(white 1px,transparent 1px)",backgroundSize:"16px 16px"}} />
+              <div className="relative p-8 text-center">
+                <div className="text-6xl md:text-7xl font-black text-white tracking-tight mb-3">
+                  <Counter target={s.num} suffix={s.suffix} />
+                </div>
+                <p className="text-white/80 text-sm font-semibold">{s.label}</p>
+              </div>
+              {/* Corner decoration */}
+              <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-white/10" />
+              <div className="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-white/10" />
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-20 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-            Борлуулалтаа{" "}
-            <span className="text-gradient">AI-д Даат</span>
-          </h2>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
-            Бүртгэл үнэгүй. Кредит карт шаардахгүй. Хэдий ч цуцалж болно.
-          </p>
-          <a href="https://ai.storeapp.us/register" className="btn-primary inline-flex text-base px-8 py-4">
-            Үнэгүй бүртгэл үүсгэх →
-          </a>
-        </motion.div>
       </div>
     </section>
   );

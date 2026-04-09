@@ -1,32 +1,12 @@
 "use client";
-
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Globe, Brain, Sparkles } from "lucide-react";
 
 const cards = [
-  {
-    icon:  Globe,
-    color: "from-blue-50 to-blue-100",
-    icolor:"text-blue-600 bg-blue-100",
-    title: "Дэлхийтэй холбогдоорой",
-    desc:  "Telegram, WhatsApp, Viber, Facebook — бүх сувгаар харилцагчдаа олоорой.",
-  },
-  {
-    icon:  Brain,
-    color: "from-brand-50 to-brand-100",
-    icolor:"text-brand-600 bg-brand-100",
-    title: "Хамгийн хэцүү асуудлыг шийдэ",
-    desc:  "AI борлуулагч таны бараа бүтээгдэхүүний мэдээллийг сурч, ямар ч асуулганд хариулна.",
-  },
-  {
-    icon:  Sparkles,
-    color: "from-amber-50 to-amber-100",
-    icolor:"text-amber-600 bg-amber-100",
-    title: "Бүтээлч боломжоо нэмэгдүүл",
-    desc:  "AI тайлан, зөвлөмж, борлуулалтын стратеги — бизнесийг хөгжүүлэх хэрэгсэл.",
-  },
+  { icon: Globe, title: "Дэлхийтэй холбогдоорой", desc: "Telegram, WhatsApp, Viber, Facebook — бүх суваг дээр харилцагчдаа олоорой.", color: "bg-blue-50 border-blue-100", ic: "text-blue-600 bg-blue-100" },
+  { icon: Brain, title: "Хамгийн хэцүү асуудлыг шийдэ", desc: "AI борлуулагч таны бараа бүтээгдэхүүний мэдээллийг сурч, ямар ч асуулганд хариулна.", color: "bg-violet-50 border-violet-100", ic: "text-violet-600 bg-violet-100" },
+  { icon: Sparkles, title: "Бүтээлч боломжоо нэмэгдүүл", desc: "AI тайлан, зөвлөмж, борлуулалтын стратеги — бизнесийг хөгжүүлэх хэрэгсэл.", color: "bg-amber-50 border-amber-100", ic: "text-amber-600 bg-amber-100" },
 ];
 
 export default function MeetSection() {
@@ -34,46 +14,43 @@ export default function MeetSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-white py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Top center */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          {/* Robot icon */}
-          <div className="inline-flex w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-100 to-brand-50 border border-brand-200/60 items-center justify-center mb-6 shadow-lg shadow-brand-100/50">
+    <section ref={ref} className="py-24 px-6 bg-white">
+      <div className="max-w-5xl mx-auto">
+        <motion.div initial={{opacity:0,y:24}} animate={inView?{opacity:1,y:0}:{}} transition={{duration:0.6}} className="text-center mb-6">
+          <span className="inline-block text-xs font-bold text-violet-600 tracking-widest uppercase bg-violet-50 border border-violet-100 px-4 py-1.5 rounded-full mb-4">AI Танилцуулга</span>
+          <div className="inline-flex w-20 h-20 rounded-3xl bg-gradient-to-br from-violet-100 to-purple-50 border border-violet-200 items-center justify-center mb-6 shadow-lg shadow-violet-100/50">
             <span className="text-4xl">🤖</span>
           </div>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-dark leading-tight mb-4">
-            StoreApp-тай танилц —{" "}
-            <span className="text-gradient">Таны Шинэ AI Хамтрагч!</span>
+          <h2 className="text-3xl md:text-4xl lg:text-[44px] font-black text-gray-900 leading-tight mb-4">
+            StoreApp-тай танилц — <span className="text-gradient">Таны Шинэ AI Хамтрагч!</span>
           </h2>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-            Чат хийж, асуулт хариулж, бизнесийг тань илүү хялбараар ажиллуулахад тусална.
-          </p>
+          <p className="text-gray-500 text-lg max-w-lg mx-auto">Чат хийж, асуулт хариулж, бизнесийг тань илүү хялбараар ажиллуулахад тусална.</p>
         </motion.div>
 
-        {/* 3 cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {cards.map((c, i) => (
-            <motion.div
-              key={c.title}
-              initial={{ opacity: 0, y: 32 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
-              className={`rounded-2xl bg-gradient-to-br ${c.color} border border-white shadow-sm p-7 card-hover cursor-default`}
-            >
-              <div className={`inline-flex w-12 h-12 rounded-xl items-center justify-center mb-5 ${c.icolor}`}>
-                <c.icon size={22} />
-              </div>
-              <h3 className="text-lg font-black text-dark mb-3">{c.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-            </motion.div>
-          ))}
+        {/* 3 cards with connector lines */}
+        <div className="relative mt-16">
+          {/* Connector line */}
+          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-blue-200 via-violet-200 to-amber-200 z-0" />
+
+          <div className="grid md:grid-cols-3 gap-8 relative z-10">
+            {cards.map((c, i) => (
+              <motion.div
+                key={c.title}
+                initial={{opacity:0,y:30}} animate={inView?{opacity:1,y:0}:{}}
+                transition={{duration:0.6,delay:i*0.15}}
+                className="text-center"
+              >
+                {/* Circle node */}
+                <div className={`w-24 h-24 rounded-full ${c.color} border-2 flex items-center justify-center mx-auto mb-6 shadow-sm`}>
+                  <div className={`w-14 h-14 rounded-2xl ${c.ic} flex items-center justify-center`}>
+                    <c.icon size={24} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-black text-gray-900 mb-3">{c.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed max-w-[280px] mx-auto">{c.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
