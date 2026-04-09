@@ -4,10 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 
 const links = [
-  { label: "Бүтээгдэхүүн", href: "#features" },
-  { label: "Шийдэл",       href: "#how" },
-  { label: "Суваг",        href: "#integrations" },
-  { label: "Блог",         href: "#" },
+  { label: "Боломжууд", href: "#features" },
+  { label: "Хэрхэн ажилладаг", href: "#how" },
   { label: "Холбоо барих", href: "#footer" },
 ];
 
@@ -28,36 +26,31 @@ export default function Navbar() {
         scrolled ? "bg-white/80 backdrop-blur-xl shadow-sm border-b border-gray-100" : "bg-transparent"
       }`}
     >
-      {/* Top banner */}
-      <div className="bg-gradient-to-r from-violet-600 to-purple-600 text-white text-center text-xs font-semibold py-1.5 px-4">
-        🚀 StoreApp — Монголын анхны AI борлуулалтын платформ &nbsp;|&nbsp; Хязгааргүй боломж
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-purple-500 flex items-center justify-center shadow-lg shadow-purple-300/40 group-hover:scale-105 transition-transform">
-            <Zap size={16} className="text-white" fill="white" />
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-purple-500 flex items-center justify-center shadow-md shadow-purple-300/30 group-hover:scale-105 transition-transform">
+            <Zap size={14} className="text-white" fill="white" />
           </div>
-          <span className="font-black text-xl text-gray-900">Store<span className="text-violet-600">App</span></span>
+          <span className="font-extrabold text-lg text-gray-900 tracking-tight">Store<span className="text-violet-600">App</span></span>
         </a>
 
-        <ul className="hidden lg:flex items-center gap-7">
+        <ul className="hidden md:flex items-center gap-8">
           {links.map(l => (
             <li key={l.label}>
-              <a href={l.href} className="text-[13px] font-semibold text-gray-600 hover:text-violet-600 transition-colors">{l.label}</a>
+              <a href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">{l.label}</a>
             </li>
           ))}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a href="https://ai.storeapp.us/login" className="text-[13px] font-bold text-gray-700 hover:text-violet-600 transition-colors px-4 py-2">Нэвтрэх</a>
+        <div className="hidden md:flex items-center gap-3">
+          <a href="https://ai.storeapp.us/login" className="text-sm text-gray-600 hover:text-gray-900 transition-colors px-3 py-2">Нэвтрэх</a>
           <a href="https://ai.storeapp.us/register"
-            className="text-[13px] font-bold text-white bg-gradient-to-r from-violet-600 to-purple-600 px-5 py-2.5 rounded-lg shadow-lg shadow-purple-300/30 hover:shadow-purple-400/40 hover:-translate-y-0.5 transition-all">
-            Үнэгүй эхлэх →
+            className="text-sm font-semibold text-white bg-gray-900 px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+            Эхлэх
           </a>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="lg:hidden text-gray-700 p-2">
+        <button onClick={() => setOpen(!open)} className="md:hidden text-gray-700 p-2">
           {open ? <X size={22}/> : <Menu size={22}/>}
         </button>
       </div>
@@ -65,13 +58,13 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div initial={{opacity:0,height:0}} animate={{opacity:1,height:"auto"}} exit={{opacity:0,height:0}}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 pb-6">
+            className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 pb-6">
             <ul className="flex flex-col gap-3 pt-4">
               {links.map(l => (
                 <li key={l.label}><a href={l.href} onClick={()=>setOpen(false)} className="text-gray-700 font-medium">{l.label}</a></li>
               ))}
-              <li className="pt-3 flex flex-col gap-2">
-                <a href="https://ai.storeapp.us/register" className="text-center bg-violet-600 text-white font-bold py-2.5 rounded-lg">Үнэгүй эхлэх</a>
+              <li className="pt-3">
+                <a href="https://ai.storeapp.us/register" className="block text-center bg-gray-900 text-white font-semibold py-2.5 rounded-lg">Эхлэх</a>
               </li>
             </ul>
           </motion.div>

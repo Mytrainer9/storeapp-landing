@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
-
-:root { --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif; }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-jakarta); background: #fff; color: #1e1e2f; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body { background: #fff; color: #1e1e2f; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f5f3ff; }
@@ -20,8 +16,4 @@ body { font-family: var(--font-jakarta); background: #fff; color: #1e1e2f; overf
     background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 50%, #c084fc 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .glass { background: rgba(255,255,255,.75); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.9); }
-  .glass-dark { background: rgba(10,10,26,.7); backdrop-filter: blur(16px); border: 1px solid rgba(139,92,246,.12); }
 }
-
-.orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
