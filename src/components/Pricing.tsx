@@ -5,7 +5,7 @@ import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
-    name: "1 Сар",
+    name: "1 сар",
     price: "150,000",
     period: "/сар",
     desc: "Богино хугацаат",
@@ -13,7 +13,7 @@ const plans = [
     highlighted: false,
   },
   {
-    name: "6 Сар",
+    name: "6 сар",
     price: "750,000",
     period: "/6 сар",
     desc: "Хамгийн түгээмэл сонголт",
@@ -21,7 +21,7 @@ const plans = [
     highlighted: true,
   },
   {
-    name: "1 Жил",
+    name: "1 жил",
     price: "1,500,000",
     period: "/жил",
     desc: "Хамгийн хэмнэлттэй",
