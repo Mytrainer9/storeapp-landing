@@ -7,7 +7,7 @@ const cards = [
   {
     icon: Globe,
     title: "Бүх сувгаар борлуулалт хий",
-    desc: "Telegram, Facebook, WhatsApp — хаанаас ч хэрэглэгч орж ирсэн AI шууд зарна.",
+    desc: "Telegram, Facebook, Viber, WhatsApp — хаанаас ч хэрэглэгч орж ирсэн AI шууд зарна.",
   },
   {
     icon: Brain,
@@ -38,7 +38,7 @@ export default function MeetSection() {
             Таны бизнесийн <span className="text-gradient">шинэ AI хамтрагч</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-md mx-auto">
-            Бизнесийг тань илүү хялбар, илүү хурдан ажиллуулахад тусална.
+            Бизнесийг тань илүү хялбар, илүү хурдан болгоход тусална.
           </p>
         </motion.div>
 

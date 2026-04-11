@@ -1,6 +1,6 @@
 "use client";
 
-const words = ["AI БОРЛУУЛАЛТ", "24/7 АЖИЛЛАГАА", "TELEGRAM", "FACEBOOK", "WHATSAPP", "АВТОМАТ ЗАХИАЛГА", "УХААЛАГ СИСТЕМ"];
+const words = ["AI БОРЛУУЛАЛТ", "24/7 АЖИЛЛАГАА", "TELEGRAM", "FACEBOOK", "WHATSAPP", "VIBER", "АВТОМАТ ЗАХИАЛГА", "УХААЛАГ СИСТЕМ"];
 
 export default function MarqueeStrip() {
   const line = words.join("  \u00b7  ") + "  \u00b7  ";

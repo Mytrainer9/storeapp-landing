@@ -6,7 +6,7 @@ const steps = [
   {
     num: "01",
     title: "Бүртгүүлэх",
-    desc: "Үнэгүй бүртгэл үүсгээд бизнесийнхээ мэдээллийг оруулна.",
+    desc: "Та бүртгэл үүсгээд бизнесийнхээ мэдээллийг оруулна.",
   },
   {
     num: "02",
@@ -16,7 +16,7 @@ const steps = [
   {
     num: "03",
     title: "Суваг холбох",
-    desc: "Telegram, Facebook, WhatsApp ботоо холбоод AI-г ажиллуулна.",
+    desc: "Telegram, Facebook, Viber, WhatsApp ботоо холбоод AI-г ажиллуулна.",
   },
   {
     num: "04",
