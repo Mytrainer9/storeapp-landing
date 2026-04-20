@@ -3,780 +3,238 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StoreApp — AI Борлуулагч</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+  <title>StoreApp AI — Таны AI Борлуулагч</title>
+  <meta name="description" content="AI борлуулагчаа StoreApp-д даатга. Telegram, Facebook Messenger-ээр 24/7 автомат борлуулалт."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --red:#e8453c;
-      --teal:#1dc9b7;
-      --navy:#1a2150;
-      --dark:#111827;
-      --gray:#f4f5f8;
-      --gray2:#eaedf5;
-      --border:#e2e6f0;
-      --text:#1a1a2e;
-      --muted:#6b7a99;
-      --purple-bg:#f0ecff;
-      --blue-bg:#e8f0ff;
-      --green-bg:#e6f9f5;
-      --yellow-bg:#fff8e6;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden}
+    :root{--o:#f97316;--o2:#ea580c;--o3:#c2410c;--ol:#fff7ed;--ol2:#ffedd5;--ol3:#fed7aa;--d:#1a1a2e;--d2:#0f0f1e;--g1:#f9fafb;--g2:#f3f4f6;--g3:#e5e7eb;--g4:#9ca3af;--g5:#6b7280;--g6:#4b5563;--g7:#374151;--w:#fff}
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',system-ui,sans-serif;color:var(--d);background:var(--w);overflow-x:hidden}a{text-decoration:none;color:inherit}img{max-width:100%}.ct{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* ══════════════════════════
-       NAV
-    ══════════════════════════ */
-    nav{
-      position:sticky;top:0;z-index:300;
-      background:#fff;border-bottom:1px solid var(--border);
-      height:65px;display:flex;align-items:center;
-      padding:0 5%;
-      box-shadow:0 1px 8px rgba(0,0,0,.06)
-    }
-    .logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
-    .logo-box{
-      width:32px;height:32px;border-radius:8px;
-      background:linear-gradient(135deg,#e8453c,#ff7a5c);
-      display:flex;align-items:center;justify-content:center;
-      font-size:17px;flex-shrink:0
-    }
-    .logo-txt{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.3px}
-    .logo-txt b{color:var(--red)}
-    .nav-mid{flex:1;display:flex;justify-content:center}
-    .nav-links{list-style:none;display:flex;gap:36px}
-    .nav-links a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
-    .nav-links a:hover{color:var(--navy)}
-    .nav-right{display:flex;gap:8px;align-items:center;flex-shrink:0}
-    .nb1{
-      font-size:13px;font-weight:700;color:var(--navy);
-      text-decoration:none;padding:8px 20px;
-      border:1.5px solid var(--border);border-radius:8px;
-      transition:all .2s
-    }
-    .nb1:hover{border-color:var(--navy)}
-    .nb2{
-      font-size:13px;font-weight:800;color:#fff;
-      text-decoration:none;padding:9px 22px;
-      background:var(--red);border-radius:8px;
-      box-shadow:0 3px 12px rgba(232,69,60,.28);
-      transition:all .2s
-    }
-    .nb2:hover{background:#d63c33;transform:translateY(-1px)}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--g3);height:64px}
+    .nv{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:100%}
+    .lg{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px}.lg i{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#fb923c,var(--o2));display:flex;align-items:center;justify-content:center;font-size:18px;font-style:normal}.lg span{background:linear-gradient(135deg,var(--o),var(--o3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nr{display:flex;align-items:center;gap:24px}.nr a{font-size:14px;font-weight:500;color:var(--g6);transition:color .2s}.nr a:hover{color:var(--o)}.nb{background:linear-gradient(135deg,var(--o),var(--o2))!important;color:var(--w)!important;padding:9px 22px;border-radius:10px;font-weight:600;font-size:13px;box-shadow:0 2px 12px rgba(249,115,22,.3);transition:all .2s}.nb:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(249,115,22,.4)}
+    @media(max-width:768px){.nr a:not(.nb){display:none}}
 
-    /* ══════════════════════════
-       HERO — 3 column
-    ══════════════════════════ */
-    .hero{
-      background:linear-gradient(180deg,var(--gray) 0%,#fff 100%);
-      padding:60px 5% 0;overflow:hidden
-    }
-    .hero-grid{
-      max-width:1280px;margin:0 auto;
-      display:grid;grid-template-columns:1fr 1.1fr 1fr;
-      gap:20px;align-items:flex-end
-    }
-    /* Left person image */
-    .hero-person{
-      display:flex;justify-content:flex-end;align-items:flex-end;
-      position:relative;padding-bottom:0
-    }
-    .person-img{
-      width:100%;max-width:340px;
-      height:440px;
-      background:linear-gradient(170deg,#dde4f5,#c8d3f0);
-      border-radius:20px 20px 0 0;
-      display:flex;align-items:flex-end;justify-content:center;
-      overflow:hidden;position:relative
-    }
-    .person-emoji{font-size:180px;line-height:1;margin-bottom:-10px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.15))}
-    /* floating badges on person */
-    .f-badge{
-      position:absolute;
-      background:#fff;border-radius:12px;padding:8px 14px;
-      box-shadow:0 6px 20px rgba(0,0,0,.12);
-      font-size:12px;font-weight:700;color:var(--navy);
-      display:flex;align-items:center;gap:7px;
-      border:1px solid rgba(0,0,0,.06)
-    }
-    .fb-a{top:60px;left:0;animation:fbob 3s ease-in-out infinite}
-    .fb-b{top:160px;right:-10px;animation:fbob 3s .8s ease-in-out infinite}
-    @keyframes fbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    /* HERO */
+    .hero{padding:120px 0 80px;background:linear-gradient(160deg,var(--d2) 0%,var(--d) 100%);color:var(--w);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(249,115,22,.15) 0%,transparent 60%)}
+    .hg{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
+    .hl-t{padding:20px 0}
+    .h-socials{display:flex;gap:8px;margin-bottom:20px}.h-socials a{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s}.h-socials a:hover{background:var(--o)}
+    .hero h1{font-size:50px;font-weight:900;line-height:1.12;margin-bottom:16px;letter-spacing:-1.5px}.hero h1 .hl{color:var(--o)}
+    .hero .sub{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:24px;line-height:1.6;max-width:440px}
+    .hero .desc{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:28px;line-height:1.6;max-width:420px}
+    .h-btns{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+    .bo{background:linear-gradient(135deg,var(--o),var(--o2));color:var(--w);padding:14px 32px;border-radius:12px;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(249,115,22,.35);transition:all .3s;display:inline-flex;align-items:center;gap:8px}.bo:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(249,115,22,.5)}
+    .bw{background:transparent;color:var(--w);padding:14px 32px;border-radius:12px;font-size:16px;font-weight:700;border:2px solid rgba(255,255,255,.2);transition:all .3s}.bw:hover{border-color:var(--o);color:var(--o)}
+    .h-note{font-size:12px;color:rgba(255,255,255,.35)}
+    /* Phone mock */
+    .hr{display:flex;justify-content:center;position:relative}
+    .ph{width:270px;background:#000;border-radius:32px;padding:8px;box-shadow:0 40px 100px rgba(0,0,0,.4);position:relative;z-index:2}
+    .ps{background:var(--w);border-radius:26px;overflow:hidden}
+    .pt{background:linear-gradient(135deg,#fb923c,var(--o2));padding:14px 16px;display:flex;align-items:center;gap:8px}.pt .av{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:14px}.pt h4{color:var(--w);font-size:14px;font-weight:700;flex:1}
+    .pb2{padding:12px;display:flex;flex-direction:column;gap:8px;min-height:320px}
+    .m{max-width:85%;padding:10px 14px;border-radius:14px;font-size:12px;line-height:1.5;color:var(--g7)}.mb{background:var(--ol);align-self:flex-start;border-bottom-left-radius:4px}.mu{background:var(--o);color:var(--w)!important;align-self:flex-end;border-bottom-right-radius:4px}
+    .pc{display:flex;gap:6px}.pci{min-width:100px;background:var(--g1);border:1px solid var(--g3);border-radius:10px;padding:8px;text-align:center;flex-shrink:0}.pci .e{font-size:24px}.pci .n{font-size:10px;font-weight:600;color:var(--d)}.pci .p{font-size:11px;font-weight:700;color:var(--o2)}.pci .b{display:inline-block;background:var(--o);color:var(--w);padding:2px 8px;border-radius:5px;font-size:9px;font-weight:600;margin-top:3px}
+    /* Floats */
+    .fl{position:absolute;background:var(--w);border-radius:14px;padding:10px 14px;box-shadow:0 8px 30px rgba(0,0,0,.1);display:flex;align-items:center;gap:10px;z-index:3;font-size:13px}.fl .ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}.fl .ic.io{background:var(--ol)}.fl .ic.ig{background:#ecfdf5}.fl .t{font-size:10px;color:var(--g4)}.fl .v{font-weight:700;color:var(--d)}
+    .f1{top:30px;right:-20px;animation:bob 3s ease-in-out infinite}.f2{bottom:80px;left:-30px;animation:bob 3s ease-in-out infinite 1.5s}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @media(max-width:900px){.hg{grid-template-columns:1fr;text-align:center}.hero h1{font-size:34px}.hero .sub,.hero .desc{margin:0 auto 24px}.h-btns{justify-content:center}.hr{margin-top:40px}.fl{display:none}}
 
-    /* Center text */
-    .hero-center{text-align:center;padding-bottom:60px;position:relative;z-index:1}
-    .hero-sup{
-      font-size:13px;font-weight:700;color:var(--muted);
-      letter-spacing:1px;margin-bottom:14px
-    }
-    .hero-h1{
-      font-size:clamp(34px,4.5vw,56px);
-      font-weight:900;line-height:1.1;
-      letter-spacing:-1.5px;color:var(--navy);
-      text-transform:uppercase;margin-bottom:20px
-    }
-    .hero-h1 .accent{color:var(--red)}
-    .hero-p{
-      font-size:15px;color:var(--muted);
-      max-width:360px;margin:0 auto 28px;line-height:1.75
-    }
-    .btn-teal{
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--teal);color:#fff;
-      font-size:14px;font-weight:800;
-      padding:13px 30px;border-radius:8px;
-      text-decoration:none;
-      box-shadow:0 4px 16px rgba(29,201,183,.35);
-      transition:all .2s
-    }
-    .btn-teal:hover{background:#18b3a3;transform:translateY(-2px)}
+    /* MARQUEE */
+    .mq{background:var(--o);padding:14px 0;overflow:hidden;white-space:nowrap}
+    .mq-inner{display:inline-flex;animation:scroll 20s linear infinite}
+    .mq-inner span{font-size:14px;font-weight:700;color:var(--w);letter-spacing:2px;text-transform:uppercase;padding:0 32px}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-    /* Right phone */
-    .hero-phone-wrap{
-      display:flex;justify-content:flex-start;align-items:flex-end;
-      position:relative
-    }
-    .hero-phone{
-      width:220px;
-      background:#1a1a2e;
-      border-radius:28px 28px 0 0;
-      overflow:hidden;
-      box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 0 6px rgba(255,255,255,.8);
-      border:2px solid rgba(255,255,255,.5)
-    }
-    .hp-top{
-      background:#0d0d24;
-      padding:22px 12px 10px;
-      display:flex;align-items:center;gap:8px
-    }
-    .hp-icon{
-      width:30px;height:30px;border-radius:50%;
-      background:var(--red);display:flex;align-items:center;justify-content:center;font-size:14px
-    }
-    .hp-n{font-size:12px;font-weight:700;color:#fff}
-    .hp-s{font-size:10px;color:var(--teal)}
-    .hp-body{padding:10px 10px;background:#f4f5f8;display:flex;flex-direction:column;gap:8px;min-height:320px}
-    .hb,.hu{max-width:84%;padding:8px 11px;border-radius:10px;font-size:11.5px;line-height:1.5}
-    .hb{background:#fff;color:var(--text);border-bottom-left-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
-    .hu{background:var(--teal);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
-    .hpcard{background:#fff;border-radius:10px;padding:10px;max-width:90%;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:11px}
-    .hpc-name{font-weight:800;color:var(--navy);font-size:12px}
-    .hpc-price{color:var(--red);font-weight:900;font-size:13px;margin-top:2px}
-    .hpc-meta{color:var(--muted);font-size:10px;margin-top:3px;line-height:1.6}
-    .ht{font-size:9.5px;color:var(--muted);margin-top:2px;padding:0 2px}
-    /* Phone floating badges */
-    .fb-c{top:40px;right:-20px;animation:fbob 3s .4s ease-in-out infinite}
-    .fb-d{bottom:80px;left:-30px;animation:fbob 3s 1.2s ease-in-out infinite}
+    /* SECTION */
+    .sec{padding:80px 0}.sh{text-align:center;margin-bottom:48px}.sh h2{font-size:34px;font-weight:800;margin-bottom:10px;letter-spacing:-.5px}.sh h2 .hl{color:var(--o)}.sh p{font-size:16px;color:var(--g5);max-width:500px;margin:0 auto}.bg-l{background:var(--g1)}
 
-    /* ══════════════════════════
-       STATS BAR
-    ══════════════════════════ */
-    .stats{
-      background:var(--navy);
-      padding:44px 5%
-    }
-    .stats-in{
-      max-width:900px;margin:0 auto;
-      display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap
-    }
-    .st{text-align:center}
-    .st-n{font-size:46px;font-weight:900;color:#fff;letter-spacing:-2px;line-height:1}
-    .st-n small{font-size:22px;color:var(--teal)}
-    .st-l{font-size:12px;color:rgba(255,255,255,.55);margin-top:6px;font-weight:500}
+    /* 3 FEATURE CARDS */
+    .fg3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}@media(max-width:768px){.fg3{grid-template-columns:1fr}}
+    .fc{background:var(--w);border:1px solid var(--g3);border-radius:20px;padding:32px;text-align:center;transition:all .3s}.fc:hover{border-color:var(--o);transform:translateY(-4px);box-shadow:0 16px 48px rgba(249,115,22,.08)}
+    .fc .fi{width:64px;height:64px;border-radius:16px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:32px;background:linear-gradient(135deg,var(--ol),var(--ol2))}.fc h3{font-size:18px;font-weight:700;margin-bottom:8px}.fc p{font-size:14px;color:var(--g5);line-height:1.6}
+    .fc ul{list-style:none;text-align:left;margin-top:12px}.fc ul li{font-size:13px;color:var(--g6);padding:4px 0}.fc ul li::before{content:'✅ ';font-size:12px}
 
-    /* ══════════════════════════
-       LOGOS
-    ══════════════════════════ */
-    .logos{
-      padding:44px 5%;text-align:center;
-      background:#fff;border-bottom:1px solid var(--border)
-    }
-    .logos p{font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:28px}
-    .logos-row{
-      display:flex;justify-content:center;align-items:center;
-      gap:52px;flex-wrap:wrap;max-width:900px;margin:0 auto;
-      filter:grayscale(1);opacity:.5
-    }
-    .logos-row span{font-size:16px;font-weight:800;color:#888;letter-spacing:-.3px}
+    /* TOOLS 2-COL */
+    .tg{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}@media(max-width:768px){.tg{grid-template-columns:1fr}}
+    .tg-text h2{font-size:34px;font-weight:800;margin-bottom:16px;letter-spacing:-.5px}.tg-text p{font-size:15px;color:var(--g5);line-height:1.7;margin-bottom:20px}
+    .tg-list{list-style:none}.tg-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:14px;color:var(--g6)}.tg-list .li-i{width:36px;height:36px;border-radius:10px;background:var(--ol);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .tg-visual{display:flex;justify-content:center}.tg-mock{background:var(--g1);border:1px solid var(--g3);border-radius:20px;padding:24px;width:100%;max-width:400px}
+    .tg-item{display:flex;align-items:center;gap:12px;padding:12px;border-bottom:1px solid var(--g3);font-size:13px}.tg-item:last-child{border:0}.tg-item .ti-i{font-size:20px}.tg-item .ti-n{flex:1;font-weight:600}.tg-item .ti-v{font-weight:700;color:var(--o2)}
 
-    /* ══════════════════════════
-       FEATURES HEADING
-    ══════════════════════════ */
-    .feat-title-sec{
-      text-align:center;padding:80px 5% 20px
-    }
-    .feat-title-sec h2{
-      font-size:clamp(22px,3vw,32px);
-      font-weight:900;color:var(--navy);letter-spacing:-.5px
-    }
+    /* STEPS */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.steps{grid-template-columns:1fr}}
+    .step{text-align:center;padding:24px 16px}.step::before{counter-increment:s;content:counter(s);width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--o),var(--o2));color:var(--w);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;margin:0 auto 14px}.step h3{font-size:15px;font-weight:700;margin-bottom:6px}.step p{font-size:13px;color:var(--g5);line-height:1.6}
 
-    /* ══════════════════════════
-       FEATURE ROWS
-    ══════════════════════════ */
-    .feat-row{
-      padding:60px 5%;display:flex;align-items:center;
-      max-width:1200px;margin:0 auto;gap:60px
-    }
-    .feat-row.rev{flex-direction:row-reverse}
-    .feat-visual{
-      flex:0 0 48%;max-width:48%;
-      position:relative
-    }
-    .feat-box{
-      border-radius:20px;aspect-ratio:4/3;
-      display:flex;align-items:center;justify-content:center;
-      overflow:hidden;position:relative
-    }
-    .feat-box.purple{background:linear-gradient(135deg,#ede8ff,#d8ccff)}
-    .feat-box.blue{background:linear-gradient(135deg,#e0ecff,#ccdeff)}
-    .feat-box.green{background:linear-gradient(135deg,#d9f7f0,#b8f0e4)}
-    .feat-box.orange{background:linear-gradient(135deg,#fff0dd,#ffe2b8)}
-    .feat-big-icon{font-size:90px;opacity:.85;filter:drop-shadow(0 8px 20px rgba(0,0,0,.12))}
-    /* Chip on image */
-    .feat-chip{
-      position:absolute;top:16px;left:16px;
-      font-size:11px;font-weight:800;
-      text-transform:uppercase;letter-spacing:1px;
-      padding:5px 12px;border-radius:6px;color:#fff
-    }
-    .chip-purple{background:#7c3aed}
-    .chip-blue{background:#2563eb}
-    .chip-green{background:#059669}
-    .chip-orange{background:#d97706}
-    /* Floating cards on feature images */
-    .feat-float{
-      position:absolute;
-      background:#fff;border-radius:10px;
-      padding:8px 13px;
-      box-shadow:0 6px 20px rgba(0,0,0,.1);
-      font-size:11.5px;font-weight:700;color:var(--navy);
-      display:flex;align-items:center;gap:6px;
-      border:1px solid rgba(0,0,0,.06);
-      white-space:nowrap
-    }
-    .ff1{bottom:16px;right:16px}
-    .ff2{bottom:60px;left:16px}
+    /* TESTIMONIALS */
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:768px){.test-grid{grid-template-columns:1fr}}
+    .test{background:var(--w);border:1px solid var(--g3);border-radius:16px;padding:24px}.test .stars{color:var(--o);font-size:14px;margin-bottom:10px}.test q{font-size:14px;color:var(--g6);line-height:1.6;display:block;margin-bottom:14px;font-style:italic}.test .author{display:flex;align-items:center;gap:10px}.test .av2{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--ol),var(--ol2));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--o2)}.test .aname{font-size:13px;font-weight:600}.test .arole{font-size:11px;color:var(--g4)}
 
-    /* Text side */
-    .feat-text{flex:1}
-    .feat-text h3{
-      font-size:clamp(20px,2.5vw,30px);
-      font-weight:900;color:var(--navy);
-      letter-spacing:-.5px;line-height:1.2;margin-bottom:14px
-    }
-    .feat-text p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px;max-width:440px}
-    .feat-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .feat-list li{
-      display:flex;gap:10px;align-items:flex-start;
-      font-size:14px;font-weight:500;color:var(--text)
-    }
-    .fli{
-      flex-shrink:0;width:22px;height:22px;
-      border-radius:6px;background:rgba(29,201,183,.12);
-      color:var(--teal);display:flex;align-items:center;justify-content:center;
-      font-size:12px;font-weight:900;margin-top:1px
-    }
+    /* PRICING */
+    .pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}@media(max-width:768px){.pr-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
+    .pr{background:var(--w);border:1px solid var(--g3);border-radius:20px;padding:32px;text-align:center;transition:all .3s;position:relative}.pr:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+    .pr.pop{border:2px solid var(--o);box-shadow:0 12px 40px rgba(249,115,22,.12)}.pr.pop::after{content:'Хамгийн их сонголт';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--o);color:var(--w);padding:4px 16px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
+    .pr h3{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--g5)}.pr .price{font-size:36px;font-weight:900;color:var(--d);margin-bottom:4px}.pr .price span{font-size:14px;font-weight:500;color:var(--g4)}.pr .per{font-size:13px;color:var(--g4);margin-bottom:20px}
+    .pr ul{list-style:none;text-align:left;margin-bottom:24px}.pr ul li{font-size:13px;color:var(--g6);padding:6px 0;border-bottom:1px solid var(--g2)}.pr ul li:last-child{border:0}.pr ul li::before{content:'✓ ';color:var(--o);font-weight:700}
+    .pr .pr-btn{display:block;padding:12px;border-radius:10px;font-size:14px;font-weight:600;transition:all .3s}.pr .pr-btn.fill{background:linear-gradient(135deg,var(--o),var(--o2));color:var(--w);box-shadow:0 4px 16px rgba(249,115,22,.3)}.pr .pr-btn.fill:hover{box-shadow:0 8px 24px rgba(249,115,22,.4)}.pr .pr-btn.out{border:2px solid var(--g3);color:var(--g7)}.pr .pr-btn.out:hover{border-color:var(--o);color:var(--o)}
 
-    /* ══════════════════════════
-       INTEGRATION ROW
-    ══════════════════════════ */
-    .integr{
-      background:var(--gray);padding:80px 5%;
-      display:flex;align-items:center;gap:60px;
-      max-width:1200px;margin:0 auto
-    }
-    .integr-left{flex:1}
-    .integr-left h2{font-size:clamp(20px,2.8vw,32px);font-weight:900;color:var(--navy);letter-spacing:-.5px;margin-bottom:14px;line-height:1.2}
-    .integr-left p{font-size:15px;color:var(--muted);max-width:400px;line-height:1.8}
-    .integr-right{flex:0 0 42%;max-width:42%}
-    .integr-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:12px
-    }
-    .ig{
-      background:#fff;border-radius:12px;padding:16px 12px;
-      text-align:center;border:1px solid var(--border);
-      font-size:13px;font-weight:700;color:var(--navy);
-      transition:all .2s
-    }
-    .ig:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,201,183,.12)}
-    .ig .ig-ic{font-size:30px;margin-bottom:7px}
-    .ig .ig-tag{font-size:10px;font-weight:700;color:var(--teal);background:rgba(29,201,183,.1);padding:2px 8px;border-radius:99px;margin-top:4px;display:inline-block}
+    /* CTA */
+    .cta{background:linear-gradient(135deg,var(--o),var(--o2),var(--o3));padding:80px 24px;text-align:center;color:var(--w);position:relative;overflow:hidden}.cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.08) 0%,transparent 50%)}.cta h2{font-size:36px;font-weight:800;margin-bottom:12px;position:relative}.cta h2 em{color:var(--ol2);font-style:normal}.cta p{font-size:17px;opacity:.85;margin-bottom:32px;position:relative}.cta .cb{display:inline-block;background:var(--w);color:var(--o2);padding:16px 40px;border-radius:12px;font-size:17px;font-weight:700;transition:all .3s;position:relative}.cta .cb:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
 
-    /* ══════════════════════════
-       CTA EMAIL SECTION
-    ══════════════════════════ */
-    .cta-email{
-      background:var(--navy);
-      padding:72px 5%
-    }
-    .cta-email-in{
-      max-width:900px;margin:0 auto;
-      display:flex;align-items:center;gap:40px;flex-wrap:wrap
-    }
-    .cta-email-left{flex:1;min-width:280px}
-    .cta-email-left p{
-      font-size:clamp(14px,2vw,17px);
-      color:rgba(255,255,255,.7);
-      line-height:1.7
-    }
-    .cta-email-right{flex:0 0 380px;max-width:100%}
-    .email-form{display:flex;gap:8px}
-    .email-inp{
-      flex:1;padding:13px 16px;border-radius:8px;
-      border:none;font-size:14px;font-weight:500;
-      background:rgba(255,255,255,.1);color:#fff;outline:none;
-      font-family:inherit
-    }
-    .email-inp::placeholder{color:rgba(255,255,255,.4)}
-    .email-inp:focus{background:rgba(255,255,255,.15);outline:2px solid rgba(29,201,183,.4)}
-    .btn-red2{
-      flex-shrink:0;
-      display:inline-flex;align-items:center;gap:6px;
-      background:var(--red);color:#fff;
-      font-size:14px;font-weight:800;
-      padding:13px 24px;border-radius:8px;
-      text-decoration:none;border:none;cursor:pointer;
-      font-family:inherit;
-      box-shadow:0 4px 14px rgba(232,69,60,.35);
-      transition:all .2s
-    }
-    .btn-red2:hover{background:#d63c33;transform:translateY(-1px)}
-
-    /* ══════════════════════════
-       DEMO SECTION
-    ══════════════════════════ */
-    .demo-sec{
-      padding:80px 5%;text-align:center;
-      background:#fff
-    }
-    .demo-sup{font-size:12px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
-    .demo-sec h2{font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--navy);letter-spacing:-.5px;margin-bottom:10px}
-    .demo-sec p{font-size:15px;color:var(--muted);margin-bottom:32px}
-    .demo-btn{
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--red);color:#fff;
-      font-size:15px;font-weight:800;
-      padding:14px 36px;border-radius:8px;
-      text-decoration:none;
-      box-shadow:0 4px 18px rgba(232,69,60,.32);
-      transition:all .2s;margin-bottom:48px
-    }
-    .demo-btn:hover{background:#d63c33;transform:translateY(-2px)}
-    /* Dashboard mockup */
-    .dash-mock{
-      max-width:900px;margin:0 auto;
-      background:var(--gray);border-radius:16px;overflow:hidden;
-      border:1px solid var(--border);
-      box-shadow:0 20px 60px rgba(0,0,0,.08)
-    }
-    .dash-bar{
-      background:var(--navy);padding:12px 20px;
-      display:flex;align-items:center;gap:8px
-    }
-    .d-dot{width:10px;height:10px;border-radius:50%}
-    .dash-body{padding:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-    .dash-card{background:#fff;border-radius:10px;padding:16px;border:1px solid var(--border)}
-    .dash-card .dc-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-    .dash-card .dc-val{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-1px}
-    .dash-card .dc-sub{font-size:11px;color:var(--teal);font-weight:700;margin-top:3px}
-
-    /* ══════════════════════════
-       FOOTER
-    ══════════════════════════ */
-    footer{
-      background:#f9fafc;border-top:1px solid var(--border);
-      padding:56px 5% 32px
-    }
-    .ft-in{max-width:1200px;margin:0 auto}
-    .ft-top{
-      display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-      gap:48px;margin-bottom:48px
-    }
-    .ft-brand .ft-logo{display:flex;align-items:center;gap:8px;margin-bottom:12px;text-decoration:none}
-    .ft-brand p{font-size:13px;color:var(--muted);line-height:1.8;max-width:240px}
-    .ft-col h5{font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
-    .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .ft-col a{font-size:13.5px;color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s}
-    .ft-col a:hover{color:var(--navy)}
-    .ft-bot{
-      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-      padding-top:24px;border-top:1px solid var(--border);
-      font-size:12.5px;color:var(--muted)
-    }
-    .ft-bot a{color:var(--teal);text-decoration:none;font-weight:700}
-
-    /* ══════════════════════════
-       SCROLL REVEAL
-    ══════════════════════════ */
-    .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-    .rv.on{opacity:1;transform:translateY(0)}
-    .rv2{opacity:0;transform:translateY(24px);transition:opacity .6s .1s ease,transform .6s .1s ease}
-    .rv2.on{opacity:1;transform:translateY(0)}
-    .rv3{opacity:0;transform:translateY(24px);transition:opacity .6s .2s ease,transform .6s .2s ease}
-    .rv3.on{opacity:1;transform:translateY(0)}
-
-    /* ══════════════════════════
-       RESPONSIVE
-    ══════════════════════════ */
-    @media(max-width:900px){
-      .nav-mid{display:none}
-      .hero-grid{grid-template-columns:1fr;text-align:center}
-      .hero-person,.hero-phone-wrap{display:none}
-      .feat-row,.feat-row.rev,.integr{flex-direction:column;gap:36px}
-      .feat-visual,.integr-right{max-width:100%;width:100%}
-      .cta-email-right{flex:none;width:100%}
-      .ft-top{grid-template-columns:1fr 1fr;gap:28px}
-      .dash-body{grid-template-columns:1fr}
-    }
-    @media(max-width:600px){
-      .stats-in{flex-direction:column;gap:28px}
-      .ft-top{grid-template-columns:1fr;gap:24px}
-      .email-form{flex-direction:column}
-    }
+    /* FOOTER */
+    footer{background:var(--d2);color:var(--g4);padding:40px 24px;text-align:center}footer .fl{font-size:20px;font-weight:800;color:var(--o);margin-bottom:12px;position:static;background:none;box-shadow:none;display:block;padding:0}footer p{font-size:13px;margin-bottom:6px}footer .fls{display:flex;justify-content:center;gap:20px;margin:14px 0}footer .fls a{color:var(--g4);font-size:13px}footer .fls a:hover{color:var(--o)}footer .fc2{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--g5)}
   </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
-<nav>
-  <a href="/" class="logo">
-    <div class="logo-box">🤖</div>
-    <span class="logo-txt">Store<b>App</b></span>
-  </a>
-  <div class="nav-mid">
-    <ul class="nav-links">
-      <li><a href="#features">Үйлчилгээ</a></li>
-      <li><a href="#pricing">Үнэ</a></li>
-      <li><a href="#channels">Суваг</a></li>
-      <li><a href="#demo">Туршилт</a></li>
-    </ul>
-  </div>
-  <div class="nav-right">
-    <a href="https://ai.storeapp.us/login" class="nb1">НЭВТРЭХ</a>
-    <a href="https://ai.storeapp.us/register" class="nb2">БҮРТГҮҮЛЭХ</a>
-  </div>
-</nav>
+<!-- NAV -->
+<nav><div class="nv">
+  <a href="/" class="lg"><i>🤖</i><span>StoreApp AI</span></a>
+  <div class="nr"><a href="#features">Онцлог</a><a href="#how">Хэрхэн</a><a href="#pricing">Үнэ</a><a href="#channels">Сувгууд</a><a href="https://ai.storeapp.us/seller/login.html" class="nb">Үнэгүй турших</a></div>
+</div></nav>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="hero-grid">
-
-    <!-- Left: person -->
-    <div class="hero-person rv">
-      <div style="position:relative">
-        <div class="person-img">
-          <div class="person-emoji">🧑‍💼</div>
-        </div>
-        <div class="f-badge fb-a">🤖 AI борлуулагч</div>
-        <div class="f-badge fb-b">📦 Захиалга ирлээ!</div>
+<!-- HERO -->
+<section class="hero"><div class="ct"><div class="hg">
+  <div class="hl-t">
+    <div class="h-socials"><a>f</a><a>📷</a><a>✈️</a></div>
+    <h1>Борлуулалтаа<br><span class="hl">StoreApp</span>-д даатга.</h1>
+    <div class="sub">Бодож, ярьж, хариулж, борлуулна.</div>
+    <div class="desc">StoreApp AI нь хиймэл оюун ухаан дээр суурилсан ухаалаг борлуулагч. Таны бизнесийн бүх платформд нэгэн зэрэг ажиллаж, харилцагчдийг автоматаар үйлчилнэ.</div>
+    <div class="h-btns"><a href="https://ai.storeapp.us/seller/login.html" class="bo">Үнэгүй турших</a><a href="#how" class="bw">Demo үзэх</a></div>
+    <div class="h-note">Үнэгүй турших хугацааг нь өдрөө шалгаарай!</div>
+  </div>
+  <div class="hr">
+    <div class="fl f1"><div class="ic io">📦</div><div><div class="t">Захиалга</div><div class="v">1,245</div></div></div>
+    <div class="fl f2"><div class="ic ig">📈</div><div><div class="t">Борлуулалт</div><div class="v" style="color:#059669">+35%</div></div></div>
+    <div class="ph"><div class="ps"><div class="pt"><div class="av">🤖</div><h4>StoreApp AI</h4></div><div class="pb2">
+      <div class="m mb">Сайн байна уу! Би таны AI борлуулагч байна 🤖</div>
+      <div class="m mu">Таны нүүгээр юу үслэх вэ?</div>
+      <div class="pc">
+        <div class="pci"><div class="e">🎧</div><div class="n">AirPods Pro 2</div><div class="p">999,000₮</div><div class="b">Захиалах</div></div>
+        <div class="pci"><div class="e">📱</div><div class="n">iPhone 16</div><div class="p">4,200,000₮</div><div class="b">Захиалах</div></div>
       </div>
-    </div>
-
-    <!-- Center: text -->
-    <div class="hero-center rv2">
-      <div class="hero-sup">Таны Бизнесийн Тоноглол</div>
-      <h1 class="hero-h1">
-        БОРЛУУЛАЛТАА<br/>
-        <span class="accent">AI-Д ДААТ</span>
-      </h1>
-      <p class="hero-p">Хүн бүрт зориулсан виртуал борлуулагч. Telegram, WhatsApp дээр 24/7 ажиллана.</p>
-      <a href="https://ai.storeapp.us/register" class="btn-teal">ҮНЭГҮЙ ЭХЛЭХ</a>
-    </div>
-
-    <!-- Right: phone -->
-    <div class="hero-phone-wrap rv3">
-      <div style="position:relative">
-        <div class="hero-phone">
-          <div class="hp-top">
-            <div class="hp-icon">🤖</div>
-            <div>
-              <div class="hp-n">StoreBot</div>
-              <div class="hp-s">● онлайн</div>
-            </div>
-          </div>
-          <div class="hp-body">
-            <div>
-              <div class="hb">Сайн уу! 👋 Юу хайж байна вэ?</div>
-              <div class="ht">10:24</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:flex-end">
-              <div class="hu">Шкив 6PK байна уу?</div>
-              <div class="ht" style="text-align:right">10:24</div>
-            </div>
-            <div>
-              <div class="hpcard">
-                <div class="hpc-name">🔩 Шкив 6PK-1870</div>
-                <div class="hpc-price">₮ 45,000</div>
-                <div class="hpc-meta">⚙️ Загвар: JD1 · 🟢 Нөөцтэй</div>
-              </div>
-              <div class="ht">10:24</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:flex-end">
-              <div class="hu">Захиалах</div>
-              <div class="ht" style="text-align:right">10:25</div>
-            </div>
-            <div>
-              <div class="hb">✅ Захиалга #1042 баталгаажлаа! 🎉</div>
-              <div class="ht">10:25</div>
-            </div>
-          </div>
-        </div>
-        <div class="f-badge fb-c">📊 Өнөөдөр 24 захиалга</div>
-        <div class="f-badge fb-d">💬 Шинэ харилцагч!</div>
-      </div>
-    </div>
-
+      <div style="background:var(--o);color:#fff;padding:8px;border-radius:8px;font-size:11px;font-weight:700;text-align:center;margin-top:4px">💳 Төлбөр төлөх</div>
+    </div></div></div>
   </div>
-</section>
+</div></div></section>
 
-<!-- ═══ STATS ═══ -->
-<div class="stats">
-  <div class="stats-in">
-    <div class="st rv">
-      <div class="st-n">24<small>/7</small></div>
-      <div class="st-l">Тасралтгүй ажиллагаа</div>
-    </div>
-    <div class="st rv2">
-      <div class="st-n">500<small>+</small></div>
-      <div class="st-l">Бизнест хэрэглэгдэж байна</div>
-    </div>
-    <div class="st rv3">
-      <div class="st-n">5<small>+</small></div>
-      <div class="st-l">Мессежийн суваг</div>
-    </div>
+<!-- MARQUEE -->
+<div class="mq"><div class="mq-inner">
+  <span>AI БОРЛУУЛАГЧ</span><span>·</span><span>24/7 АЖИЛЛАНА</span><span>·</span><span>TELEGRAM</span><span>·</span><span>FACEBOOK</span><span>·</span><span>WHATSAPP</span><span>·</span>
+  <span>AI БОРЛУУЛАГЧ</span><span>·</span><span>24/7 АЖИЛЛАНА</span><span>·</span><span>TELEGRAM</span><span>·</span><span>FACEBOOK</span><span>·</span><span>WHATSAPP</span><span>·</span>
+</div></div>
+
+<!-- FEATURES -->
+<section class="sec" id="features"><div class="ct">
+  <div class="sh"><h2>Таны бизнесийн цахим <span class="hl">AI хамтрагч</span></h2><p>Бүтээгдэхүүн хайх, мэдээлэл өгөх, захиалга хүлээн авах бүх ажлыг автомат гүйцэтгэнэ</p></div>
+  <div class="fg3">
+    <div class="fc"><div class="fi">🔍</div><h3>Бүт сувгаар харилцагч олно</h3><p>Telegram, Facebook, Instagram, WhatsApp зэрэг олон сувгаар нэгэн зэрэг ажиллана</p>
+      <ul><li>Хэрэглэгчдийн идэвхжил үүсгэ</li><li>Хэрэглэгчийн туршлагыг хөгжүүл</li><li>Илүү чанартай сэжмүүдийг бий болго</li><li>Conversion Rate-ээ нэмэгдүүл</li></ul></div>
+    <div class="fc"><div class="fi">📊</div><h3>Харилцагчдийг хялбар сегментчил</h3><p>Сэжмүүдийг хялбар борлуулалт болго, харилцагчидтэй үүсэх боломжуудыг ихэсгэ</p>
+      <ul><li>Сэжмүүдийг борлуулалт болго</li><li>Сэжмүүдийг хялбар сегментчил</li><li>Орхигдсон сагсыг дахин сэргээ</li><li>Захиалгын мэдээллүүдийг илгээ</li></ul></div>
+    <div class="fc"><div class="fi">⚡</div><h3>Хэрэглэгчдэд хялбар үйлчил</h3><p>Хэрэглэгчийн бүх асуудлыг шийдэж, хурдан, чанартай үйлчилгээ үзүүлнэ</p>
+      <ul><li>Хэрэглэгчийн асуултанд хариулна</li><li>Асуудлыг хурдан шийднэ</li><li>Хэрэглэгчийн сэтгэл ханамж</li><li>Байнгын харилцагч болгоно</li></ul></div>
   </div>
-</div>
+</div></section>
 
-<!-- ═══ LOGOS ═══ -->
-<div class="logos">
-  <p>Манай платформ ашиглаж буй бизнесүүд</p>
-  <div class="logos-row">
-    <span>AutoParts MN</span>
-    <span>TechStore UB</span>
-    <span>FashionMall</span>
-    <span>BuildMart</span>
-    <span>SportShop MN</span>
-    <span>HomeDecor</span>
-  </div>
-</div>
-
-<!-- ═══ FEATURES TITLE ═══ -->
-<div class="feat-title-sec rv">
-  <h2>AI борлуулалтын чухал хэрэгсэл</h2>
-</div>
-
-<!-- ═══ FEATURES ═══ -->
-<section id="features">
-
-  <!-- 1: AI Bot -->
-  <div class="feat-row rv">
-    <div class="feat-visual">
-      <div class="feat-box purple">
-        <span class="feat-chip chip-purple">AI БОРЛУУЛАГЧ</span>
-        <span class="feat-big-icon">🤖</span>
-        <div class="feat-float ff1">💬 AI хариулж байна...</div>
-        <div class="feat-float ff2">🛒 Захиалга баталгаажлаа</div>
-      </div>
-    </div>
-    <div class="feat-text">
-      <h3>Маркетингийн сувгаа хүчирхэгжүүл</h3>
-      <p> AI борлуулагч харилцагчдын асуулганд хариулж, бараа санал болгож, захиалга авна. Хүний оролцоогүйгээр.</p>
-      <ul class="feat-list">
-        <li><span class="fli">✓</span>Facebook,Telegram, WhatsApp, Viber дэмжих</li>
-        <li><span class="fli">✓</span>Монгол хэл дээр ухаалаг хариу</li>
-        <li><span class="fli">✓</span>Бараа хайх, харьцуулах, захиалах</li>
+<!-- TOOLS -->
+<section class="sec bg-l"><div class="ct">
+  <div class="tg">
+    <div class="tg-text">
+      <h2>Бүх ажлын хэрэгсэл <span style="color:var(--o)">нэг дор</span></h2>
+      <p>Борлуулалтын бүх процессоо нэг систем дотроос удирдаарай. Excel, утас, мессежийн хооронд шилжих шаардлагагүй.</p>
+      <ul class="tg-list">
+        <li><div class="li-i">📦</div><div><strong>Бараа удирдлага</strong> — Бүтээгдэхүүн, ангилал, зураг, үнэ, нөөц</div></li>
+        <li><div class="li-i">🛒</div><div><strong>Захиалга</strong> — Автомат захиалга цуглуулалт, төлөв хяналт</div></li>
+        <li><div class="li-i">📊</div><div><strong>Тайлан</strong> — Борлуулалт, эрэлт, нөөцийн дэлгэрэнгүй тайлан</div></li>
+        <li><div class="li-i">💳</div><div><strong>Төлбөр</strong> — QPay интеграц, автомат баталгаажуулалт</div></li>
       </ul>
     </div>
+    <div class="tg-visual"><div class="tg-mock">
+      <div class="tg-item"><div class="ti-i">📦</div><div class="ti-n">Нийт бараа</div><div class="ti-v">1,245</div></div>
+      <div class="tg-item"><div class="ti-i">🛒</div><div class="ti-n">Өнөөдрийн захиалга</div><div class="ti-v">+28</div></div>
+      <div class="tg-item"><div class="ti-i">💰</div><div class="ti-n">Орлого (сар)</div><div class="ti-v" style="color:#059669">₮25.6M</div></div>
+      <div class="tg-item"><div class="ti-i">📈</div><div class="ti-n">Өсөлт</div><div class="ti-v" style="color:#059669">+34%</div></div>
+    </div></div>
   </div>
+</div></section>
 
-  <!-- 2: Inventory -->
-  <div class="feat-row rev rv">
-    <div class="feat-visual">
-      <div class="feat-box blue">
-        <span class="feat-chip chip-blue">АГУУЛАХ</span>
-        <span class="feat-big-icon">📦</span>
-        <div class="feat-float ff1">✅ 632 бараа нэмэгдлээ</div>
-        <div class="feat-float ff2">📊 Нөөц хяналт</div>
-      </div>
-    </div>
-    <div class="feat-text">
-      <h3>Үйл ажиллагаалаа сайжруулж, хөгжүүл</h3>
-      <p>Чатботууд дэлгүүрийн харилцагчдад дэлгэрэнгүй мэдээлэл өгч, барааг зохицуулж, захиалгыг хянаж, шаардлагатай бол асуудлыг амжилттай шийдвэрлэнэ.</p>
-      <ul class="feat-list">
-        <li><span class="fli">✓</span>Excel-ээс нэг дороо импорт</li>
-        <li><span class="fli">✓</span>Нөөцийн автомат хяналт</li>
-        <li><span class="fli">✓</span>Зураг, шинж чанар бүрэн дэмжих</li>
-      </ul>
-    </div>
+<!-- HOW IT WORKS -->
+<section class="sec" id="how"><div class="ct">
+  <div class="sh"><h2>Хэрхэн <span class="hl">ажилладаг</span> вэ?</h2><p>4 энгийн алхамаар AI борлуулагчаа ажиллуулаарай</p></div>
+  <div class="steps">
+    <div class="step"><h3>Бүртгүүлэх</h3><p>Дэлгүүрийн бүртгэл үүсгэж, лиценз идэвхжүүлнэ</p></div>
+    <div class="step"><h3>Бараа оруулах</h3><p>Dashboard-аас эсвэл Excel-ээр бараа оруулна</p></div>
+    <div class="step"><h3>Суваг холбох</h3><p>Telegram bot, Facebook Page-аа холбоно</p></div>
+    <div class="step"><h3>Борлуулалт!</h3><p>AI chatbot 24/7 автомат борлуулалт хийнэ</p></div>
   </div>
+</div></section>
 
-  <!-- 3: Orders -->
-  <div class="feat-row rv">
-    <div class="feat-visual">
-      <div class="feat-box green">
-        <span class="feat-chip chip-green">ҮЙЛЧИЛГЭЭ</span>
-        <span class="feat-big-icon">🛒</span>
-        <div class="feat-float ff1">🎉 Захиалга #1042</div>
-        <div class="feat-float ff2">📈 Өнөөдөр 24 захиалга</div>
-      </div>
-    </div>
-    <div class="feat-text">
-      <h3>Хэрэглэгчийн үйлчилгээг сайжруулж оновчтой болго</h3>
-      <p>Чатботоор дамжуулан харилцагчдад тауны санал, байнгын үйлчлүүлэгч болгох алхмуудыг гаргаж, 24/7 цагийн туршид тэдэнд туслана.</p>
-      <ul class="feat-list">
-        <li><span class="fli">✓</span>Автомат захиалга баталгаажуулалт</li>
-        <li><span class="fli">✓</span>Хүргэлтийн мэдэгдэл</li>
-        <li><span class="fli">✓</span>Захиалгын статус хяналт</li>
-      </ul>
-    </div>
+<!-- TESTIMONIALS -->
+<section class="sec bg-l"><div class="ct">
+  <div class="sh"><h2>Хэрэглэгчдийн <span class="hl">сэтгэгдэл</span></h2></div>
+  <div class="test-grid">
+    <div class="test"><div class="stars">★★★★★</div><q>StoreApp AI ашигласнаас хойш борлуулалт 40%-иар өссөн. Шөнийн цагаар ч захиалга ирдэг болсон.</q><div class="author"><div class="av2">Б</div><div><div class="aname">Батбаяр</div><div class="arole">Электроник дэлгүүр</div></div></div></div>
+    <div class="test"><div class="stars">★★★★★</div><q>Манай ажилтнууд асуултанд хариулахад зарцуулдаг цагийг 70% хэмнэсэн. Маш сайн систем.</q><div class="author"><div class="av2">С</div><div><div class="aname">Солонго</div><div class="arole">Гоо сайхан брэнд</div></div></div></div>
+    <div class="test"><div class="stars">★★★★★</div><q>Facebook Messenger бот маш сайн ажиллаж байна. Харилцагчид шууд захиалга өгч чадаж байна.</q><div class="author"><div class="av2">Д</div><div><div class="aname">Дөлгөөн</div><div class="arole">Хүнсний дэлгүүр</div></div></div></div>
   </div>
+</div></section>
 
-  <!-- 4: Analytics -->
-  <div class="feat-row rev rv">
-    <div class="feat-visual">
-      <div class="feat-box orange">
-        <span class="feat-chip chip-orange">БОРЛУУЛАЛТ</span>
-        <span class="feat-big-icon">📊</span>
-        <div class="feat-float ff1">↑ 34% өсөлт</div>
-        <div class="feat-float ff2">💰 ₮2.4M орлого</div>
-      </div>
+<!-- CHANNELS -->
+<section class="sec" id="channels"><div class="ct">
+  <div class="sh"><h2>Бүгдийг <span class="hl">нэг системээс</span></h2><p>Олон платформд нэгэн зэрэг борлуулалт хий</p></div>
+  <div class="fg3">
+    <div class="fc"><div class="fi">📱</div><h3>Telegram</h3><p>Inline keyboard, зураг, бараа хайлт, захиалга</p></div>
+    <div class="fc"><div class="fi">💬</div><h3>Facebook Messenger</h3><p>Карт, товчлуур, ангилал цэс, автомат хариу</p></div>
+    <div class="fc"><div class="fi">🌐</div><h3>Web Chat</h3><p>Вебсайтад суулгах widget, бүрэн chatbot</p></div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section class="sec bg-l" id="pricing"><div class="ct">
+  <div class="sh"><h2>Та өөрт тохирохыг <span class="hl">сонгоорой</span></h2></div>
+  <div class="pr-grid">
+    <div class="pr">
+      <h3>Starter</h3>
+      <div class="price">150,000<span>₮</span></div>
+      <div class="per">сар бүр</div>
+      <ul><li>1 суваг (Telegram)</li><li>500 бараа хүртэл</li><li>Автомат захиалга</li><li>Нөөц удирдлага</li><li>Имэйл дэмжлэг</li></ul>
+      <a href="https://ai.storeapp.us/seller/login.html" class="pr-btn out">Эхлэх</a>
     </div>
-    <div class="feat-text">
-      <h3>Борлуулалтын өгөгдлийг нөхцөлийг хяна</h3>
-      <p>Дэлгэрэнгүй тайлан, харилцагчийн дата, хамгийн их борлогдсон бараа — бизнесийн бодитой шийдвэр гаргахад туслах бүх мэдээлэл нэг газарт.</p>
-      <ul class="feat-list">
-        <li><span class="fli">✓</span>Борлуулалтын дэлгэрэнгүй тайлан</li>
-        <li><span class="fli">✓</span>Хамгийн их борлогдсон бараа</li>
-        <li><span class="fli">✓</span>Харилцагчийн бүртгэл</li>
-      </ul>
+    <div class="pr pop">
+      <h3>Business</h3>
+      <div class="price">750,000<span>₮</span></div>
+      <div class="per">сар бүр</div>
+      <ul><li>3 суваг (Telegram + FB + Web)</li><li>Хязгааргүй бараа</li><li>AI ухаалаг хайлт</li><li>Тайлан & аналитик</li><li>QPay төлбөр интеграц</li><li>Баг удирдлага (5 хүн)</li><li>Тусгай дэмжлэг</li></ul>
+      <a href="https://ai.storeapp.us/seller/login.html" class="pr-btn fill">Эхлэх</a>
+    </div>
+    <div class="pr">
+      <h3>Enterprise</h3>
+      <div class="price">1,500,000<span>₮</span></div>
+      <div class="per">сар бүр</div>
+      <ul><li>Бүх суваг</li><li>Хязгааргүй бараа</li><li>Custom AI тохиргоо</li><li>API хандалт</li><li>Хязгааргүй баг</li><li>SLA баталгаа</li><li>Тусгай менежер</li></ul>
+      <a href="https://ai.storeapp.us/seller/login.html" class="pr-btn out">Холбогдох</a>
     </div>
   </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>AI борлуулагчаа <em>өнөөдөр</em> эхлүүлээрэй</h2>
+  <p>Бизнесээ автоматжуулж, 24/7 борлуулалт хийгээрэй</p>
+  <a href="https://ai.storeapp.us/seller/login.html" class="cb">Үнэгүй турших</a>
 </section>
 
-<!-- ═══ CHANNELS / INTEGRATIONS ═══ -->
-<section id="channels" style="background:var(--gray);padding:80px 5%">
-  <div class="integr" style="background:transparent;padding:0;max-width:1100px;margin:0 auto">
-    <div class="integr-left rv">
-      <h2>Үйл ажиллагаандаа тогтмол ашиглагдаг сувгуудтайгаа холбо</h2>
-      <p style="margin-top:12px">Технологийн стекэс манай апп-тай холбосноор бизнесийн аль ч тал хялбар болж, менежментийн ачааллаасаа чөлөөлөгдөж, бизнест ашиглалт илүү амжилттай ая.</p>
-    </div>
-    <div class="integr-right rv2">
-      <div class="integr-grid">
-        <div class="ig"><div class="ig-ic">✈️</div>Telegram<div class="ig-tag">Бэлэн</div></div>
-        <div class="ig"><div class="ig-ic">💬</div>WhatsApp<div class="ig-tag">Бэлэн</div></div>
-        <div class="ig"><div class="ig-ic">💜</div>Viber<div class="ig-tag">Бэлэн</div></div>
-        <div class="ig"><div class="ig-ic">📘</div>Facebook<div class="ig-tag">Бэлэн</div></div>
-        <div class="ig" style="opacity:.6"><div class="ig-ic">📸</div>Instagram<div class="ig-tag" style="color:var(--muted);background:var(--gray2)">Удахгүй</div></div>
-        <div class="ig" style="opacity:.6"><div class="ig-ic">🐦</div>Twitter/X<div class="ig-tag" style="color:var(--muted);background:var(--gray2)">Удахгүй</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CTA EMAIL ═══ -->
-<section class="cta-email">
-  <div class="cta-email-in">
-    <div class="cta-email-left rv">
-      <p>Та дараах хялбар хийгдэж буй маркетингийн болон технологийн давуу талыг бизнестээ, чатбот хэрэглэгч болснодоо, хэзээ ч хаана ч бизнест нэвтрэх мэдлэгийн болон томоохон хамтрагчтай болж болно.</p>
-    </div>
-    <div class="cta-email-right rv2">
-      <div class="email-form">
-        <input class="email-inp" type="email" placeholder="И-мэйл хаягаа оруулна уу"/>
-        <button class="btn-red2" onclick="window.location='https://ai.storeapp.us/register'">БҮРТГҮҮЛЭХ</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DEMO ═══ -->
-<section class="demo-sec" id="demo">
-  <div class="demo-sup">Туршиж үзэх</div>
-  <h2>StoreApp-г туршиж үзээрэй</h2>
-  <p>Хялбар бүртгэл хийж 5 дахин давтагдсан чатботоо хэрэглэж эхэл</p>
-  <a href="https://ai.storeapp.us/register" class="demo-btn">ТУРШИЖ ҮЗЭХ</a>
-
-  <!-- Dashboard mockup -->
-  <div class="dash-mock rv">
-    <div class="dash-bar">
-      <div class="d-dot" style="background:#e8453c"></div>
-      <div class="d-dot" style="background:#f59e0b"></div>
-      <div class="d-dot" style="background:#10b981"></div>
-      <span style="font-size:12px;color:rgba(255,255,255,.4);margin-left:10px">ai.storeapp.us — Дашбоард</span>
-    </div>
-    <div class="dash-body">
-      <div class="dash-card">
-        <div class="dc-label">Нийт бараа</div>
-        <div class="dc-val">632</div>
-        <div class="dc-sub">↑ +24 энэ сар</div>
-      </div>
-      <div class="dash-card">
-        <div class="dc-label">Захиалга</div>
-        <div class="dc-val">1,042</div>
-        <div class="dc-sub">↑ +34% өмнөхөөс</div>
-      </div>
-      <div class="dash-card">
-        <div class="dc-label">Орлого</div>
-        <div class="dc-val">₮2.4M</div>
-        <div class="dc-sub">↑ Энэ сард</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer>
-  <div class="ft-in">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="/" class="ft-logo">
-          <div class="logo-box" style="width:28px;height:28px;font-size:15px">🤖</div>
-          <span class="logo-txt" style="font-size:16px">Store<b>App</b></span>
-        </a>
-        <p>AI-д суурилсан борлуулалтын платформ.facebook, Telegram болон бусад суваг дээр хялбараар зарж борлуул.</p>
-      </div>
-      <div class="ft-col">
-        <h5>StoreApp</h5>
-        <ul>
-          <li><a href="#">Бидний тухай</a></li>
-          <li><a href="#">Үйлчилгээний нөхцөл</a></li>
-          <li><a href="#">Нийтлэлийн бодлого</a></li>
-          <li><a href="#">Холбоо барих</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Бүтээгдэхүүн</h5>
-        <ul>
-          <li><a href="#">Бот интеграц</a></li>
-          <li><a href="#">Агуулах удирдлага</a></li>
-          <li><a href="#">Захиалгын систем</a></li>
-          <li><a href="#">Борлуулалтын тайлан</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Тусламж</h5>
-        <ul>
-          <li><a href="#">Хэлтэс</a></li>
-          <li><a href="#">Онлайн дэмжлэг</a></li>
-          <li><a href="#">Гарын авлага</a></li>
-          <li><a href="mailto:hello@storeapp.us">Имэйл</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="ft-bot">
-      <span>© 2026 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</span>
-      <a href="https://ai.storeapp.us">ai.storeapp.us →</a>
-    </div>
-  </div>
+  <div class="fl">StoreApp AI</div>
+  <p>AI-д суурилсан ухаалаг худалдааны систем</p>
+  <div class="fls"><a href="https://ai.storeapp.us/guide.html">Гарын авлага</a><a href="https://ai.storeapp.us/admin/login.html">Админ</a><a href="https://ai.storeapp.us/seller/login.html">Худалдагч</a></div>
+  <div class="fc2">&copy; 2026 StoreApp AI. Бүх эрх хуулиар хамгаалагдсан.</div>
 </footer>
-
-<script>
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target) } })
-  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.rv,.rv2,.rv3').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
