@@ -1,23 +1,43 @@
+/**
+ * StoreApp Landing — Cloudflare Worker
+ *
+ * Статик файлуудыг public/*-оос serve хийнэ.
+ * Тэмдэглэлтэй API хүсэлтийг ai.storeapp.us VPS руу forward хийнэ.
+ *
+ * Forward endpoints:
+ *   POST /api/register  → https://ai.storeapp.us/api/landing/register
+ *   POST /api/contact   → https://ai.storeapp.us/api/landing/contact
+ */
+
 interface Env {
   ASSETS: Fetcher;
 }
+
+const VPS_BASE = "https://ai.storeapp.us";
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // Forward registration to VPS
-    if (url.pathname === "/api/register" && request.method === "POST") {
-      return forwardToVPS(request, "https://ai.storeapp.us/api/landing/register");
+    // API POST хүсэлтүүдийг VPS руу дамжуулна
+    if (request.method === "POST") {
+      if (url.pathname === "/api/register") {
+        return forwardToVPS(request, `${VPS_BASE}/api/landing/register`);
+      }
+      if (url.pathname === "/api/contact") {
+        return forwardToVPS(request, `${VPS_BASE}/api/landing/contact`);
+      }
     }
 
-    // Forward contact form to VPS
-    if (url.pathname === "/api/contact" && request.method === "POST") {
-      return forwardToVPS(request, "https://ai.storeapp.us/api/landing/contact");
-    }
+    // Бусад бүх хүсэлт: public/ дотроос static файл serve хийнэ.
+    const response = await env.ASSETS.fetch(request);
 
-    // Serve static assets (index.html — user's custom landing)
-    return env.ASSETS.fetch(request);
+    // Edge cache бат тогтохгүйн тулд no-store header нэмнэ.
+    // Ингэснээр deploy хийсний дараа шинэ content шууд харагдана.
+    const headers = new Headers(response.headers);
+    headers.set("Cache-Control", "no-store, must-revalidate");
+    headers.set("CDN-Cache-Control", "no-store");
+    return new Response(response.body, { status: response.status, headers });
   },
 } satisfies ExportedHandler<Env>;
 
