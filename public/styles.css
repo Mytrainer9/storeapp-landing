@@ -263,32 +263,157 @@ img { max-width: 100%; display: block; }
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   REALISTIC PHONE + MESSENGER CHAT
+   iPhone MOCKUP — titanium frame, Dynamic Island, side buttons
    ════════════════════════════════════════════════════════════════════ */
 .phone {
   width: 100%;
   max-width: 380px;
   margin: 0 auto;
+  position: relative;
+  padding: 14px 12px;
+  background:
+    linear-gradient(135deg, #4a4a52 0%, #2c2c32 50%, #3a3a42 100%);
+  border-radius: 55px;
+  box-shadow:
+    0 50px 100px rgba(249,115,22,.22),
+    0 20px 50px rgba(0,0,0,.25),
+    0 0 0 1.5px rgba(255,255,255,.1) inset,
+    0 -2px 3px rgba(0,0,0,.4) inset;
+}
+.phone::before {
+  /* Titanium edge highlight */
+  content: ''; position: absolute;
+  inset: 2px; border-radius: 53px;
+  background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,.04) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Side buttons — iPhone 15 Pro style */
+.phone-btn-silent, .phone-btn-vol-up, .phone-btn-vol-dn, .phone-btn-power {
+  position: absolute;
+  background: linear-gradient(90deg, #2a2a30, #3a3a42, #2a2a30);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.1), inset 0 -1px 1px rgba(0,0,0,.3);
+}
+/* Left side — action/silent button (iPhone 15 Pro: Action button) */
+.phone-btn-silent { left: -3px; top: 100px; width: 3px; height: 34px; border-radius: 2px 0 0 2px; }
+.phone-btn-vol-up { left: -3px; top: 150px; width: 3px; height: 52px; border-radius: 2px 0 0 2px; }
+.phone-btn-vol-dn { left: -3px; top: 212px; width: 3px; height: 52px; border-radius: 2px 0 0 2px; }
+/* Right side — power button */
+.phone-btn-power  { right: -3px; top: 160px; width: 3px; height: 80px; border-radius: 0 2px 2px 0; }
+
+/* Inner screen */
+.phone-screen {
+  position: relative;
   background: var(--white);
   border-radius: 42px;
   overflow: hidden;
-  box-shadow:
-    0 40px 80px rgba(249,115,22,.25),
-    0 15px 35px rgba(0,0,0,.12),
-    inset 0 0 0 8px #1a1a2e;
-  position: relative;
-  padding: 8px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5);
+}
+
+/* Dynamic Island — pill shape at top center */
+.phone-island {
+  position: absolute;
+  top: 11px; left: 50%; transform: translateX(-50%);
+  width: 112px; height: 34px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 10;
+  box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+.phone-island::before {
+  /* Camera dot */
+  content: '';
+  position: absolute;
+  top: 50%; right: 12px;
+  transform: translateY(-50%);
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #1a1a24, #000);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.phone-island::after {
+  /* Small sensor dot */
+  content: '';
+  position: absolute;
+  top: 50%; left: 18px;
+  transform: translateY(-50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #0a0a10;
 }
 
 /* Status bar */
 .phone-status {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 8px 24px 6px; font-size: 11px;
-  font-weight: 700; color: var(--dark);
+  padding: 14px 28px 10px;
+  font-size: 13px; font-weight: 600;
+  color: var(--dark);
+  background: var(--white);
+  min-height: 50px;
+  position: relative;
+  z-index: 5;
+}
+.phone-time {
+  font-family: -apple-system, 'SF Pro Display', system-ui, sans-serif;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-left: 4px;
+}
+.phone-status-r {
+  display: flex; gap: 6px; align-items: center;
+  margin-right: 4px;
+}
+
+/* Signal bars */
+.phone-signal { display: inline-flex; align-items: flex-end; gap: 1.5px; height: 10px; }
+.phone-signal i {
+  display: block;
+  width: 2.5px;
+  background: var(--dark);
+  border-radius: 1px;
+}
+.phone-signal i:nth-child(1) { height: 3px; }
+.phone-signal i:nth-child(2) { height: 5px; }
+.phone-signal i:nth-child(3) { height: 7px; }
+.phone-signal i:nth-child(4) { height: 9px; }
+
+/* WiFi */
+.phone-wifi { display: inline-flex; color: var(--dark); }
+
+/* Battery */
+.phone-battery {
+  position: relative;
+  width: 25px; height: 11px;
+  border: 1.3px solid var(--dark);
+  border-radius: 3px;
+  opacity: .9;
+}
+.phone-battery::after {
+  content: ''; position: absolute;
+  right: -3px; top: 50%; transform: translateY(-50%);
+  width: 1.5px; height: 5px;
+  background: var(--dark);
+  border-radius: 0 1px 1px 0;
+}
+.phone-battery i {
+  position: absolute; inset: 1px;
+  background: var(--dark);
+  border-radius: 1.5px;
+}
+
+/* Home indicator */
+.phone-home {
+  padding: 8px 0 10px;
+  display: flex; justify-content: center;
   background: var(--white);
 }
-.phone-status-r { display: flex; gap: 5px; align-items: center; }
-.phone-status-r span { font-size: 10px; }
+.phone-home::after {
+  content: ''; display: block;
+  width: 134px; height: 5px;
+  border-radius: 3px;
+  background: var(--dark);
+  opacity: .9;
+}
 
 /* Chat header */
 .chat-hdr {
@@ -325,7 +450,7 @@ img { max-width: 100%; display: block; }
 .chat-body {
   background: linear-gradient(180deg, #fafbfc 0%, var(--white) 100%);
   padding: 16px 14px 12px;
-  max-height: 540px; overflow-y: auto;
+  max-height: 460px; overflow-y: auto;
   display: flex; flex-direction: column; gap: 6px;
 }
 .chat-body::-webkit-scrollbar { width: 4px; }
