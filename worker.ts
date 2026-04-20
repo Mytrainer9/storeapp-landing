@@ -16,12 +16,7 @@ export default {
       return forwardToVPS(request, "https://ai.storeapp.us/api/landing/contact");
     }
 
-    // Redirect homepage to AI landing page
-    if (url.pathname === "/" || url.pathname === "/index.html") {
-      return Response.redirect("https://ai.storeapp.us/landing.html", 302);
-    }
-
-    // Serve static assets
+    // Serve static assets (index.html — user's custom landing)
     return env.ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;
