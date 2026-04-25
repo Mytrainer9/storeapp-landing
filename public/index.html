@@ -3,13 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StoreApp AI — AI борлуулалтын автомат систем</title>
-  <meta name="description" content="StoreApp AI нь Facebook Messenger, Instagram, Telegram, Viber, WhatsApp сувгаар 24/7 ажилладаг AI борлуулагч. Автомат захиалга, цаг захиалга, онлайн төлбөр, нөөц удирдлагын иж бүрэн систем." />
+  <title data-i18n="meta.title">StoreApp AI — Борлуулалтын систем</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="StoreApp AI — Facebook Messenger, Instagram, Telegram, Viber, WhatsApp сувгаар 24/7 ажилладаг AI ажилтан. Автомат захиалга, цаг захиалга, онлайн төлбөр, нөөц удирдлага." />
   <link rel="icon" href="https://ai.storeapp.us/assets/images/logo/logo.png" type="image/png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://storeapp.us" />
+  <meta property="og:site_name" content="StoreApp AI" />
+  <meta property="og:title" content="StoreApp AI — Борлуулалтын систем" />
+  <meta property="og:description" content="24/7 ажилладаг AI ажилтан. Facebook, Instagram, Telegram, Viber, WhatsApp + Автомат захиалга, цаг захиалга, төлбөр, нөөц удирдлага." />
+  <meta property="og:image" content="https://storeapp.us/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:locale" content="mn_MN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="StoreApp AI — Борлуулалтын систем" />
+  <meta name="twitter:description" content="24/7 AI ажилтан — Facebook, Instagram, Telegram, Viber, WhatsApp." />
+  <meta name="twitter:image" content="https://storeapp.us/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <script src="/assets/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -18,17 +37,42 @@
     <div class="nav-in">
       <a href="#top" class="logo">
         <span class="logo-ic"><img src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="StoreApp" /></span>
-        <span class="logo-tx">StoreApp</span>
+        <span class="logo-tx">StoreApp AI</span>
       </a>
       <div class="nav-links">
-        <a href="#features">Боломжууд</a>
-        <a href="#industries">Салбарууд</a>
-        <a href="#booking">Цаг захиалга</a>
-        <a href="#pricing">Үнэ</a>
-        <a href="https://ai.storeapp.us/seller/login.html">Нэвтрэх</a>
-        <a href="https://ai.storeapp.us/seller/register.html" class="btn-primary nbtn">Үнэгүй эхлэх</a>
+        <a href="#features" data-i18n="nav.features">Боломжууд</a>
+        <a href="#industries" data-i18n="nav.industries">Салбарууд</a>
+        <a href="#booking" data-i18n="nav.booking">Цаг захиалга</a>
+        <a href="#pricing" data-i18n="nav.pricing">Үнэ</a>
+        <a href="/contact.html" data-i18n="nav.contact">Холбоо барих</a>
       </div>
-      <button class="menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="lang-dd">
+        <button type="button" class="lang-dd-btn" aria-haspopup="true" aria-expanded="false" data-i18n-attr="aria-label:nav.lang_aria">
+          <span class="lang-flag" aria-hidden="true">🌐</span>
+          <span data-lang-current>MN</span>
+          <span class="lang-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-dd-menu" role="menu">
+          <button type="button" role="menuitem" data-lang="mn"><span class="lang-flag" aria-hidden="true">🇲🇳</span> Монгол</button>
+          <button type="button" role="menuitem" data-lang="en"><span class="lang-flag" aria-hidden="true">🇬🇧</span> English</button>
+          <button type="button" role="menuitem" data-lang="cs"><span class="lang-flag" aria-hidden="true">🇨🇿</span> Čeština</button>
+        </div>
+      </div>
+      <button class="menu-btn" aria-expanded="false" data-i18n-attr="aria-label:nav.menu_aria" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <a href="#features" data-i18n="nav.features">Боломжууд</a>
+      <a href="#industries" data-i18n="nav.industries">Салбарууд</a>
+      <a href="#booking" data-i18n="nav.booking">Цаг захиалга</a>
+      <a href="#pricing" data-i18n="nav.pricing">Үнэ</a>
+      <a href="/contact.html" data-i18n="nav.contact">Холбоо барих</a>
+      <div class="mobile-lang">
+        <button type="button" data-lang="mn"><span class="lang-flag" aria-hidden="true">🇲🇳</span> Монгол</button>
+        <button type="button" data-lang="en"><span class="lang-flag" aria-hidden="true">🇬🇧</span> English</button>
+        <button type="button" data-lang="cs"><span class="lang-flag" aria-hidden="true">🇨🇿</span> Čeština</button>
+      </div>
     </div>
   </nav>
 
@@ -39,20 +83,20 @@
         <div class="hero-left">
           <div class="hero-tag">
             <span class="hero-tag-dot"></span>
-            🤖 AI-аар илүү хурдан ажил
+            <span data-i18n="hero.tag">🤖 AI-аар илүү хурдан ажил</span>
           </div>
 
           <h1 class="hero-title">
-            Борлуулалтаа <span class="accent">автоматжуул.</span>
+            <span data-i18n="hero.title_lead">Борлуулалтаа</span> <span class="accent" data-i18n="hero.title_accent">автоматжуул.</span>
           </h1>
 
-          <p class="hero-desc">
+          <p class="hero-desc" data-i18n="hero.desc_html" data-i18n-html>
             StoreApp AI нь таны бизнесийн борлуулалтыг <strong>Facebook Messenger, Instagram, Telegram, Website, Viber, WhatsApp</strong>-аар 24/7 автоматжуулна.
           </p>
 
           <div class="hero-ctas">
-            <a href="https://ai.storeapp.us/seller/register.html" class="btn-primary btn-lg">Эхлэх →</a>
-            <a href="https://ai.storeapp.us/seller/register.html" class="btn-ghost btn-lg">Бүртгүүлэх</a>
+            <a href="/register.html" class="btn-primary btn-lg" data-i18n="hero.cta_start">Эхлэх →</a>
+            <a href="/register.html" class="btn-ghost btn-lg" data-i18n="hero.cta_register">Бүртгүүлэх</a>
           </div>
 
           <div class="hero-trust">
@@ -64,30 +108,30 @@
             </div>
             <div class="hero-trust-text">
               <div class="hero-stars">★★★★★</div>
-              <div class="hero-trust-count"><strong>500+ бизнес</strong> StoreApp-д итгэсэн</div>
+              <div class="hero-trust-count" data-i18n="hero.trust_count_html" data-i18n-html><strong>500+ бизнес</strong> StoreApp-д итгэсэн</div>
             </div>
           </div>
 
           <div class="stats">
             <div class="stat">
               <div class="stat-ic">🔥</div>
-              <div class="stat-num">24/7</div>
-              <div class="stat-lb">Тасралтгүй</div>
+              <div class="stat-num" data-i18n="hero.stat_uptime_num">24/7</div>
+              <div class="stat-lb" data-i18n="hero.stat_uptime_label">Тасралтгүй</div>
             </div>
             <div class="stat">
               <div class="stat-ic">⚡</div>
-              <div class="stat-num">3 сек</div>
-              <div class="stat-lb">Хариу өгөх</div>
+              <div class="stat-num" data-i18n="hero.stat_response_num">3 сек</div>
+              <div class="stat-lb" data-i18n="hero.stat_response_label">Хариу өгөх</div>
             </div>
             <div class="stat">
               <div class="stat-ic">🌐</div>
-              <div class="stat-num">6</div>
-              <div class="stat-lb">Суваг</div>
+              <div class="stat-num" data-i18n="hero.stat_channels_num">6</div>
+              <div class="stat-lb" data-i18n="hero.stat_channels_label">Суваг</div>
             </div>
             <div class="stat">
               <div class="stat-ic">👥</div>
-              <div class="stat-num">100+</div>
-              <div class="stat-lb">Нэг зэрэг</div>
+              <div class="stat-num" data-i18n="hero.stat_concurrent_num">100+</div>
+              <div class="stat-lb" data-i18n="hero.stat_concurrent_label">Нэг зэрэг</div>
             </div>
           </div>
         </div>
@@ -129,8 +173,8 @@
                   <span class="chat-hdr-online"></span>
                 </div>
                 <div class="chat-hdr-info">
-                  <div class="chat-hdr-name">StoreApp AI</div>
-                  <div class="chat-hdr-sub">● Онлайн</div>
+                  <div class="chat-hdr-name" data-i18n="chat_demo.header_name">StoreApp AI</div>
+                  <div class="chat-hdr-sub" data-i18n="chat_demo.header_status">● Онлайн</div>
                 </div>
               </div>
               <div class="chat-hdr-r">
@@ -141,38 +185,38 @@
 
             <!-- Chat messages -->
             <div class="chat-body">
-              <div class="chat-date">Өнөөдөр</div>
+              <div class="chat-date" data-i18n="chat_demo.date_today">Өнөөдөр</div>
 
               <div class="msg msg-u">
-                <div class="msg-bubble">Сайн байна уу</div>
+                <div class="msg-bubble" data-i18n="chat_demo.msg_greeting">Сайн байна уу</div>
               </div>
 
               <div class="msg msg-b">
                 <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
-                <div class="msg-bubble">Танд энэ өдрийн мэнд хүргэе! Манай дэлгүүрт тавтай морилно уу.</div>
+                <div class="msg-bubble" data-i18n="chat_demo.msg_welcome">Танд энэ өдрийн мэнд хүргэе! Манай дэлгүүрт тавтай морилно уу.</div>
               </div>
 
               <div class="msg msg-u">
-                <div class="msg-bubble">iPhone 15 Pro байгаа юу?</div>
+                <div class="msg-bubble" data-i18n="chat_demo.msg_question">iPhone 15 Pro байгаа юу?</div>
               </div>
 
               <div class="msg msg-b">
                 <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
                 <div class="msg-card">
-                  <div class="msg-card-title">iPhone 15 Pro · 256GB</div>
+                  <div class="msg-card-title" data-i18n="chat_demo.card_title">iPhone 15 Pro · 256GB</div>
                   <div class="msg-card-price">3,299,000<span>₮</span></div>
-                  <div class="msg-card-stock">✅ Нөөцтэй · 4 өнгөтэй</div>
-                  <div class="msg-card-btn">🛒 Сагсанд нэмэх</div>
+                  <div class="msg-card-stock" data-i18n="chat_demo.card_stock">✅ Нөөцтэй · 4 өнгөтэй</div>
+                  <div class="msg-card-btn" data-i18n="chat_demo.card_btn">🛒 Сагсанд нэмэх</div>
                 </div>
               </div>
 
               <div class="msg msg-u">
-                <div class="msg-bubble">Black Titanium авъя</div>
+                <div class="msg-bubble" data-i18n="chat_demo.msg_color_pick">Black Titanium авъя</div>
               </div>
 
               <div class="msg msg-b">
                 <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
-                <div class="msg-bubble">
+                <div class="msg-bubble" data-i18n="chat_demo.msg_cart_added_html" data-i18n-html>
                   ✅ Сагсанд нэмэгдлээ<br/>
                   📱 Black Titanium 256GB<br/>
                   Нийт: <strong>3,299,000₮</strong>
@@ -180,24 +224,24 @@
               </div>
 
               <div class="msg msg-u">
-                <div class="msg-bubble">Захиалъя 👍</div>
+                <div class="msg-bubble" data-i18n="chat_demo.msg_order">Захиалъя 👍</div>
               </div>
 
               <div class="msg msg-b">
                 <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
                 <div class="msg-bubble msg-success">
-                  <div class="msg-success-t">✅ Захиалга баталгаажлаа!</div>
-                  <a href="#" class="msg-pay">💳 HiPay-аар төлөх</a>
+                  <div class="msg-success-t" data-i18n="chat_demo.msg_order_success_title">✅ Захиалга баталгаажлаа!</div>
+                  <a href="#" class="msg-pay" data-i18n="chat_demo.msg_order_pay">💳 HiPay-аар төлөх</a>
                 </div>
               </div>
 
-              <div class="msg-time">хэдэн секундын өмнө · Уншсан</div>
+              <div class="msg-time" data-i18n="chat_demo.msg_time_read">хэдэн секундын өмнө · Уншсан</div>
             </div>
 
             <!-- Input bar -->
             <div class="chat-input">
               <span class="chat-input-ic">+</span>
-              <div class="chat-input-field">Мессеж бичих...</div>
+              <div class="chat-input-field" data-i18n="chat_demo.input_placeholder">Мессеж бичих...</div>
               <span class="chat-input-send">➤</span>
             </div>
 
@@ -213,57 +257,119 @@
   <!-- ════════════════════════════════════════════════════ FEATURES -->
   <section class="features" id="features">
     <div class="ct tc">
-      <div class="sec-tag tag-orange">ИЖ БҮРЭН СИСТЕМ</div>
-      <h2 class="sec-title">Нэг системд <span class="accent">бүх шийдэл</span></h2>
-      <p class="sec-desc">Чатбот, захиалга, нөөц, төлбөр, цаг захиалга, тайлан — бизнесийн хэрэгцээт бүхий л модулийг нэг платформоос удирдана.</p>
+      <div class="sec-tag tag-orange" data-i18n="features.tag">ИЖ БҮРЭН СИСТЕМ</div>
+      <h2 class="sec-title"><span data-i18n="features.heading_lead">Нэг системд</span> <span class="accent" data-i18n="features.heading_accent">бүх шийдэл</span></h2>
+      <p class="sec-desc" data-i18n="features.desc">Чат систем, захиалга, нөөц, төлбөр, цаг захиалга, тайлан — бизнесийн хэрэгцээт бүхий л модулийг нэг платформоос удирдана.</p>
     </div>
     <div class="ct">
-      <div class="feat-grid">
-        <div class="feat">
-          <div class="feat-ic">🤖</div>
-          <h3>AI чатбот</h3>
-          <p>OpenAI GPT-4 хиймэл оюунд суурилсан чатбот нь таны барааны каталогийг судалж, хэрэглэгчийн асуултад мэргэжлийн, бодит хариултыг өгнө.</p>
-        </div>
-        <div class="feat">
-          <div class="feat-ic">💬</div>
-          <h3>Олон сувгийн интеграц</h3>
-          <p>Facebook Messenger, Instagram, Telegram, Viber, WhatsApp, вэб сайт — нийт 6 сувагт зэрэг холбогдож, нэг дор ажиллана.</p>
-        </div>
-        <div class="feat">
+      <div class="feat-bento">
+
+        <!-- 01 · AI чат систем — featured 2×2 -->
+        <article class="feat feat--hero feat--ai">
+          <div class="feat-badge" data-i18n="features.f01_badge">ТЭРГҮҮЛЭХ</div>
+          <div class="feat-ic feat-ic--xl">🤖</div>
+          <h3 data-i18n="features.f01_title">AI чат систем</h3>
+          <p data-i18n="features.f01_desc">OpenAI GPT-4 хиймэл оюунд суурилсан чат систем нь таны барааны каталогийг судалж, хэрэглэгчийн асуултад мэргэжлийн, бодит хариултыг өгнө.</p>
+          <div class="feat-chips">
+            <span class="chip" data-i18n="features.f01_chip1">GPT-4 Turbo</span>
+            <span class="chip" data-i18n="features.f01_chip2">Монгол хэл</span>
+            <span class="chip" data-i18n="features.f01_chip3">Realtime</span>
+            <span class="chip" data-i18n="features.f01_chip4">Context-aware</span>
+          </div>
+          <div class="feat-pulse">
+            <span class="pulse-dot"></span>
+            <span data-i18n="features.f01_pulse">Бодит цагт хариулж байна</span>
+          </div>
+        </article>
+
+        <!-- 02 · Олон суваг — wide 2×1 -->
+        <article class="feat feat--wide feat--ch">
+          <div class="feat-num">02</div>
+          <div class="feat-row">
+            <div class="feat-ic">💬</div>
+            <div class="feat-body">
+              <h3 data-i18n="features.f02_title">Олон сувгийн интеграц</h3>
+              <p data-i18n="features.f02_desc">Facebook Messenger, Instagram, Telegram, Viber, WhatsApp, вэб сайт — 6 сувагт зэрэг холбогдоно.</p>
+              <div class="chan-icons">
+                <span title="Facebook">📘</span>
+                <span title="Instagram">📷</span>
+                <span title="Telegram">✈️</span>
+                <span title="Viber">💜</span>
+                <span title="WhatsApp">🟢</span>
+                <span title="Web">🌐</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 · Автомат захиалга -->
+        <article class="feat feat--ord">
+          <div class="feat-num">03</div>
           <div class="feat-ic">🛒</div>
-          <h3>Автомат захиалга</h3>
-          <p>Хэрэглэгчээс нэр, утас, хүргэлтийн хаягийг системчилсэн хэлбэрээр цуглуулж, захиалгыг үүсгэн, оператор руу шууд мэдэгдэл илгээнэ.</p>
-        </div>
-        <div class="feat">
+          <h3 data-i18n="features.f03_title">Автомат захиалга</h3>
+          <p data-i18n="features.f03_desc">Нэр, утас, хүргэлтийн хаягийг системчилсэн хэлбэрээр цуглуулж, захиалгыг автоматаар үүсгэнэ.</p>
+        </article>
+
+        <!-- 04 · Онлайн төлбөр -->
+        <article class="feat feat--pay">
+          <div class="feat-num">04</div>
           <div class="feat-ic">💳</div>
-          <h3>Онлайн төлбөр</h3>
-          <p>HiPay төлбөрийн системтэй интеграцчилсан. Захиалга баталгаажсаны дараа чатботоор шууд төлбөрийн холбоос илгээж, төлбөрийг цуглуулна.</p>
-        </div>
-        <div class="feat">
+          <h3 data-i18n="features.f04_title">Онлайн төлбөр</h3>
+          <p data-i18n="features.f04_desc">HiPay интеграц — захиалга баталгаажсаны дараа төлбөрийн холбоосыг чат системээр шууд илгээнэ.</p>
+        </article>
+
+        <!-- 05 · Нөөц удирдлага -->
+        <article class="feat feat--inv">
+          <div class="feat-num">05</div>
           <div class="feat-ic">📦</div>
-          <h3>Нөөц удирдлага</h3>
-          <p>Барааны нөөцийн бодит байдлыг байнга хянаж, доод хязгаарт хүрэхэд мэдэгдэл илгээнэ. Нөөцийн хөдөлгөөн бүрийг лог хэлбэрээр бүртгэнэ.</p>
-        </div>
-        <div class="feat">
+          <h3 data-i18n="features.f05_title">Нөөц удирдлага</h3>
+          <p data-i18n="features.f05_desc">Барааны нөөцийг бодит цагт хянаж, доод хязгаарт хүрэхэд автомат мэдэгдэл илгээнэ.</p>
+        </article>
+
+        <!-- 06 · Тайлан -->
+        <article class="feat feat--rep">
+          <div class="feat-num">06</div>
           <div class="feat-ic">📊</div>
-          <h3>Тайлан &amp; Excel</h3>
-          <p>Орлого, борлуулалт, бараа, захиалгын тайланг огноогоор шүүлтүүрдэж PDF болон Excel форматаар татаж авах боломжтой.</p>
-        </div>
-        <div class="feat">
-          <div class="feat-ic">📅</div>
-          <h3>Цаг захиалгын систем</h3>
-          <p>Үйлчилгээ, ажилтан, ажлын цагийг системд бүртгэж, үйлчлүүлэгчид чатботоор бие даан цаг товлох боломжийг олгоно.</p>
-        </div>
-        <div class="feat">
-          <div class="feat-ic">🧾</div>
-          <h3>Баримтын OCR</h3>
-          <p>Google Vision AI-г ашиглан үйлчлүүлэгчийн илгээсэн баримтын зургыг уншин, Excel тайлангийн формат руу автоматаар хөрвүүлнэ.</p>
-        </div>
-        <div class="feat">
-          <div class="feat-ic">👥</div>
-          <h3>Багийн удирдлага</h3>
-          <p>Owner, editor, seller, viewer гэсэн дөрвөн түвшний эрхтэй ажилтан бүртгэх боломжтой. Эрх тус бүрт үйлдлийг нарийвчлан хянана.</p>
-        </div>
+          <h3 data-i18n="features.f06_title">Тайлан &amp; Excel</h3>
+          <p data-i18n="features.f06_desc">Орлого, борлуулалт, захиалгын тайланг огноогоор шүүж PDF/Excel формат руу татна.</p>
+        </article>
+
+        <!-- 07 · Цаг захиалга — wide 2×1 -->
+        <article class="feat feat--wide feat--book">
+          <div class="feat-num">07</div>
+          <div class="feat-row">
+            <div class="feat-ic">📅</div>
+            <div class="feat-body">
+              <h3 data-i18n="features.f07_title">Цаг захиалгын систем</h3>
+              <p data-i18n="features.f07_desc">Үйлчилгээ, ажилтан, ажлын цаг бүртгэж, үйлчлүүлэгчид чат системээр бие даан цаг товлох боломжийг олгоно.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08 · OCR — wide 2×1 -->
+        <article class="feat feat--wide feat--ocr">
+          <div class="feat-num">08</div>
+          <div class="feat-row">
+            <div class="feat-ic">🧾</div>
+            <div class="feat-body">
+              <h3 data-i18n="features.f08_title">Баримтын OCR</h3>
+              <p data-i18n="features.f08_desc">Google Vision AI-г ашиглан баримтын зургийг уншин, Excel тайлангийн формат руу автоматаар хөрвүүлнэ.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 09 · Багийн удирдлага — wide 2×1 -->
+        <article class="feat feat--wide feat--team">
+          <div class="feat-num">09</div>
+          <div class="feat-row">
+            <div class="feat-ic">👥</div>
+            <div class="feat-body">
+              <h3 data-i18n="features.f09_title">Багийн удирдлага</h3>
+              <p data-i18n="features.f09_desc">Owner, editor, seller, viewer — 4 түвшний эрхтэй ажилтан бүртгэж, эрх тус бүрт үйлдлийг нарийвчлан хянана.</p>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -271,78 +377,239 @@
   <!-- ════════════════════════════════════════════════════ INDUSTRIES -->
   <section class="industries" id="industries">
     <div class="ct tc">
-      <div class="sec-tag tag-orange">САЛБАРУУД</div>
-      <h2 class="sec-title">Ямар төрлийн <span class="accent">бизнест тохирох вэ?</span></h2>
-      <p class="sec-desc">Худалдаа, үйлчилгээ, эрүүл мэндийн салбарын ажил үйлчилгээг цогцоор автоматжуулна.</p>
+      <div class="sec-tag tag-orange" data-i18n="industries.tag">САЛБАРУУД</div>
+      <h2 class="sec-title"><span data-i18n="industries.heading_lead">Ямар төрлийн</span> <span class="accent" data-i18n="industries.heading_accent">бизнест тохирох вэ?</span></h2>
+      <p class="sec-desc" data-i18n="industries.desc">Худалдаа, үйлчилгээ, эрүүл мэндийн аль ч салбарт — AI чат систем, захиалга, цаг товлолт, нөөц, төлбөр — бүх зайлшгүй модулийг нэг дор цогцоор автоматжуулна.</p>
     </div>
     <div class="ct">
       <div class="ind-grid">
-        <div class="ind">
+
+        <article class="ind ind--retail">
+          <div class="ind-glow"></div>
           <div class="ind-ic">🏪</div>
-          <h4>Худалдаа</h4>
-          <p>Барилгын материал, цахилгаан хэрэгсэл, хувцас</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.retail_title">Худалдаа</h4>
+          <p data-i18n="industries.retail_desc">Барилгын материал, цахилгаан хэрэгсэл, хувцас</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.retail_tag1">Нөөц</span>
+            <span data-i18n="industries.retail_tag2">Захиалга</span>
+            <span data-i18n="industries.retail_tag3">Төлбөр</span>
+          </div>
+        </article>
+
+        <article class="ind ind--beauty">
+          <div class="ind-glow"></div>
           <div class="ind-ic">💇</div>
-          <h4>Гоо сайхан</h4>
-          <p>Үсчин, гоо сайхны салон, массажын төв</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.beauty_title">Гоо сайхан</h4>
+          <p data-i18n="industries.beauty_desc">Үсчин, гоо сайхны салон, массажын төв</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.beauty_tag1">Цаг товлолт</span>
+            <span data-i18n="industries.beauty_tag2">Ажилтан</span>
+          </div>
+        </article>
+
+        <article class="ind ind--health">
+          <div class="ind-glow"></div>
           <div class="ind-ic">🦷</div>
-          <h4>Эрүүл мэнд</h4>
-          <p>Шүдний эмнэлэг, үзлэг оношилгооны төв</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.health_title">Эрүүл мэнд</h4>
+          <p data-i18n="industries.health_desc">Шүдний эмнэлэг, үзлэг оношилгооны төв</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.health_tag1">Цаг товлолт</span>
+            <span data-i18n="industries.health_tag2">Сануулга</span>
+          </div>
+        </article>
+
+        <article class="ind ind--food ind--soon">
+          <div class="ind-glow"></div>
+          <span class="ind-soon" data-i18n="industries.soon_badge">ТУН УДАХГҮЙ</span>
           <div class="ind-ic">🍕</div>
-          <h4>Хоол, хүргэлт</h4>
-          <p>Ресторан, кафе, түргэн хоолны газар</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.food_title">Хоол, хүргэлт</h4>
+          <p data-i18n="industries.food_desc">Ресторан, кафе, түргэн хоолны газар</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.food_tag1">Меню</span>
+            <span data-i18n="industries.food_tag2">Хүргэлт</span>
+            <span data-i18n="industries.food_tag3">Төлбөр</span>
+          </div>
+        </article>
+
+        <article class="ind ind--auto">
+          <div class="ind-glow"></div>
           <div class="ind-ic">🚗</div>
-          <h4>Автосервис</h4>
-          <p>Сэлбэг хэрэгсэл, засвар үйлчилгээ, угаалга</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.auto_title">Автосервис</h4>
+          <p data-i18n="industries.auto_desc">Сэлбэг хэрэгсэл, засвар үйлчилгээ, угаалга</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.auto_tag1">Цаг товлолт</span>
+            <span data-i18n="industries.auto_tag2">Нөөц</span>
+          </div>
+        </article>
+
+        <article class="ind ind--fitness">
+          <div class="ind-glow"></div>
           <div class="ind-ic">🏋️</div>
-          <h4>Фитнесс</h4>
-          <p>Дасгалын заал, йога, пилатес</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.fitness_title">Фитнесс</h4>
+          <p data-i18n="industries.fitness_desc">Дасгалын заал, йога, пилатес</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.fitness_tag1">Гишүүнчлэл</span>
+            <span data-i18n="industries.fitness_tag2">Хуваарь</span>
+          </div>
+        </article>
+
+        <article class="ind ind--edu ind--soon">
+          <div class="ind-glow"></div>
+          <span class="ind-soon" data-i18n="industries.soon_badge">ТУН УДАХГҮЙ</span>
           <div class="ind-ic">📚</div>
-          <h4>Боловсрол</h4>
-          <p>Хэлний сургалт, мэргэжлийн курс</p>
-        </div>
-        <div class="ind">
+          <h4 data-i18n="industries.edu_title">Боловсрол</h4>
+          <p data-i18n="industries.edu_desc">Хэлний сургалт, мэргэжлийн курс</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.edu_tag1">Хичээл</span>
+            <span data-i18n="industries.edu_tag2">Төлбөр</span>
+          </div>
+        </article>
+
+        <article class="ind ind--travel ind--soon">
+          <div class="ind-glow"></div>
+          <span class="ind-soon" data-i18n="industries.soon_badge">ТУН УДАХГҮЙ</span>
           <div class="ind-ic">🏨</div>
-          <h4>Аялал жуулчлал</h4>
-          <p>Зочид буудал, тур, агаарын тасалбар</p>
+          <h4 data-i18n="industries.travel_title">Аялал жуулчлал</h4>
+          <p data-i18n="industries.travel_desc">Зочид буудал, тур, агаарын тасалбар</p>
+          <div class="ind-tags">
+            <span data-i18n="industries.travel_tag1">Захиалга</span>
+            <span data-i18n="industries.travel_tag2">Төлбөр</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="ind-more">
+        <span class="ind-more-ic">✨</span>
+        <div class="ind-more-txt">
+          <strong data-i18n="industries.more_title">Бусад салбар ч багтана</strong>
+          <span data-i18n="industries.more_desc">Жижиг дунд бизнес бүрд тохирох уян хатан систем — өөрийн хэрэгцээг бидэнтэй хуваалцаарай.</span>
         </div>
+        <a href="/contact.html" class="ind-more-btn" data-i18n="industries.more_btn">Холбогдох →</a>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════════ DARK — DIGITAL EVERYWHERE -->
-  <section class="dark-sec">
+  <!-- ════════════════════════════════════════════════════ DARK — VIEWER ACCESS -->
+  <section class="dark-sec" id="viewer">
     <div class="ct">
       <div class="dark-grid">
         <div>
-          <div class="sec-tag tag-dark">ДИЖИТАЛ БОРЛУУЛАЛТ</div>
-          <h2 class="sec-title">Хаанаас ч <span class="accent">бизнесээ автоматжуул</span></h2>
-          <p class="sec-desc">Үйлчлүүлэгч Facebook, Instagram, Telegram сувгуудаар бичихэд AI шуурхай хариу өгч, тохирох бараа санал болгож, захиалгыг шууд хүлээн авна. Ажлын цагаас гадна ч нэг ч үйлчлүүлэгч алдагдахгүй.</p>
-          <a href="https://ai.storeapp.us/seller/register.html" class="btn-primary btn-lg">Үнэгүй туршиж үзэх →</a>
-        </div>
-        <div class="dark-chat">
-          <div class="bb bb-b">👋 Сайн байна уу? Танд юугаар туслах вэ?</div>
-          <div class="bb bb-u">Сэндвич панелийн үнэ хэд вэ?</div>
-          <div class="bb bb-b">
-            📦 2 төрөл байна:<br/>
-            • 50мм зузаантай — 85,000₮<br/>
-            • 75мм зузаантай — 125,000₮
+          <div class="sec-tag tag-dark" data-i18n="viewer.tag">VIEWER ЭРХ</div>
+          <h2 class="sec-title"><span data-i18n="viewer.heading_lead">Дэлхийн хаанаас ч</span> <span class="accent" data-i18n="viewer.heading_accent">бизнесээ хянах</span></h2>
+          <p class="sec-desc" data-i18n="viewer.desc">Ажилтан, менежер, захирал хаана ч байсан гар утсандаа Telegram эсвэл Messenger нээхэд л хангалттай. Компьютер, тусгай програм шаардлагагүй.</p>
+          <blockquote class="viewer-quote" data-i18n="viewer.quote">
+            "Захирал гадаадад байхдаа, агуулахын ажилтан хөдөө байхдаа — бүгд бодит цагаар мэдээлэл авна"
+          </blockquote>
+          <div class="viewer-chips">
+            <span class="vc"><span class="vc-ic vc-ic--money">💰</span> <span data-i18n="viewer.chip_price">үнэ мотор</span></span>
+            <span class="vc"><span class="vc-ic vc-ic--box">📦</span> <span data-i18n="viewer.chip_stock">нөөц</span></span>
+            <span class="vc"><span class="vc-ic vc-ic--out"></span> <span data-i18n="viewer.chip_out">дууссан</span></span>
+            <span class="vc"><span class="vc-ic vc-ic--low"></span> <span data-i18n="viewer.chip_low">нөөц бага</span></span>
           </div>
-          <div class="bb bb-u">75мм-ээс 10 ширхэг</div>
-          <div class="bb bb-b">
-            ✅ Захиалга бүртгэгдлээ<br/>
-            Утасны дугаараа үлдээнэ үү
+          <a href="/register.html" class="btn-primary btn-lg viewer-cta" data-i18n="viewer.cta">Үнэгүй туршиж үзэх →</a>
+        </div>
+
+        <!-- iPhone mockup — Viewer Telegram chat -->
+        <div class="dark-phone-wrap">
+          <div class="phone">
+            <div class="phone-btn-silent"></div>
+            <div class="phone-btn-vol-up"></div>
+            <div class="phone-btn-vol-dn"></div>
+            <div class="phone-btn-power"></div>
+            <div class="phone-screen">
+              <div class="phone-island"></div>
+              <div class="phone-status">
+                <span class="phone-time">9:41</span>
+                <div class="phone-status-r">
+                  <span class="phone-signal"><i></i><i></i><i></i><i></i></span>
+                  <span class="phone-wifi">
+                    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 10.5a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM11.45 6.4l-.9.92a4.33 4.33 0 00-6.1 0l-.9-.92a5.6 5.6 0 017.9 0zM14 3.85l-.9.92a7.93 7.93 0 00-11.2 0L1 3.85a9.2 9.2 0 0113 0z" fill="currentColor"/></svg>
+                  </span>
+                  <span class="phone-battery"><i></i></span>
+                </div>
+              </div>
+
+              <!-- Telegram header -->
+              <div class="chat-hdr chat-hdr--tg">
+                <div class="chat-hdr-l">
+                  <span class="chat-hdr-back">‹</span>
+                  <div class="chat-hdr-av tg-av">📦</div>
+                  <div class="chat-hdr-info">
+                    <div class="chat-hdr-name" data-i18n="viewer.tg_header_name">StoreApp Viewer</div>
+                    <div class="chat-hdr-sub" data-i18n="viewer.tg_header_sub">Telegram bot · Онлайн</div>
+                  </div>
+                </div>
+                <div class="chat-hdr-r"><span>⋮</span></div>
+              </div>
+
+              <div class="chat-body chat-body--tg">
+                <div class="chat-date" data-i18n="chat_demo.date_today">Өнөөдөр</div>
+
+                <div class="msg msg-u">
+                  <div class="msg-bubble" data-i18n="viewer.tg_msg_query1">нөөц мотор</div>
+                </div>
+
+                <div class="msg msg-b">
+                  <div class="msg-bubble msg-bubble--inv">
+                    <span data-i18n="viewer.tg_msg_inv_title_html" data-i18n-html><strong>📦 Нөөцийн тайлан: "мотор"</strong></span><br/>
+                    <span data-i18n="viewer.tg_msg_inv_summary_html" data-i18n-html>15 төрөл · <span class="inv-chip inv-chip--ok">🟢 13 нөөцтэй</span> <span class="inv-chip inv-chip--out">🔴 2 дууссан</span></span>
+                    <div class="inv-list">
+                      <div class="inv-item">
+                        <span class="inv-dot inv-ok"></span>
+                        <div>
+                          <div class="inv-name" data-i18n="viewer.tg_inv_item1_name">1. Motor 220V 1.5kW</div>
+                          <div class="inv-meta" data-i18n="viewer.tg_inv_item1_meta_html" data-i18n-html>Нийт: <b>40ш</b> · <b>330,000₮</b></div>
+                        </div>
+                      </div>
+                      <div class="inv-item">
+                        <span class="inv-dot inv-ok"></span>
+                        <div>
+                          <div class="inv-name" data-i18n="viewer.tg_inv_item2_name">2. Motor 380V 2.2kW</div>
+                          <div class="inv-meta" data-i18n="viewer.tg_inv_item2_meta_html" data-i18n-html>Нийт: <b>35ш</b> · <b>341,000₮</b></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg msg-u">
+                  <div class="msg-bubble" data-i18n="viewer.tg_msg_query2">дууссан</div>
+                </div>
+
+                <div class="msg msg-b">
+                  <div class="msg-bubble msg-bubble--inv">
+                    <span data-i18n="viewer.tg_msg_out_title_html" data-i18n-html><strong>🔴 Дууссан бараа</strong></span>
+                    <div class="inv-list">
+                      <div class="inv-item">
+                        <span class="inv-dot inv-out"></span>
+                        <div>
+                          <div class="inv-name" data-i18n="viewer.tg_out_item1_name">1. Кабель 2.5мм</div>
+                          <div class="inv-meta inv-meta--out" data-i18n="viewer.tg_out_item1_meta">❌ 0 ширхэг</div>
+                        </div>
+                      </div>
+                      <div class="inv-item">
+                        <span class="inv-dot inv-out"></span>
+                        <div>
+                          <div class="inv-name" data-i18n="viewer.tg_out_item2_name">2. Автомат 50А</div>
+                          <div class="inv-meta inv-meta--out" data-i18n="viewer.tg_out_item2_meta">❌ 0 ширхэг</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg-time" data-i18n="chat_demo.msg_time_read">хэдэн секундын өмнө · Уншсан</div>
+              </div>
+
+              <div class="chat-input">
+                <span class="chat-input-ic">+</span>
+                <div class="chat-input-field" data-i18n="chat_demo.input_placeholder">Мессеж бичих...</div>
+                <span class="chat-input-send">➤</span>
+              </div>
+
+              <div class="phone-home"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -352,81 +619,441 @@
   <!-- ════════════════════════════════════════════════════ ONLINE APPOINTMENT -->
   <section class="booking" id="booking">
     <div class="ct tc">
-      <div class="sec-tag tag-yellow">ШИНЭ БОЛОМЖ</div>
-      <h2 class="sec-title">Онлайн <span class="accent">цаг захиалга</span></h2>
-      <p class="sec-desc">Шүдний эмнэлэг, гоо сайхны салон, зөвлөгөөний үйлчилгээ эрхэлдэг бизнесүүдэд зориулсан автомат цаг захиалгын систем.</p>
+      <div class="sec-tag tag-yellow" data-i18n="booking.tag">ШИНЭ</div>
+      <h2 class="sec-title"><span data-i18n="booking.heading_lead">Онлайн</span> <span class="accent" data-i18n="booking.heading_accent">цаг захиалга</span></h2>
+      <p class="sec-desc" data-i18n="booking.desc">Эмнэлэг, гоо сайхны салон, зөвлөгөө өгдөг бизнесүүдэд тохирсон автомат цаг захиалгын систем.</p>
     </div>
 
     <div class="ct">
-      <div class="book-demo">
-        <div class="book-hd">
-          <div class="tg">ЦАГ ЗАХИАЛГА</div>
-          <h3>Шүдний эмнэлэг</h3>
-        </div>
-        <div class="book-bd">
-          <div class="cal-hd">
-            <span>2026 оны 4-р сар</span>
-            <div class="cal-nav">
-              <button>‹</button>
-              <button>›</button>
-            </div>
-          </div>
-          <table class="cal">
-            <thead>
-              <tr><th>Ня</th><th>Да</th><th>Мя</th><th>Лх</th><th>Пү</th><th>Ба</th><th>Бя</th></tr>
-            </thead>
-            <tbody>
-              <tr><td class="dim">30</td><td class="dim">31</td><td>1</td><td>2</td><td>3</td><td>4</td><td class="dim">5</td></tr>
-              <tr><td class="dim">6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td class="dim">12</td></tr>
-              <tr><td class="dim">13</td><td>14</td><td>15</td><td>16</td><td class="sel">17</td><td>18</td><td class="dim">19</td></tr>
-              <tr><td class="dim">20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="dim">26</td></tr>
-            </tbody>
-          </table>
+      <div class="book-grid">
 
-          <p class="cal-hint">БОЛОМЖИТ ЦАГУУД</p>
-          <div class="slots">
-            <span class="slot">09:00</span>
-            <span class="slot">09:30</span>
-            <span class="slot picked">10:00</span>
-            <span class="slot">10:30</span>
-            <span class="slot">11:00</span>
-            <span class="slot taken">11:30</span>
-            <span class="slot">14:00</span>
-            <span class="slot">14:30</span>
-          </div>
-
-          <div class="book-conf">
-            <div class="cc">✓</div>
+        <!-- LEFT: Demo widget with floating stats -->
+        <div class="book-demo-wrap">
+          <div class="book-stat book-stat--tl">
+            <span class="book-stat-ic">🎯</span>
             <div>
-              <div class="conf-t">Захиалга амжилттай баталгаажлаа</div>
-              <div class="conf-m">4-р сарын 17, 10:00 — Шүдний үзлэг</div>
+              <strong data-i18n="booking.stat_confirmed_num">98%</strong>
+              <span data-i18n="booking.stat_confirmed_label">баталгаажсан</span>
+            </div>
+          </div>
+          <div class="book-stat book-stat--br">
+            <span class="book-stat-ic">⚡</span>
+            <div>
+              <strong data-i18n="booking.stat_speed_num">15 сек</strong>
+              <span data-i18n="booking.stat_speed_label">захиалгын дундаж</span>
+            </div>
+          </div>
+
+          <div class="book-demo">
+            <div class="book-hd">
+              <div class="tg" data-i18n="booking.demo_tag">ЦАГ ЗАХИАЛГА</div>
+              <h3 data-i18n="booking.demo_title">Шүдний эмнэлэг</h3>
+            </div>
+            <div class="book-bd">
+              <div class="cal-hd">
+                <span data-i18n="booking.cal_month">2026 оны 4-р сар</span>
+                <div class="cal-nav">
+                  <button>‹</button>
+                  <button>›</button>
+                </div>
+              </div>
+              <table class="cal">
+                <thead>
+                  <tr><th data-i18n="booking.cal_dow_sun">Ня</th><th data-i18n="booking.cal_dow_mon">Да</th><th data-i18n="booking.cal_dow_tue">Мя</th><th data-i18n="booking.cal_dow_wed">Лх</th><th data-i18n="booking.cal_dow_thu">Пү</th><th data-i18n="booking.cal_dow_fri">Ба</th><th data-i18n="booking.cal_dow_sat">Бя</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="dim">30</td><td class="dim">31</td><td>1</td><td>2</td><td>3</td><td>4</td><td class="dim">5</td></tr>
+                  <tr><td class="dim">6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td class="dim">12</td></tr>
+                  <tr><td class="dim">13</td><td>14</td><td>15</td><td>16</td><td class="sel">17</td><td>18</td><td class="dim">19</td></tr>
+                  <tr><td class="dim">20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="dim">26</td></tr>
+                </tbody>
+              </table>
+
+              <p class="cal-hint" data-i18n="booking.slots_hint">БОЛОМЖИТ ЦАГУУД</p>
+              <div class="slots">
+                <span class="slot">09:00</span>
+                <span class="slot">09:30</span>
+                <span class="slot picked">10:00</span>
+                <span class="slot">10:30</span>
+                <span class="slot">11:00</span>
+                <span class="slot taken">11:30</span>
+                <span class="slot">14:00</span>
+                <span class="slot">14:30</span>
+              </div>
+
+              <div class="book-conf">
+                <div class="cc">✓</div>
+                <div>
+                  <div class="conf-t" data-i18n="booking.conf_title">Захиалга баталгаажлаа!</div>
+                  <div class="conf-m" data-i18n="booking.conf_meta">4-р сарын 17, 10:00 — Шүдний үзлэг</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="book-ben">
-        <div class="ben">
-          <div class="ben-ic">📱</div>
-          <div>
-            <h4>Үйлчлүүлэгч өөрөө товлоно</h4>
-            <p>Ажилтан утсаа барих шаардлагагүй. Үйлчлүүлэгч өөрөө боломжит цагуудаас сонгож, тэр даруйд баталгаажуулна.</p>
+        <!-- RIGHT: Benefits list + CTA -->
+        <div class="book-ben">
+          <div class="ben">
+            <div class="ben-ic ben-ic--pink">📅</div>
+            <div>
+              <h4 data-i18n="booking.ben1_title">Chatbot-оос шууд захиалах</h4>
+              <p data-i18n="booking.ben1_desc">Хэрэглэгч Messenger, Telegram-аас "цаг захиалах" гэж бичихэд автоматаар боломжит цагуудыг харуулна.</p>
+            </div>
+          </div>
+          <div class="ben">
+            <div class="ben-ic ben-ic--blue">👥</div>
+            <div>
+              <h4 data-i18n="booking.ben2_title">Ажилтан &amp; хуваарь удирдах</h4>
+              <p data-i18n="booking.ben2_desc">Эмч, мастер бүрийн ажлын цаг, завсарлага, амралтын өдрийг тус тусад нь тохируулна.</p>
+            </div>
+          </div>
+          <div class="ben">
+            <div class="ben-ic ben-ic--green">✅</div>
+            <div>
+              <h4 data-i18n="booking.ben3_title">Захиалгыг нэг дороос удирдах</h4>
+              <p data-i18n="booking.ben3_desc">Бүх захиалгыг хүлээж буй → баталсан → дууссан гэж төлөв шилжүүлж удирдана.</p>
+            </div>
+          </div>
+          <div class="ben">
+            <div class="ben-ic ben-ic--purple">🔔</div>
+            <div>
+              <h4 data-i18n="booking.ben4_title">Автомат мэдэгдэл</h4>
+              <p data-i18n="booking.ben4_desc">Шинэ захиалга орох бүрт seller dashboard-д мэдэгдэл ирнэ. 24 цагийн өмнө хэрэглэгчид сануулна.</p>
+            </div>
+          </div>
+          <a href="/register.html" class="btn-primary btn-lg book-cta" data-i18n="booking.cta">Туршиж үзэх →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════ EXCEL QUOTE -->
+  <section class="quote-sec" id="quote">
+    <div class="ct tc">
+      <div class="sec-tag tag-orange" data-i18n="quote.tag">EXCEL-ААР ҮНИЙН САНАЛ</div>
+      <h2 class="sec-title"><span data-i18n="quote.heading_lead">Файл илгээ —</span> <span class="accent" data-i18n="quote.heading_accent">үнэ хормын дотор</span></h2>
+      <p class="sec-desc" data-i18n="quote.desc">Үйлчлүүлэгч барааны жагсаалтыг Excel эсвэл CSV форматаар илгээхэд AI автоматаар таньж, нөөц шалгаж, үнийн саналыг хүснэгт хэлбэрээр бэлэн болгоно.</p>
+    </div>
+
+    <div class="ct">
+      <div class="quote-grid">
+
+        <!-- LEFT: 3-step guide + stats -->
+        <div class="quote-body">
+          <div class="q-steps">
+            <div class="q-step">
+              <div class="q-step-num">1</div>
+              <div>
+                <h4 data-i18n="quote.step1_title">Excel файл илгээх</h4>
+                <p data-i18n="quote.step1_desc">Үйлчлүүлэгч Messenger, Telegram-аар .xlsx эсвэл .csv файлыг шууд хавсаргана. Тусгай формат шаардлагагүй.</p>
+              </div>
+            </div>
+            <div class="q-step">
+              <div class="q-step-num">2</div>
+              <div>
+                <h4 data-i18n="quote.step2_title">AI нэрээр тохирох бараа олно</h4>
+                <p data-i18n="quote.step2_desc">Файлын мөр бүрийн нэр, SKU, тоо ширхгийг AI таны барааны каталогоос хайж, тохирох бүтээгдэхүүнийг автоматаар тааруулна.</p>
+              </div>
+            </div>
+            <div class="q-step">
+              <div class="q-step-num">3</div>
+              <div>
+                <h4 data-i18n="quote.step3_title">Үнийн санал &amp; PDF</h4>
+                <p data-i18n="quote.step3_desc">Бүх бараагаар үнийн саналыг хүснэгтээр эрэмбэлж, нөөцтэй/дутмаг бүтээгдэхүүнийг тэмдэглэж, PDF файл үүсгэж буцаана.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-stats">
+            <div class="q-stat">
+              <strong data-i18n="quote.stat1_num">~3 секунд</strong>
+              <span data-i18n="quote.stat1_label">24 бараатай файл</span>
+            </div>
+            <div class="q-stat">
+              <strong data-i18n="quote.stat2_num">.xlsx · .csv · .xls</strong>
+              <span data-i18n="quote.stat2_label">дэмжигдсэн формат</span>
+            </div>
           </div>
         </div>
-        <div class="ben">
-          <div class="ben-ic">🔔</div>
-          <div>
-            <h4>Автомат сануулга</h4>
-            <p>Захиалсан цагаас 24 цагийн өмнө үйлчлүүлэгч рүү Telegram эсвэл SMS сувгаар сануулга илгээгдэнэ.</p>
+
+        <!-- RIGHT: iPhone mockup with file upload chat -->
+        <div class="quote-phone-wrap">
+          <div class="phone">
+            <div class="phone-btn-silent"></div>
+            <div class="phone-btn-vol-up"></div>
+            <div class="phone-btn-vol-dn"></div>
+            <div class="phone-btn-power"></div>
+            <div class="phone-screen">
+              <div class="phone-island"></div>
+              <div class="phone-status">
+                <span class="phone-time">9:41</span>
+                <div class="phone-status-r">
+                  <span class="phone-signal"><i></i><i></i><i></i><i></i></span>
+                  <span class="phone-wifi">
+                    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 10.5a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM11.45 6.4l-.9.92a4.33 4.33 0 00-6.1 0l-.9-.92a5.6 5.6 0 017.9 0zM14 3.85l-.9.92a7.93 7.93 0 00-11.2 0L1 3.85a9.2 9.2 0 0113 0z" fill="currentColor"/></svg>
+                  </span>
+                  <span class="phone-battery"><i></i></span>
+                </div>
+              </div>
+
+              <div class="chat-hdr">
+                <div class="chat-hdr-l">
+                  <span class="chat-hdr-back">‹</span>
+                  <div class="chat-hdr-av">
+                    <img src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="StoreApp" />
+                    <span class="chat-hdr-online"></span>
+                  </div>
+                  <div class="chat-hdr-info">
+                    <div class="chat-hdr-name" data-i18n="chat_demo.header_name">StoreApp AI</div>
+                    <div class="chat-hdr-sub" data-i18n="chat_demo.header_status">● Онлайн</div>
+                  </div>
+                </div>
+                <div class="chat-hdr-r"><span>📞</span><span>📹</span></div>
+              </div>
+
+              <div class="chat-body">
+                <div class="chat-date" data-i18n="chat_demo.date_today">Өнөөдөр</div>
+
+                <div class="msg msg-u">
+                  <div class="msg-bubble" data-i18n="quote.demo_msg_user1">Сайн байна уу. Энэ жагсаалтын үнийн санал авмаар байна</div>
+                </div>
+
+                <div class="msg msg-u">
+                  <div class="msg-file">
+                    <div class="msg-file-ic">📊</div>
+                    <div class="msg-file-info">
+                      <div class="msg-file-name" data-i18n="quote.demo_file_name">building-materials.xlsx</div>
+                      <div class="msg-file-meta" data-i18n="quote.demo_file_meta">24 бараа · 12 KB</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg msg-b">
+                  <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
+                  <div class="msg-bubble" data-i18n="quote.demo_msg_received">📎 Файл хүлээн авлаа. 24 бараагаар шалгаж байна...</div>
+                </div>
+
+                <div class="msg msg-b">
+                  <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
+                  <div class="msg-card q-card">
+                    <div class="q-card-hd">
+                      <span data-i18n="quote.demo_card_title">💰 Үнийн санал</span>
+                      <span class="q-card-date" data-i18n="quote.demo_card_date">2026-04-23</span>
+                    </div>
+                    <div class="q-card-items">
+                      <div class="q-item">
+                        <span class="q-item-n" data-i18n="quote.demo_item1_name">Цемент 50кг</span>
+                        <span class="q-item-q">× 40</span>
+                        <span class="q-item-p">720,000₮</span>
+                      </div>
+                      <div class="q-item">
+                        <span class="q-item-n" data-i18n="quote.demo_item2_name">Арматур 12мм</span>
+                        <span class="q-item-q">× 200</span>
+                        <span class="q-item-p">1,600,000₮</span>
+                      </div>
+                      <div class="q-item">
+                        <span class="q-item-n" data-i18n="quote.demo_item3_name">Сэндвич панел 50мм</span>
+                        <span class="q-item-q">× 15</span>
+                        <span class="q-item-p">1,275,000₮</span>
+                      </div>
+                      <div class="q-item q-item--more" data-i18n="quote.demo_item_more">… өөр 21 бараа</div>
+                    </div>
+                    <div class="q-card-total">
+                      <span data-i18n="quote.demo_total_label">Нийт дүн</span>
+                      <strong>3,847,500₮</strong>
+                    </div>
+                    <div class="q-card-chips">
+                      <span class="q-chip q-chip-ok" data-i18n="quote.demo_chip_ok">✅ 22 нөөцтэй</span>
+                      <span class="q-chip q-chip-warn" data-i18n="quote.demo_chip_warn">⚠️ 2 дутмаг</span>
+                    </div>
+                    <div class="q-card-actions">
+                      <span class="q-btn q-btn-pri" data-i18n="quote.demo_btn_pdf">📄 PDF татах</span>
+                      <span class="q-btn" data-i18n="quote.demo_btn_email">📧 Имэйл</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg-time" data-i18n="quote.demo_time">2 секундын өмнө · Уншсан</div>
+              </div>
+
+              <div class="chat-input">
+                <span class="chat-input-ic">+</span>
+                <div class="chat-input-field" data-i18n="chat_demo.input_placeholder">Мессеж бичих...</div>
+                <span class="chat-input-send">➤</span>
+              </div>
+
+              <div class="phone-home"></div>
+            </div>
           </div>
         </div>
-        <div class="ben">
-          <div class="ben-ic">📅</div>
-          <div>
-            <h4>Давхардалгүй хуваарь</h4>
-            <p>Ажилтан тус бүрийн ажлын цаг системд бүртгэгдсэн тул захиалсан цаг давхардах асуудал гарахгүй.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════ RECEIPT OCR -->
+  <section class="ocr-sec" id="ocr">
+    <div class="ct tc">
+      <div class="sec-tag tag-orange" data-i18n="ocr.tag">БАРИМТ БҮРТГЭГЧ</div>
+      <h2 class="sec-title"><span data-i18n="ocr.heading_lead">Баримтын зургаас</span> <span class="accent" data-i18n="ocr.heading_accent">Excel тайлан</span></h2>
+      <p class="sec-desc" data-i18n="ocr.desc">Хэрэглэгч эсвэл өөрийн ажилтан баримтын зураг авч Messenger, Telegram-аар илгээхэд AI автомат уншиж, дүн, огноо болон бусад мэдээллийг Excel тайлан руу хөрвүүлнэ.</p>
+    </div>
+
+    <div class="ct">
+      <div class="ocr-grid">
+
+        <!-- LEFT: 3-step guide + stats -->
+        <div class="ocr-body">
+          <div class="ocr-steps">
+            <div class="ocr-step">
+              <div class="ocr-step-num">1</div>
+              <div>
+                <h4 data-i18n="ocr.step1_title">Баримтаа зураг авах</h4>
+                <p data-i18n="ocr.step1_desc">Messenger, Telegram-аар баримтын зургыг илгээнэ. Монгол болон Латин үсэгт баримтыг хоёуланг дэмжинэ.</p>
+              </div>
+            </div>
+            <div class="ocr-step">
+              <div class="ocr-step-num">2</div>
+              <div>
+                <h4 data-i18n="ocr.step2_title">AI автомат унших</h4>
+                <p data-i18n="ocr.step2_desc">AI дэлгүүрийн нэр, огноо, үнэ, нийт дүн, ТТД гээд бүх мэдээллийг таньж ялгана.</p>
+              </div>
+            </div>
+            <div class="ocr-step">
+              <div class="ocr-step-num">3</div>
+              <div>
+                <h4 data-i18n="ocr.step3_title">Excel тайлан үүсэх</h4>
+                <p data-i18n="ocr.step3_desc">Баримт бүр автомат бүртгэгдэж, сар/өдөрөөр ангилагдсан Excel тайлан нэг товчлуураар татаж авна.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ocr-stats">
+            <div class="ocr-stat">
+              <strong data-i18n="ocr.stat1_num">15+</strong>
+              <span data-i18n="ocr.stat1_label">талбар уншина</span>
+            </div>
+            <div class="ocr-stat">
+              <strong data-i18n="ocr.stat2_num">~2 сек</strong>
+              <span data-i18n="ocr.stat2_label">нэг баримт</span>
+            </div>
           </div>
         </div>
+
+        <!-- RIGHT: iPhone mockup with receipt scan chat -->
+        <div class="ocr-phone-wrap">
+          <div class="phone">
+            <div class="phone-btn-silent"></div>
+            <div class="phone-btn-vol-up"></div>
+            <div class="phone-btn-vol-dn"></div>
+            <div class="phone-btn-power"></div>
+            <div class="phone-screen">
+              <div class="phone-island"></div>
+              <div class="phone-status">
+                <span class="phone-time">9:41</span>
+                <div class="phone-status-r">
+                  <span class="phone-signal"><i></i><i></i><i></i><i></i></span>
+                  <span class="phone-wifi">
+                    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 10.5a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM11.45 6.4l-.9.92a4.33 4.33 0 00-6.1 0l-.9-.92a5.6 5.6 0 017.9 0zM14 3.85l-.9.92a7.93 7.93 0 00-11.2 0L1 3.85a9.2 9.2 0 0113 0z" fill="currentColor"/></svg>
+                  </span>
+                  <span class="phone-battery"><i></i></span>
+                </div>
+              </div>
+
+              <div class="chat-hdr">
+                <div class="chat-hdr-l">
+                  <span class="chat-hdr-back">‹</span>
+                  <div class="chat-hdr-av">
+                    <img src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="StoreApp" />
+                    <span class="chat-hdr-online"></span>
+                  </div>
+                  <div class="chat-hdr-info">
+                    <div class="chat-hdr-name" data-i18n="ocr.tg_header_name">Баримт уншигч</div>
+                    <div class="chat-hdr-sub" data-i18n="chat_demo.header_status">● Онлайн</div>
+                  </div>
+                </div>
+                <div class="chat-hdr-r"><span>📞</span><span>📹</span></div>
+              </div>
+
+              <div class="chat-body">
+                <div class="chat-date" data-i18n="chat_demo.date_today">Өнөөдөр</div>
+
+                <div class="msg msg-u">
+                  <div class="msg-bubble" data-i18n="ocr.demo_msg_user1">Баримтаа уншуулъя</div>
+                </div>
+
+                <!-- Realistic receipt "photo" bubble -->
+                <div class="msg msg-u">
+                  <div class="msg-receipt">
+                    <div class="rcpt">
+                      <div class="rcpt-scan"></div>
+                      <div class="rcpt-hd" data-i18n="ocr.rcpt_store">НОМИН СУПЕРМАРКЕТ</div>
+                      <div class="rcpt-sub" data-i18n="ocr.rcpt_ttd">ТТД: 1234567</div>
+                      <div class="rcpt-sub" data-i18n="ocr.rcpt_date">2026-04-23 · 14:32</div>
+                      <div class="rcpt-div"></div>
+                      <div class="rcpt-row"><span data-i18n="ocr.rcpt_item1_name">Сүү 1л</span><span>3,200₮</span></div>
+                      <div class="rcpt-row"><span data-i18n="ocr.rcpt_item2_name">Талх</span><span>2,500₮</span></div>
+                      <div class="rcpt-row"><span data-i18n="ocr.rcpt_item3_name">Өндөг 10ш</span><span>5,500₮</span></div>
+                      <div class="rcpt-row"><span data-i18n="ocr.rcpt_item4_name">Жимс hcp</span><span>12,800₮</span></div>
+                      <div class="rcpt-div"></div>
+                      <div class="rcpt-total"><span data-i18n="ocr.rcpt_total">НИЙТ:</span><span>24,000₮</span></div>
+                      <div class="rcpt-div"></div>
+                      <div class="rcpt-code">||  ||| | |||| | |||</div>
+                      <div class="rcpt-sub" data-i18n="ocr.rcpt_thanks">Баярлалаа!</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg msg-b">
+                  <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
+                  <div class="msg-bubble" data-i18n="ocr.demo_msg_received_html" data-i18n-html>
+                    📸 Баримт хүлээн авлаа. Уншиж байна<span class="ocr-dots"><i></i><i></i><i></i></span>
+                  </div>
+                </div>
+
+                <div class="msg msg-b">
+                  <img class="msg-av" src="https://ai.storeapp.us/assets/images/logo/logo.png" alt="" />
+                  <div class="msg-card ocr-card">
+                    <div class="ocr-card-hd">
+                      <span class="ocr-card-ok">✅</span>
+                      <div>
+                        <strong data-i18n="ocr.card_title">Уншилт амжилттай</strong>
+                        <span data-i18n="ocr.card_subtitle">2.1 секундэд</span>
+                      </div>
+                    </div>
+                    <div class="ocr-card-rows">
+                      <div class="ocr-row"><span data-i18n="ocr.card_row_store_label">Дэлгүүр</span><b data-i18n="ocr.card_row_store_value">Номин Супермаркет</b></div>
+                      <div class="ocr-row"><span data-i18n="ocr.card_row_date_label">Огноо</span><b data-i18n="ocr.card_row_date_value">2026-04-23 14:32</b></div>
+                      <div class="ocr-row"><span data-i18n="ocr.card_row_ttd_label">ТТД</span><b data-i18n="ocr.card_row_ttd_value">1234567</b></div>
+                      <div class="ocr-row"><span data-i18n="ocr.card_row_count_label">Зүйл</span><b data-i18n="ocr.card_row_count_value">4 бараа</b></div>
+                    </div>
+                    <div class="ocr-card-total">
+                      <span data-i18n="ocr.card_total_label">Нийт дүн</span>
+                      <strong>24,000₮</strong>
+                    </div>
+                    <div class="ocr-card-actions">
+                      <span class="ocr-btn ocr-btn-pri" data-i18n="ocr.card_btn_excel">📊 Excel татах</span>
+                      <span class="ocr-btn" data-i18n="ocr.card_btn_edit">✏️ Засах</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="msg-time" data-i18n="chat_demo.msg_time_read">хэдэн секундын өмнө · Уншсан</div>
+              </div>
+
+              <div class="chat-input">
+                <span class="chat-input-ic">+</span>
+                <div class="chat-input-field" data-i18n="chat_demo.input_placeholder">Мессеж бичих...</div>
+                <span class="chat-input-send">➤</span>
+              </div>
+
+              <div class="phone-home"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -434,51 +1061,88 @@
   <!-- ════════════════════════════════════════════════════ COMPARISON -->
   <section class="compare">
     <div class="ct tc">
-      <div class="sec-tag tag-dark">ХАРЬЦУУЛАЛТ</div>
-      <h2 class="sec-title">Ажилтан <span class="accent">ба</span> AI StoreApp</h2>
-      <p class="sec-desc">Уламжлалт ажилтантай харьцуулахад AI системийн давуу талыг тоогоор харуулав.</p>
+      <div class="sec-tag tag-dark" data-i18n="compare.tag">ХАРЬЦУУЛАЛТ</div>
+      <h2 class="sec-title"><span data-i18n="compare.heading_lead">Ажилтан</span> <span class="accent" data-i18n="compare.heading_and">ба</span> <span data-i18n="compare.heading_accent">AI StoreApp</span></h2>
+      <p class="sec-desc" data-i18n="compare.desc">Уламжлалт ажилтантай харьцуулахад AI системийн давуу талыг тоогоор харуулав.</p>
     </div>
+
     <div class="ct">
-      <div class="compare-wrap">
-        <div class="compare-head">
-          <div>Үзүүлэлт</div>
-          <div>Ажилтан</div>
-          <div class="ai">AI StoreApp</div>
+      <!-- Top highlight stats -->
+      <div class="cmp-stats">
+        <div class="cmp-stat">
+          <strong data-i18n="compare.stat1_num">24/7</strong>
+          <span data-i18n="compare.stat1_label">зогсолтгүй ажиллагаа</span>
         </div>
-        <div class="compare-row">
-          <div>24/7 ажиллагаа</div>
-          <div><span class="ic-no">✕</span></div>
-          <div><span class="ic-yes">✓</span></div>
+        <div class="cmp-stat">
+          <strong data-i18n="compare.stat2_num">100×</strong>
+          <span data-i18n="compare.stat2_label">илүү хурдан хариу</span>
         </div>
-        <div class="compare-row">
-          <div>Хариу өгөх хугацаа</div>
-          <div>1–10 минут</div>
-          <div>3 секунд</div>
+        <div class="cmp-stat">
+          <strong data-i18n="compare.stat3_num">15×</strong>
+          <span data-i18n="compare.stat3_label">бага сарын зардал</span>
         </div>
-        <div class="compare-row">
-          <div>Нэгэн зэрэг харилцах хэрэглэгчийн тоо</div>
-          <div>1</div>
-          <div>100+</div>
+      </div>
+
+      <div class="cmp-table">
+        <div class="cmp-head">
+          <div class="cmp-h-label" data-i18n="compare.head_label">Үзүүлэлт</div>
+          <div class="cmp-h-col cmp-h-col--loss">
+            <span class="cmp-h-ic">👤</span>
+            <span data-i18n="compare.head_human">Ажилтан</span>
+          </div>
+          <div class="cmp-h-col cmp-h-col--win">
+            <span class="cmp-h-ic">🤖</span>
+            <span data-i18n="compare.head_ai">AI StoreApp</span>
+            <span class="cmp-winner" data-i18n="compare.head_winner">ШАЛГАРСАН</span>
+          </div>
         </div>
-        <div class="compare-row">
-          <div>Сарын зардал</div>
-          <div>1,500,000₮+</div>
-          <div>100,000₮</div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">🕘</span> <span data-i18n="compare.row1_label">24/7 ажиллагаа</span></div>
+          <div class="cmp-val cmp-val--loss"><span class="cmp-x">✕</span></div>
+          <div class="cmp-val cmp-val--win"><span class="cmp-check">✓</span></div>
         </div>
-        <div class="compare-row">
-          <div>Амралт, өвчний чөлөө</div>
-          <div><span class="ic-no">✕</span> байдаг</div>
-          <div><span class="ic-yes">✓</span> байдаггүй</div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">⚡</span> <span data-i18n="compare.row2_label">Хариу өгөх хугацаа</span></div>
+          <div class="cmp-val cmp-val--loss" data-i18n="compare.row2_human">1–10 минут</div>
+          <div class="cmp-val cmp-val--win"><strong data-i18n="compare.row2_ai">3 секунд</strong></div>
         </div>
-        <div class="compare-row">
-          <div>Барааны мэдээлэл цээжлэх</div>
-          <div><span class="ic-soso">хязгаартай</span></div>
-          <div><span class="ic-yes">✓</span> 100%</div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">👥</span> <span data-i18n="compare.row3_label">Нэгэн зэрэг харилцах</span></div>
+          <div class="cmp-val cmp-val--loss" data-i18n="compare.row3_human">1 хүн</div>
+          <div class="cmp-val cmp-val--win" data-i18n="compare.row3_ai_html" data-i18n-html><strong>100+</strong> зэрэг</div>
         </div>
-        <div class="compare-row">
-          <div>Олон сувгаар зэрэг ажиллах</div>
-          <div><span class="ic-no">✕</span></div>
-          <div><span class="ic-yes">✓</span> 6 суваг</div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">💰</span> <span data-i18n="compare.row4_label">Сарын зардал</span></div>
+          <div class="cmp-val cmp-val--loss" data-i18n="compare.row4_human">1,500,000₮+</div>
+          <div class="cmp-val cmp-val--win"><strong data-i18n="compare.row4_ai">100,000₮</strong></div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">🛌</span> <span data-i18n="compare.row5_label">Амралт, өвчний чөлөө</span></div>
+          <div class="cmp-val cmp-val--loss" data-i18n="compare.row5_human_html" data-i18n-html><span class="cmp-x">✕</span> байдаг</div>
+          <div class="cmp-val cmp-val--win" data-i18n="compare.row5_ai_html" data-i18n-html><span class="cmp-check">✓</span> байдаггүй</div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">🧠</span> <span data-i18n="compare.row6_label">Барааны мэдээлэл цээжлэх</span></div>
+          <div class="cmp-val cmp-val--loss" data-i18n="compare.row6_human">Хязгаартай</div>
+          <div class="cmp-val cmp-val--win" data-i18n="compare.row6_ai_html" data-i18n-html><strong>100%</strong> санамж</div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-metric"><span class="cmp-m-ic">📱</span> <span data-i18n="compare.row7_label">Олон сувгаар зэрэг</span></div>
+          <div class="cmp-val cmp-val--loss"><span class="cmp-x">✕</span></div>
+          <div class="cmp-val cmp-val--win" data-i18n="compare.row7_ai_html" data-i18n-html><span class="cmp-check">✓</span> 6 суваг</div>
+        </div>
+
+        <div class="cmp-total">
+          <div class="cmp-metric" data-i18n="compare.total_label_html" data-i18n-html><span class="cmp-m-ic">🏆</span> <strong>Нийт давуу тал</strong></div>
+          <div class="cmp-val cmp-val--loss" data-i18n="compare.total_human">0 / 7</div>
+          <div class="cmp-val cmp-val--win"><strong data-i18n="compare.total_ai">7 / 7</strong></div>
         </div>
       </div>
     </div>
@@ -487,125 +1151,85 @@
   <!-- ════════════════════════════════════════════════════ PRICING -->
   <section class="pricing" id="pricing">
     <div class="ct tc">
-      <div class="sec-tag tag-orange">ҮНИЙН БАГЦ</div>
-      <h2 class="sec-title">Өөрт тохирох <span class="accent">багцаа сонгоно уу</span></h2>
-      <p class="sec-desc">Бүх багцад бүрэн функц хамрагдана. Урт хугацааны багцад илүү давуу үнийн нөхцөл санал болгоно.</p>
+      <h2 class="sec-title"><span data-i18n="pricing.heading_lead">Тохирох</span> <span class="accent" data-i18n="pricing.heading_accent">багцаа</span> <span data-i18n="pricing.heading_tail">сонгоорой</span></h2>
+      <p class="sec-desc" data-i18n="pricing.desc">Бүх багцад 3 хоногийн үнэгүй туршилтын хугацаа</p>
     </div>
     <div class="ct">
       <div class="plans">
-        <div class="plan">
-          <div class="plan-nm">1 сар</div>
-          <div class="plan-pr">100,000<span>₮ / сар</span></div>
-          <div class="plan-sv">Богино хугацаатай туршилтад</div>
-          <ul>
-            <li>Бүх функц нээлттэй</li>
-            <li>6 сувгийн интеграц</li>
-            <li>AI чатбот</li>
-            <li>Цаг захиалгын систем</li>
-            <li>Имэйл дэмжлэг</li>
-          </ul>
-          <a href="https://ai.storeapp.us/seller/register.html" class="btn-primary btn-block">Эхлэх</a>
-        </div>
-
-        <div class="plan featured">
-          <div class="plan-badge">ХАМГИЙН ТҮГЭЭМЭЛ</div>
-          <div class="plan-nm">6 сар</div>
-          <div class="plan-pr">600,000<span>₮</span></div>
-          <div class="plan-sv">Сард 100,000₮ · 6 сарын багц</div>
-          <ul>
-            <li>Бүх функц нээлттэй</li>
-            <li>6 сувгийн интеграц</li>
-            <li>AI чатбот</li>
-            <li>Цаг захиалгын систем</li>
-            <li>Тусгай зөвлөх</li>
-            <li>Тэргүүлэх дэмжлэг</li>
-          </ul>
-          <a href="https://ai.storeapp.us/seller/register.html" class="btn-white btn-block">Эхлэх</a>
-        </div>
 
         <div class="plan">
-          <div class="plan-nm">1 жил</div>
-          <div class="plan-pr">1,200,000<span>₮</span></div>
-          <div class="plan-sv">Сард 100,000₮ · Жилийн багц</div>
+          <div class="plan-nm" data-i18n="pricing.plan1_name">1 сар</div>
+          <div class="plan-pr"><span data-i18n="pricing.plan1_price">100,000</span><span data-i18n="pricing.currency">₮</span></div>
+          <div class="plan-sv" data-i18n="pricing.plan1_period">сар бүр</div>
           <ul>
-            <li>Бүх функц нээлттэй</li>
-            <li>6 сувгийн интеграц</li>
-            <li>AI чатбот</li>
-            <li>Цаг захиалгын систем</li>
-            <li>Custom API интеграц</li>
-            <li>Тусгай менежер</li>
+            <li data-i18n="pricing.plan1_f1">Facebook, Telegram, Web</li>
+            <li data-i18n="pricing.plan1_f2">AI бараа хайлт</li>
+            <li data-i18n="pricing.plan1_f3">Автомат захиалга</li>
+            <li data-i18n="pricing.plan1_f4">Нөөц удирдлага</li>
+            <li data-i18n="pricing.plan1_f5">Тайлан</li>
+            <li data-i18n="pricing.plan1_f6">Имэйл дэмжлэг</li>
           </ul>
-          <a href="https://ai.storeapp.us/seller/register.html" class="btn-primary btn-block">Эхлэх</a>
+          <a href="/register.html" class="plan-btn plan-btn--out" data-i18n="pricing.plan1_btn">Эхлэх</a>
         </div>
+
+        <div class="plan plan--featured">
+          <div class="plan-badge" data-i18n="pricing.plan2_badge">Хамгийн эрэлттэй</div>
+          <div class="plan-nm" data-i18n="pricing.plan2_name">6 сар</div>
+          <div class="plan-pr"><span data-i18n="pricing.plan2_price">600,000</span><span data-i18n="pricing.currency">₮</span></div>
+          <div class="plan-sv" data-i18n="pricing.plan2_period">6 сар тутам</div>
+          <ul>
+            <li data-i18n="pricing.plan2_f1">1 сарын бүх боломж</li>
+            <li data-i18n="pricing.plan2_f2">QPay онлайн төлбөр</li>
+            <li data-i18n="pricing.plan2_f3">Excel бичиг оруулах</li>
+            <li data-i18n="pricing.plan2_f4">Эрэлтийн шинжилгээ</li>
+            <li data-i18n="pricing.plan2_f5">Баг удирдлага (5 хүн)</li>
+            <li data-i18n="pricing.plan2_f6">Тусгай дэмжлэг</li>
+          </ul>
+          <a href="/register.html" class="plan-btn plan-btn--fill" data-i18n="pricing.plan2_btn">Эхлэх</a>
+        </div>
+
+        <div class="plan">
+          <div class="plan-nm" data-i18n="pricing.plan3_name">1 жил</div>
+          <div class="plan-pr"><span data-i18n="pricing.plan3_price">1,200,000</span><span data-i18n="pricing.currency">₮</span></div>
+          <div class="plan-sv" data-i18n="pricing.plan3_period">жил бүр</div>
+          <ul>
+            <li data-i18n="pricing.plan3_f1">6 сарын бүх боломж</li>
+            <li data-i18n="pricing.plan3_f2">Бүх суваг хязгааргүй</li>
+            <li data-i18n="pricing.plan3_f3">API хандалт</li>
+            <li data-i18n="pricing.plan3_f4">Хязгааргүй баг</li>
+            <li data-i18n="pricing.plan3_f5">Тусгай менежер</li>
+            <li data-i18n="pricing.plan3_f6">SLA баталгаа</li>
+          </ul>
+          <a href="/contact.html" class="plan-btn plan-btn--out" data-i18n="pricing.plan3_btn">Холбогдох</a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════════════ TESTIMONIAL -->
-  <section class="testi">
-    <div class="ct">
-      <div class="testi-card">
-        <div class="testi-quote">
-          StoreApp AI-г нэвтрүүлснээс хойш үйлчлүүлэгчдэд шуурхай хариу өгч, өмнө нь хариу өгч амжихгүй алддаг байсан захиалгын дийлэнхийг бүрэн хүлээн авч чадлаа. Сарын борлуулалт мэдэгдэхүйц өссөн.
-        </div>
-        <div class="testi-author">
-          <div class="testi-ava">Б</div>
-          <div class="testi-info">
-            <div class="testi-nm">Баянжаргал</div>
-            <div class="testi-ti">Барилгын материалын дэлгүүр · Улаанбаатар</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════════ FINAL CTA -->
+  <!-- ════════════════════════════════════════════════════ FINAL CTA BANNER -->
   <section class="cta-band">
     <div class="ct">
-      <h2>Өнөөдрөөс эхлэн AI борлуулагчаа идэвхжүүлээрэй</h2>
-      <p>14 хоногийн үнэгүй туршилт. Банкны карт шаардлагагүй. Хүссэн үедээ цуцлах боломжтой.</p>
-      <a href="https://ai.storeapp.us/seller/register.html" class="btn-white btn-lg">Үнэгүй эхлэх →</a>
+      <div class="cta-card">
+        <h2 data-i18n="cta_band.title">"Таны дэлгүүр хэзээ ч унтдаггүй"</h2>
+        <p data-i18n="cta_band.desc">10 минутад тохируулж, шууд эхлээрэй</p>
+        <a href="/register.html" class="btn-white btn-lg" data-i18n="cta_band.btn">Одоо эхлэх →</a>
+      </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════ FOOTER -->
   <footer class="footer">
     <div class="ct">
-      <div class="ft-top">
-        <div>
-          <div class="ft-logo">
-            <span class="logo-ic">🛒</span>
-            <span>StoreApp</span>
-          </div>
-          <p class="ft-tag">Хиймэл оюун ухаанд суурилсан борлуулалтын автоматжуулалтын платформ.</p>
-        </div>
-        <div class="ft-cols">
-          <div>
-            <h4>Бүтээгдэхүүн</h4>
-            <a href="#features">Боломжууд</a>
-            <a href="#pricing">Үнийн багц</a>
-            <a href="#booking">Цаг захиалга</a>
-            <a href="#industries">Салбарууд</a>
-          </div>
-          <div>
-            <h4>Бүртгэл</h4>
-            <a href="https://ai.storeapp.us/seller/register.html">Бүртгүүлэх</a>
-            <a href="https://ai.storeapp.us/seller/login.html">Нэвтрэх</a>
-            <a href="https://ai.storeapp.us/admin/login.html">Админ нэвтрэх</a>
-          </div>
-          <div>
-            <h4>Холбоо барих</h4>
-            <a href="mailto:info@storeapp.us">info@storeapp.us</a>
-            <a href="tel:+97699092444">+976 9909 2444</a>
-            <a href="https://facebook.com/storeapp" target="_blank" rel="noopener">Facebook хуудас</a>
-          </div>
-        </div>
-      </div>
-      <div class="ft-bot">
-        © 2026 StoreApp AI. Бүх эрх хуулиар хамгаалагдсан.
-      </div>
+      <div class="ft-brand" data-i18n="footer.brand_html" data-i18n-html>AI StoreApp <span>— ai.storeapp.us</span></div>
+      <div class="ft-copy" data-i18n="footer.copyright">© 2026 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</div>
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" type="button" data-i18n-attr="aria-label:back_to_top_aria" aria-label="Дээш буцах">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="/nav.js"></script>
 </body>
 </html>
