@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Бүртгүүлэх · StoreApp AI</title>
-  <meta name="description" content="StoreApp AI-д бүртгүүлж, 3 хоногийн үнэгүй туршилтаар бизнесээ автоматжуулж эхлээрэй." />
+  <title data-i18n="register.meta_title">Бүртгүүлэх · StoreApp AI</title>
+  <meta name="description" data-i18n-attr="content:register.meta_description" content="StoreApp AI-д бүртгүүлж, 3 хоногийн үнэгүй туршилтаар бизнесээ автоматжуулж эхлээрэй." />
   <link rel="icon" href="https://ai.storeapp.us/assets/images/logo/logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <script src="/assets/js/i18n.js" defer></script>
 </head>
 <body>
 
@@ -21,22 +22,39 @@
         <span class="logo-tx">StoreApp</span>
       </a>
       <div class="nav-links">
-        <a href="/#features">Боломжууд</a>
-        <a href="/#industries">Салбарууд</a>
-        <a href="/#booking">Цаг захиалга</a>
-        <a href="/#pricing">Үнэ</a>
-        <a href="/contact.html">Холбоо барих</a>
+        <a href="/#features" data-i18n="nav.features">Боломжууд</a>
+        <a href="/#industries" data-i18n="nav.industries">Салбарууд</a>
+        <a href="/#booking" data-i18n="nav.booking">Цаг захиалга</a>
+        <a href="/#pricing" data-i18n="nav.pricing">Үнэ</a>
+        <a href="/contact.html" data-i18n="nav.contact">Холбоо барих</a>
       </div>
-      <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+      <div class="lang-dd">
+        <button type="button" class="lang-dd-btn" aria-haspopup="true" aria-expanded="false" data-i18n-attr="aria-label:nav.lang_aria">
+          <span class="lang-flag" aria-hidden="true">🌐</span>
+          <span data-lang-current>MN</span>
+          <span class="lang-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-dd-menu" role="menu">
+          <button type="button" role="menuitem" data-lang="mn"><span class="lang-flag" aria-hidden="true">🇲🇳</span> Монгол</button>
+          <button type="button" role="menuitem" data-lang="en"><span class="lang-flag" aria-hidden="true">🇬🇧</span> English</button>
+          <button type="button" role="menuitem" data-lang="cs"><span class="lang-flag" aria-hidden="true">🇨🇿</span> Čeština</button>
+        </div>
+      </div>
+      <button class="menu-btn" aria-expanded="false" data-i18n-attr="aria-label:nav.menu_aria" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-menu">
-      <a href="/#features">Боломжууд</a>
-      <a href="/#industries">Салбарууд</a>
-      <a href="/#booking">Цаг захиалга</a>
-      <a href="/#pricing">Үнэ</a>
-      <a href="/contact.html">Холбоо барих</a>
+      <a href="/#features" data-i18n="nav.features">Боломжууд</a>
+      <a href="/#industries" data-i18n="nav.industries">Салбарууд</a>
+      <a href="/#booking" data-i18n="nav.booking">Цаг захиалга</a>
+      <a href="/#pricing" data-i18n="nav.pricing">Үнэ</a>
+      <a href="/contact.html" data-i18n="nav.contact">Холбоо барих</a>
+      <div class="mobile-lang">
+        <button type="button" data-lang="mn"><span class="lang-flag" aria-hidden="true">🇲🇳</span> Монгол</button>
+        <button type="button" data-lang="en"><span class="lang-flag" aria-hidden="true">🇬🇧</span> English</button>
+        <button type="button" data-lang="cs"><span class="lang-flag" aria-hidden="true">🇨🇿</span> Čeština</button>
+      </div>
     </div>
   </nav>
 
@@ -49,17 +67,17 @@
         <div class="reg-hero">
           <div class="reg-badge">
             <span class="reg-badge-pulse"></span>
-            3 ХОНОГ ҮНЭГҮЙ
+            <span data-i18n="register.badge">3 ХОНОГ ҮНЭГҮЙ</span>
           </div>
-          <h1>Бизнесээ <span class="accent">автоматжуулж</span> эхэл</h1>
-          <p class="reg-hero-desc">Бүртгүүлээд 10 минутад AI ажилтанаа тохируулан, Facebook, Telegram, Web сувгаар 24/7 ажиллуулаарай.</p>
+          <h1><span data-i18n="register.heading_lead">Бизнесээ</span> <span class="accent" data-i18n="register.heading_accent">автоматжуулж</span> <span data-i18n="register.heading_tail">эхэл</span></h1>
+          <p class="reg-hero-desc" data-i18n="register.hero_desc">Бүртгүүлээд 10 минутад AI ажилтанаа тохируулан, Facebook, Telegram, Web сувгаар 24/7 ажиллуулаарай.</p>
 
           <ul class="reg-features">
-            <li><span class="reg-check">✓</span> 3 хоногийн үнэгүй туршилт</li>
-            <li><span class="reg-check">✓</span> Банкны карт шаардлагагүй</li>
-            <li><span class="reg-check">✓</span> Хэдэн минутад тохируулах</li>
-            <li><span class="reg-check">✓</span> Хүссэн үедээ цуцлах боломжтой</li>
-            <li><span class="reg-check">✓</span> 24/7 дэмжлэг үйлчилгээ</li>
+            <li><span class="reg-check">✓</span> <span data-i18n="register.feature1">3 хоногийн үнэгүй туршилт</span></li>
+            <li><span class="reg-check">✓</span> <span data-i18n="register.feature2">Банкны карт шаардлагагүй</span></li>
+            <li><span class="reg-check">✓</span> <span data-i18n="register.feature3">Хэдэн минутад тохируулах</span></li>
+            <li><span class="reg-check">✓</span> <span data-i18n="register.feature4">Хүссэн үедээ цуцлах боломжтой</span></li>
+            <li><span class="reg-check">✓</span> <span data-i18n="register.feature5">24/7 дэмжлэг үйлчилгээ</span></li>
           </ul>
 
           <div class="reg-trust">
@@ -70,8 +88,8 @@
               <div class="reg-ava reg-ava--4">+</div>
             </div>
             <div class="reg-trust-txt">
-              <strong>500+ бизнес</strong>
-              <span>StoreApp AI-г ашиглаж байна</span>
+              <strong data-i18n="register.trust_count">500+ бизнес</strong>
+              <span data-i18n="register.trust_desc">StoreApp AI-г ашиглаж байна</span>
             </div>
           </div>
         </div>
@@ -79,43 +97,43 @@
         <!-- RIGHT: Form card -->
         <form class="reg-form" id="regForm" novalidate>
           <div class="reg-form-hd">
-            <h2>Шинэ бүртгэл үүсгэх</h2>
+            <h2 data-i18n="register.form_title">Шинэ бүртгэл үүсгэх</h2>
           </div>
 
           <div class="reg-row">
             <label class="reg-field">
-              <span>Таны нэр <b>*</b></span>
-              <input type="text" name="name" required maxlength="50" autocomplete="name" title="50 тэмдэгтээс хэтрэхгүй" />
+              <span><span data-i18n="register.form_label_name">Таны нэр</span> <b>*</b></span>
+              <input type="text" name="name" required maxlength="50" autocomplete="name" data-i18n-attr="title:contact.form_name_title" title="50 тэмдэгтээс хэтрэхгүй" />
             </label>
             <label class="reg-field">
-              <span>Утас <b>*</b></span>
-              <input type="tel" name="phone" required maxlength="8" minlength="8" pattern="[0-9]{8}" inputmode="numeric" autocomplete="tel-national" title="8 оронтой тоо" placeholder="99001122" />
+              <span><span data-i18n="register.form_label_phone">Утас</span> <b>*</b></span>
+              <input type="tel" name="phone" required maxlength="8" minlength="8" pattern="[0-9]{8}" inputmode="numeric" autocomplete="tel-national" data-i18n-attr="title:contact.form_phone_title,placeholder:register.form_phone_placeholder" title="8 оронтой тоо" placeholder="99001122" />
             </label>
           </div>
 
           <label class="reg-field">
-            <span>Имэйл <b>*</b></span>
-            <input type="email" name="email" required maxlength="100" autocomplete="email" title="Зөв и-мэйл формат оруулна уу" />
+            <span><span data-i18n="register.form_label_email">Имэйл</span> <b>*</b></span>
+            <input type="email" name="email" required maxlength="100" autocomplete="email" data-i18n-attr="title:contact.form_email_title" title="Зөв и-мэйл формат оруулна уу" />
           </label>
 
           <label class="reg-field">
-            <span>Бизнесийн нэр</span>
+            <span data-i18n="register.form_label_business">Бизнесийн нэр</span>
             <input type="text" name="business" maxlength="200" autocomplete="organization" />
           </label>
 
           <div class="reg-notice">
             <span class="reg-notice-ic">⚠️</span>
             <div>
-              <strong>Анхаарна уу!</strong>
-              Идэвхтэй ашиглаж буй <b>Facebook хуудасны нэр болон линк</b>-ээ бичнэ үү. Энэ нь таны бизнесийг баталгаажуулахад шаардлагатай.
+              <strong data-i18n="register.notice_title">Анхаарна уу!</strong>
+              <span data-i18n="register.notice_html" data-i18n-html>Идэвхтэй ашиглаж буй <b>Facebook хуудасны нэр болон линк</b>-ээ бичнэ үү. Энэ нь таны бизнесийг баталгаажуулахад шаардлагатай.</span>
             </div>
           </div>
 
           <label class="reg-field">
-            <span>Нууц үг <b>*</b></span>
+            <span><span data-i18n="register.form_label_password">Нууц үг</span> <b>*</b></span>
             <div class="reg-pw-wrap">
               <input type="password" name="password" id="regPw" required minlength="8" autocomplete="new-password" />
-              <button type="button" class="reg-pw-toggle" id="regPwToggle" aria-label="Нууц үг харах" tabindex="-1">
+              <button type="button" class="reg-pw-toggle" id="regPwToggle" data-i18n-attr="aria-label:register.form_pw_toggle_aria" aria-label="Нууц үг харах" tabindex="-1">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                   <circle cx="12" cy="12" r="3"/>
@@ -125,22 +143,22 @@
             <div class="reg-pw-meter">
               <div class="reg-pw-bar" id="regPwBar"></div>
             </div>
-            <small class="reg-pw-hint">Дор хаяж 8 тэмдэгт, 1 том үсэг, 1 тоо</small>
+            <small class="reg-pw-hint" data-i18n="register.form_pw_hint">Дор хаяж 8 тэмдэгт, 1 том үсэг, 1 тоо</small>
           </label>
 
           <label class="reg-tos">
             <input type="checkbox" required id="regTos" />
-            <span>Үйлчилгээний нөхцөл ба нууцлалын бодлогыг зөвшөөрч байна</span>
+            <span data-i18n="register.tos">Үйлчилгээний нөхцөл ба нууцлалын бодлогыг зөвшөөрч байна</span>
           </label>
 
           <div class="reg-status" id="regStatus" hidden></div>
 
           <button type="submit" class="reg-submit" id="regSubmit">
-            <span class="reg-submit-txt">Бүртгүүлэх →</span>
+            <span class="reg-submit-txt" data-i18n="register.submit">Бүртгүүлэх →</span>
           </button>
 
           <p class="reg-login">
-            Бүртгэлтэй юу? <a href="https://ai.storeapp.us/seller/login.html">Нэвтрэх →</a>
+            <span data-i18n="register.login_prompt">Бүртгэлтэй юу?</span> <a href="https://ai.storeapp.us/seller/login.html" data-i18n="register.login_link">Нэвтрэх →</a>
           </p>
         </form>
 
@@ -151,12 +169,12 @@
   <!-- ════════════════════════════════════════════════════ FOOTER -->
   <footer class="footer">
     <div class="ct">
-      <div class="ft-brand">AI StoreApp <span>— ai.storeapp.us</span></div>
-      <div class="ft-copy">© 2026 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</div>
+      <div class="ft-brand" data-i18n="footer.brand_html" data-i18n-html>AI StoreApp <span>— ai.storeapp.us</span></div>
+      <div class="ft-copy" data-i18n="footer.copyright">© 2026 StoreApp. Бүх эрх хуулиар хамгаалагдсан.</div>
     </div>
   </footer>
 
-  <button id="back-to-top" class="back-to-top" type="button" aria-label="Дээш буцах">
+  <button id="back-to-top" class="back-to-top" type="button" data-i18n-attr="aria-label:back_to_top_aria" aria-label="Дээш буцах">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 

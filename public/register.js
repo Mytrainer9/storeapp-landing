@@ -9,6 +9,8 @@
   const submit = document.getElementById('regSubmit');
   const submitTxt = submit.querySelector('.reg-submit-txt');
 
+  const t = (key, fallback) => (window.i18n && window.i18n.t(key)) || fallback;
+
   // Password strength meter
   const scorePassword = (val) => {
     let score = 0;
@@ -58,20 +60,20 @@
     const business = (fd.get('business') || '').toString().trim();
     const password = (fd.get('password') || '').toString();
 
-    if (!name) return showStatus('err', 'Нэрээ оруулна уу.');
+    if (!name) return showStatus('err', t('messages.err_name_required', 'Нэрээ оруулна уу.'));
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return showStatus('err', 'Имэйл хаяг буруу байна.');
+      return showStatus('err', t('messages.err_email_invalid', 'Имэйл хаяг буруу байна.'));
     }
-    if (password.length < 8) return showStatus('err', 'Нууц үг дор хаяж 8 тэмдэгттэй байх ёстой.');
-    if (!/[A-Z]/.test(password)) return showStatus('err', 'Нууц үгэнд том үсэг оруулна уу.');
-    if (!/\d/.test(password)) return showStatus('err', 'Нууц үгэнд тоо оруулна уу.');
+    if (password.length < 8) return showStatus('err', t('messages.err_password_min8', 'Нууц үг дор хаяж 8 тэмдэгттэй байх ёстой.'));
+    if (!/[A-Z]/.test(password)) return showStatus('err', t('messages.err_password_uppercase', 'Нууц үгэнд том үсэг оруулна уу.'));
+    if (!/\d/.test(password)) return showStatus('err', t('messages.err_password_digit', 'Нууц үгэнд тоо оруулна уу.'));
     if (!document.getElementById('regTos').checked) {
-      return showStatus('err', 'Үйлчилгээний нөхцлийг зөвшөөрнө үү.');
+      return showStatus('err', t('messages.err_tos_required', 'Үйлчилгээний нөхцлийг зөвшөөрнө үү.'));
     }
 
     submit.disabled = true;
     const origTxt = submitTxt.textContent;
-    submitTxt.textContent = 'Бүртгэж байна...';
+    submitTxt.textContent = t('messages.registering', 'Бүртгэж байна...');
 
     try {
       const res = await fetch('/api/register', {
@@ -86,21 +88,24 @@
         const okMsg =
           (data.data && data.data.message) ||
           data.message ||
-          'Бүртгэл амжилттай! Админ таны лицензийг идэвхжүүлсний дараа нэвтрэх боломжтой.';
+          t('messages.success_register', 'Бүртгэл амжилттай! Админ таны лицензийг идэвхжүүлсний дараа нэвтрэх боломжтой.');
         showStatus('ok', okMsg);
         form.reset();
         pwBar.className = 'reg-pw-bar';
-        submitTxt.textContent = 'Нэвтрэх хуудас руу шилжиж байна...';
+        submitTxt.textContent = t('messages.redirecting', 'Нэвтрэх хуудас руу шилжиж байна...');
         setTimeout(() => {
           window.location.href = 'https://ai.storeapp.us/seller/login.html';
         }, 2500);
         return;
       }
 
-      const errMsg = data.error || data.message || 'Бүртгэл амжилтгүй боллоо. Дахин оролдоно уу.';
+      const errMsg =
+        data.error ||
+        data.message ||
+        t('messages.err_register_failed', 'Бүртгэл амжилтгүй боллоо. Дахин оролдоно уу.');
       showStatus('err', errMsg);
     } catch (err) {
-      showStatus('err', 'Сүлжээний алдаа. Интернэт холболтоо шалгана уу.');
+      showStatus('err', t('messages.err_network', 'Сүлжээний алдаа. Интернэт холболтоо шалгана уу.'));
     } finally {
       if (!status.classList.contains('reg-status--ok')) {
         submit.disabled = false;

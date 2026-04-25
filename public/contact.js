@@ -6,6 +6,8 @@
   const submit = document.getElementById('cfSubmit');
   const submitTxt = submit.querySelector('.cf-submit-txt');
 
+  const t = (key, fallback) => (window.i18n && window.i18n.t(key)) || fallback;
+
   const showStatus = (kind, msg) => {
     status.hidden = false;
     status.className = 'cf-status cf-status--' + kind;
@@ -28,17 +30,17 @@
     const subject = (fd.get('subject') || '').toString().trim();
     const rawMsg = (fd.get('message') || '').toString().trim();
 
-    if (!name) return showStatus('err', 'Нэрээ оруулна уу.');
+    if (!name) return showStatus('err', t('messages.err_name_required', 'Нэрээ оруулна уу.'));
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return showStatus('err', 'Имэйл хаяг буруу байна.');
+      return showStatus('err', t('messages.err_email_invalid', 'Имэйл хаяг буруу байна.'));
     }
-    if (!rawMsg) return showStatus('err', 'Мессежээ оруулна уу.');
+    if (!rawMsg) return showStatus('err', t('messages.err_message_required', 'Мессежээ оруулна уу.'));
 
     const message = subject ? `[${subject}]\n\n${rawMsg}` : rawMsg;
 
     submit.disabled = true;
     const origTxt = submitTxt.textContent;
-    submitTxt.textContent = 'Илгээж байна...';
+    submitTxt.textContent = t('messages.submitting', 'Илгээж байна...');
 
     try {
       const res = await fetch('/api/contact', {
@@ -53,15 +55,18 @@
         const okMsg =
           (data.data && data.data.message) ||
           data.message ||
-          'Мессеж амжилттай илгээгдлээ! Бид 24 цагийн дотор хариулна.';
+          t('messages.success_contact', 'Мессеж амжилттай илгээгдлээ! Бид 24 цагийн дотор хариулна.');
         showStatus('ok', okMsg);
         form.reset();
       } else {
-        const errMsg = data.error || data.message || 'Мессеж илгээхэд алдаа гарлаа. Дахин оролдоно уу.';
+        const errMsg =
+          data.error ||
+          data.message ||
+          t('messages.err_send_failed', 'Мессеж илгээхэд алдаа гарлаа. Дахин оролдоно уу.');
         showStatus('err', errMsg);
       }
     } catch (err) {
-      showStatus('err', 'Сүлжээний алдаа. Интернэт холболтоо шалгана уу.');
+      showStatus('err', t('messages.err_network', 'Сүлжээний алдаа. Интернэт холболтоо шалгана уу.'));
     } finally {
       submit.disabled = false;
       submitTxt.textContent = origTxt;
