@@ -76,10 +76,14 @@
     submitTxt.textContent = t('messages.registering', 'Бүртгэж байна...');
 
     try {
+      const captchaInput = document.querySelector('[name="cf-turnstile-response"]');
+      const cfTurnstileResponse = captchaInput && captchaInput.value ? captchaInput.value : null;
+      const body = { name, email, phone, business, password };
+      if (cfTurnstileResponse) body.cfTurnstileResponse = cfTurnstileResponse;
       const res = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, business, password }),
+        body: JSON.stringify(body),
       });
       const data = await res.json().catch(() => ({}));
 

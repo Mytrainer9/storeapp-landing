@@ -43,11 +43,13 @@ export default {
 
 async function forwardToVPS(request: Request, targetUrl: string): Promise<Response> {
   const body = await request.text();
-  const res = await fetch(targetUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body,
-  });
+  // Forward the real client IP so the backend's rate limiter / Turnstile verify
+  // / morgan access logs see the upstream visitor instead of a Cloudflare
+  // colocation address.
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  const cfIp = request.headers.get("cf-connecting-ip");
+  if (cfIp) headers["CF-Connecting-IP"] = cfIp;
+  const res = await fetch(targetUrl, { method: "POST", headers, body });
   const data = await res.text();
   return new Response(data, {
     status: res.status,
