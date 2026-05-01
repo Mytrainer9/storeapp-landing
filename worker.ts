@@ -32,14 +32,28 @@ export default {
     // Бусад бүх хүсэлт: public/ дотроос static файл serve хийнэ.
     const response = await env.ASSETS.fetch(request);
 
-    // Edge cache бат тогтохгүйн тулд no-store header нэмнэ.
-    // Ингэснээр deploy хийсний дараа шинэ content шууд харагдана.
+    // Cache strategy:
+    // - HTML (no extension эсвэл .html): revalidate бүр request-д (ETag).
+    //   Deploy хийсний дараа шинэ content шууд харагдана.
+    // - Static assets (CSS/JS/JSON/img/font): browser-д 1 цаг cache.
+    //   Repeated visits хурдан + bandwidth хэмнэгдэнэ. Deploy үед URL
+    //   нь өөрчлөгддөггүй ч 1 цаг хүлээгдэх trade-off acceptable.
     const headers = new Headers(response.headers);
-    headers.set("Cache-Control", "no-store, must-revalidate");
-    headers.set("CDN-Cache-Control", "no-store");
+    headers.set("Cache-Control", cacheHeaderFor(url.pathname));
     return new Response(response.body, { status: response.status, headers });
   },
 } satisfies ExportedHandler<Env>;
+
+const ASSET_EXT_RE = /\.(css|js|json|png|jpg|jpeg|svg|webp|ico|gif|woff|woff2|ttf|eot)$/i;
+
+function cacheHeaderFor(pathname: string): string {
+  if (ASSET_EXT_RE.test(pathname)) {
+    // Static assets — 1 hour browser + CDN cache, must-revalidate after expiry.
+    return "public, max-age=3600, must-revalidate";
+  }
+  // HTML / unknown — always revalidate (cheap with ETag), CDN may briefly cache.
+  return "public, max-age=0, must-revalidate";
+}
 
 async function forwardToVPS(request: Request, targetUrl: string): Promise<Response> {
   const body = await request.text();
